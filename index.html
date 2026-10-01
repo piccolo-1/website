@@ -3,25 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Les Délices Nadia — Handmade cookies for home &amp; business</title>
-  <meta name="description" content="Handmade, small-batch cookies from Les Délices Nadia. Order a box for home, or stock them in your café, hotel, office or event with our wholesale range.">
+  <title>Les délices Nadia — Handmade cookies for home &amp; business</title>
+  <meta name="description" content="Handmade, small-batch cookies from Les délices Nadia. Order a box for home, or stock them in your café, hotel, office or event with our wholesale range.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23c98a4b'/><circle cx='35' cy='38' r='7' fill='%233b2416'/><circle cx='62' cy='30' r='5' fill='%233b2416'/><circle cx='58' cy='62' r='8' fill='%233b2416'/><circle cx='32' cy='66' r='5' fill='%233b2416'/></svg>">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#74202c">
 </head>
 <body>
 
   <!-- Intro loader -->
   <div class="loader" aria-hidden="true">
-    <div class="loader__cookie" data-cookie="classic" data-size="120"></div>
-    <span class="loader__word">Les Délices Nadia</span>
+    <span class="logo-mark logo-mark--word loader__word"></span>
+    <span class="logo-mark logo-mark--icon loader__icon"></span>
   </div>
 
   <!-- Navigation -->
   <header class="nav" id="top">
-    <a href="#top" class="nav__logo">Les Délices <em>Nadia</em></a>
+    <a href="#top" class="nav__logo" aria-label="Les délices Nadia, back to top"><span class="logo-mark logo-mark--word"></span></a>
     <nav class="nav__links" aria-label="Main">
       <a href="#flavours">Flavours</a>
       <a href="#home">For home</a>
@@ -66,7 +68,7 @@
             <defs><path id="circle" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
             <text textLength="485" lengthAdjust="spacing"><textPath href="#circle" textLength="485" lengthAdjust="spacing">baked fresh · delivered fast · baked fresh · delivered fast ·</textPath></text>
           </svg>
-          <span class="hero__badge-mid">★</span>
+          <span class="hero__badge-mid"><span class="logo-mark logo-mark--icon"></span></span>
         </div>
       </div>
       <a href="#paths" class="hero__scroll" aria-label="Scroll down"><span></span></a>
@@ -429,7 +431,7 @@
   </main>
 
   <footer class="footer">
-    <div class="footer__big">Les Délices <em>Nadia</em></div>
+    <div class="footer__big"><span class="logo-mark logo-mark--full" role="img" aria-label="Les délices Nadia"></span></div>
     <div class="footer__cols">
       <div>
         <h4>Visit</h4>
@@ -448,7 +450,7 @@
       </div>
     </div>
     <div class="footer__base">
-      <span>© <span id="year"></span> Les Délices Nadia. All rights reserved.</span>
+      <span>© <span id="year"></span> Les délices Nadia. All rights reserved.</span>
       <span>Allergens: all products contain gluten, dairy and egg, and may contain nuts.</span>
     </div>
   </footer>

@@ -15,7 +15,7 @@ python3 -m http.server 8000
 
 ## Make it yours
 
-1. Replace the placeholder email, phone and address with your details.
+1. Logo files live in `assets/` (wordmark, icon, full lockup, favicon). Replace the placeholder email, phone and address with your details.
 2. Swap the SVG cookies for real photos: replace a `data-cookie="..."` div with an `<img>`.
 3. Wire up the trade form (e.g. Formspree or Netlify Forms) and connect the shop buttons to Shopify/Stripe checkout links.
 4. Update prices (box `data-price` values in the builder) and the stats in the wholesale section (`data-count`) to your real numbers.
