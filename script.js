@@ -4,163 +4,6 @@
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ---------- Procedural SVG cookies ----------
-   Every element with data-cookie="<flavour>" gets a hand-drawn-looking
-   cookie. Swap these for real product photography when you have it. */
-
-const FLAVOURS = {
-  classic:   { dough: ['#e7b878', '#c98a4b', '#9a5f2c'], chunks: ['#3b2416', '#52321f'], salt: true },
-  double:    { dough: ['#7a4a33', '#5a3322', '#3a1f14'], chunks: ['#22130c', '#e9d8c4'], salt: true },
-  caramel:   { dough: ['#ecc58c', '#d39a58', '#a86b33'], chunks: ['#7a4421'], pools: '#e0a64e', nuts: true },
-  raspberry: { dough: ['#f1d3a4', '#ddb179', '#b9854b'], chunks: ['#fbf3e6', '#f4e7d2'], bits: '#d6456b' },
-  pistachio: { dough: ['#ecd09a', '#d2ac6b', '#a77e43'], chunks: ['#9cb25a', '#7f9a3d'], drizzle: '#f7f0e0', bits: '#8fae4a' },
-  biscoff:   { dough: ['#d9955a', '#b8743c', '#8a5222'], chunks: ['#c7803f'], pools: '#a9652c', crumbs: '#e8b67c' },
-};
-
-let cookieId = 0;
-
-function rng(seed) {
-  let s = seed % 2147483647;
-  if (s <= 0) s += 2147483646;
-  return () => (s = (s * 16807) % 2147483647) / 2147483647;
-}
-
-function blobPath(cx, cy, r, points, wobble, rand) {
-  const pts = [];
-  for (let i = 0; i < points; i++) {
-    const a = (i / points) * Math.PI * 2;
-    const rr = r * (1 - wobble / 2 + rand() * wobble);
-    pts.push([cx + Math.cos(a) * rr, cy + Math.sin(a) * rr]);
-  }
-  let d = '';
-  for (let i = 0; i < pts.length; i++) {
-    const p = pts[i], n = pts[(i + 1) % pts.length];
-    const mx = (p[0] + n[0]) / 2, my = (p[1] + n[1]) / 2;
-    d += i === 0 ? `M${mx.toFixed(1)},${my.toFixed(1)}` : '';
-    const nn = pts[(i + 2) % pts.length];
-    const mx2 = (n[0] + nn[0]) / 2, my2 = (n[1] + nn[1]) / 2;
-    d += ` Q${n[0].toFixed(1)},${n[1].toFixed(1)} ${mx2.toFixed(1)},${my2.toFixed(1)}`;
-  }
-  return d + 'Z';
-}
-
-function chunkPath(cx, cy, size, rand) {
-  const sides = 4 + Math.floor(rand() * 3);
-  const rot = rand() * Math.PI;
-  let d = '';
-  for (let i = 0; i < sides; i++) {
-    const a = rot + (i / sides) * Math.PI * 2;
-    const r = size * (0.7 + rand() * 0.5);
-    d += (i ? 'L' : 'M') + (cx + Math.cos(a) * r).toFixed(1) + ',' + (cy + Math.sin(a) * r).toFixed(1);
-  }
-  return d + 'Z';
-}
-
-// random point inside the cookie, avoiding the very edge
-function spot(rand, max = 70) {
-  const a = rand() * Math.PI * 2;
-  const r = Math.sqrt(rand()) * max;
-  return [100 + Math.cos(a) * r, 100 + Math.sin(a) * r];
-}
-
-function makeCookie(flavour, seed) {
-  const f = FLAVOURS[flavour] || FLAVOURS.classic;
-  const rand = rng(seed);
-  const id = 'ck' + (++cookieId);
-  const [light, mid, dark] = f.dough;
-  let s = `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <defs>
-    <radialGradient id="${id}g" cx="45%" cy="40%" r="62%">
-      <stop offset="0" stop-color="${light}"/><stop offset=".65" stop-color="${mid}"/><stop offset="1" stop-color="${dark}"/>
-    </radialGradient>
-    <filter id="${id}t"><feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="2" seed="${seed % 100}"/>
-      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .35 0"/><feComposite in2="SourceGraphic" operator="in"/></filter>
-  </defs>`;
-
-  const outline = blobPath(100, 100, 92, 14, 0.09, rand);
-  s += `<path d="${outline}" fill="url(#${id}g)"/>`;
-  s += `<path d="${outline}" fill="#000" filter="url(#${id}t)" opacity=".55"/>`;
-
-  // cracks
-  for (let i = 0; i < 6; i++) {
-    const [x, y] = spot(rand, 62);
-    const a = rand() * Math.PI;
-    const l = 10 + rand() * 18;
-    const bx = x + Math.cos(a + 0.6) * l * 0.6, by = y + Math.sin(a + 0.6) * l * 0.6;
-    s += `<path d="M${x.toFixed(1)},${y.toFixed(1)} Q${bx.toFixed(1)},${by.toFixed(1)} ${(x + Math.cos(a) * l).toFixed(1)},${(y + Math.sin(a) * l).toFixed(1)}" stroke="${dark}" stroke-width="1.6" fill="none" stroke-linecap="round" opacity=".45"/>`;
-  }
-
-  // pools (melted caramel / biscoff)
-  if (f.pools) {
-    const n = flavour === 'biscoff' ? 1 : 4;
-    for (let i = 0; i < n; i++) {
-      const [x, y] = flavour === 'biscoff' ? [100, 100] : spot(rand, 55);
-      const r = flavour === 'biscoff' ? 34 : 9 + rand() * 7;
-      s += `<path d="${blobPath(x, y, r, 9, 0.35, rand)}" fill="${f.pools}" opacity=".95"/>`;
-      s += `<ellipse cx="${(x - r * .3).toFixed(1)}" cy="${(y - r * .3).toFixed(1)}" rx="${(r * .35).toFixed(1)}" ry="${(r * .18).toFixed(1)}" fill="#fff" opacity=".25"/>`;
-    }
-  }
-
-  // nuts (pecan halves)
-  if (f.nuts) {
-    for (let i = 0; i < 4; i++) {
-      const [x, y] = spot(rand, 62);
-      const rot = rand() * 180;
-      s += `<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${rot.toFixed(0)})"><ellipse rx="11" ry="6.5" fill="#8a4b22"/><path d="M-9,0 H9 M-6,-3 Q0,-1 6,-3 M-6,3 Q0,1 6,3" stroke="#5e2f12" stroke-width="1.2" fill="none"/></g>`;
-    }
-  }
-
-  // chunks
-  const count = flavour === 'biscoff' ? 6 : 10 + Math.floor(rand() * 4);
-  for (let i = 0; i < count; i++) {
-    const [x, y] = spot(rand, flavour === 'biscoff' ? 74 : 70);
-    if (flavour === 'biscoff' && Math.hypot(x - 100, y - 100) < 40) continue;
-    const size = 5 + rand() * 7;
-    const c = f.chunks[Math.floor(rand() * f.chunks.length)];
-    s += `<path d="${chunkPath(x, y, size, rand)}" fill="${c}"/>`;
-    s += `<path d="${chunkPath(x - size * .25, y - size * .25, size * .35, rand)}" fill="#fff" opacity=".18"/>`;
-  }
-
-  // little bits (raspberry / pistachio)
-  if (f.bits) {
-    for (let i = 0; i < 16; i++) {
-      const [x, y] = spot(rand, 72);
-      s += `<path d="${chunkPath(x, y, 2 + rand() * 3, rand)}" fill="${f.bits}"/>`;
-    }
-  }
-
-  // drizzle
-  if (f.drizzle) {
-    let d = 'M40,70';
-    for (let i = 0; i < 6; i++) d += ` Q${60 + i * 20},${(i % 2 ? 150 : 40) + rand() * 20} ${70 + i * 20},${100 + (rand() - .5) * 60}`;
-    s += `<path d="${d}" stroke="${f.drizzle}" stroke-width="3.5" fill="none" stroke-linecap="round" opacity=".9"/>`;
-  }
-
-  // crumbs on top
-  if (f.crumbs) {
-    for (let i = 0; i < 10; i++) {
-      const [x, y] = spot(rand, 30);
-      s += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(1.5 + rand() * 2).toFixed(1)}" fill="${f.crumbs}"/>`;
-    }
-  }
-
-  // sea salt
-  if (f.salt) {
-    for (let i = 0; i < 9; i++) {
-      const [x, y] = spot(rand, 64);
-      s += `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="2.6" height="2.6" fill="#fff" opacity=".85" transform="rotate(${(rand() * 90).toFixed(0)} ${x.toFixed(1)} ${y.toFixed(1)})"/>`;
-    }
-  }
-
-  // soft top highlight
-  s += `<ellipse cx="78" cy="66" rx="46" ry="26" fill="#fff" opacity=".07" transform="rotate(-25 78 66)"/>`;
-  return s + '</svg>';
-}
-
-document.querySelectorAll('[data-cookie]').forEach((el, i) => {
-  el.innerHTML = makeCookie(el.dataset.cookie, 1234 + i * 977);
-});
-
 /* ---------- Loader ---------- */
 document.body.classList.add('is-loading');
 const loader = document.querySelector('.loader');
@@ -231,8 +74,8 @@ document.querySelectorAll('[data-count]').forEach(el => countObserver.observe(el
 
 /* ---------- Parallax: hero cookies follow mouse + scroll, story cookie rolls ---------- */
 const heroMain = document.querySelector('.hero__cookie--main');
-const heroA = document.querySelector('.hero__cookie--a');
-const heroB = document.querySelector('.hero__cookie--b');
+const heroA = document.querySelector('.hero__polaroid--b');
+const heroB = document.querySelector('.hero__polaroid--a');
 const storyCookie = document.querySelector('.story__cookie');
 const story = document.querySelector('.story');
 let mouseX = 0, mouseY = 0;
@@ -255,7 +98,7 @@ function update() {
   if (reduceMotion) return;
   const y = window.scrollY;
   if (y < window.innerHeight * 1.2) {
-    heroMain.style.transform = `translate(${mouseX * -20}px, ${y * 0.12 + mouseY * -20}px)`;
+    heroMain.style.translate = `${mouseX * -20}px ${y * 0.12 + mouseY * -20}px`;
     heroA.style.transform = `translate(${mouseX * 40}px, ${y * -0.25 + mouseY * 40}px)`;
     heroB.style.transform = `translate(${mouseX * 30}px, ${y * -0.1 + mouseY * 30}px)`;
   }
@@ -402,3 +245,14 @@ document.querySelectorAll('.case__link').forEach(link => {
     form.querySelector('textarea').value = `I'm interested in the ${link.dataset.case}.`;
   });
 });
+
+/* ---------- Gallery: drag to scroll on desktop ---------- */
+const track = document.querySelector('.gallery__track');
+let dragX = null, startScroll = 0;
+track.addEventListener('pointerdown', e => {
+  if (e.pointerType !== 'mouse') return;
+  dragX = e.clientX; startScroll = track.scrollLeft;
+  track.classList.add('is-dragging');
+});
+window.addEventListener('pointermove', e => { if (dragX !== null) track.scrollLeft = startScroll - (e.clientX - dragX); });
+window.addEventListener('pointerup', () => { dragX = null; track.classList.remove('is-dragging'); });
