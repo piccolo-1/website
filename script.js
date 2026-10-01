@@ -202,7 +202,7 @@ function renderBuilder() {
   });
   bar.style.width = `${(n / size) * 100}%`;
   status.textContent = n === size ? 'Box full! Ready to add.' : `${n} of ${size} chosen`;
-  priceEl.textContent = '£' + sizeInputs.find(i => i.checked).dataset.price;
+  priceEl.textContent = '$' + sizeInputs.find(i => i.checked).dataset.price;
   addBox.disabled = n !== size;
 }
 
@@ -238,11 +238,31 @@ addBox.addEventListener('click', () => {
 
 renderBuilder();
 
-/* ---------- Wholesale case links pre-fill the enquiry form ---------- */
+/* ---------- Retail & wholesale channel tabs ---------- */
+const tabs = [...document.querySelectorAll('.channels__tabs [role="tab"]')];
+function selectTab(tab) {
+  tabs.forEach(t => {
+    const on = t === tab;
+    t.setAttribute('aria-selected', on);
+    t.tabIndex = on ? 0 : -1;
+    document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+  });
+}
+tabs.forEach((t, i) => {
+  t.addEventListener('click', () => selectTab(t));
+  t.addEventListener('keydown', e => {
+    const dir = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+    if (!dir) return;
+    const next = tabs[(i + dir + tabs.length) % tabs.length];
+    selectTab(next); next.focus();
+  });
+});
+
+/* ---------- Enquiry links pre-fill the form ---------- */
 document.querySelectorAll('.case__link').forEach(link => {
   link.addEventListener('click', () => {
-    form.querySelector('input[value="wholesale"]').checked = true;
-    form.querySelector('textarea').value = `I'm interested in the ${link.dataset.case}.`;
+    form.querySelector(`input[name="type"][value="${link.dataset.type}"]`).checked = true;
+    form.querySelector('textarea').value = `I'm interested in ${link.dataset.case}.`;
   });
 });
 
