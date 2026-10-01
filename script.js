@@ -333,3 +333,72 @@ document.querySelector('.news').addEventListener('submit', e => {
 });
 
 document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ---------- Build your own box ---------- */
+const builder = document.getElementById('builder');
+const sizeInputs = [...builder.querySelectorAll('input[name="size"]')];
+const rows = [...builder.querySelectorAll('.builder__list li')];
+const bar = builder.querySelector('.builder__bar span');
+const status = builder.querySelector('.builder__status');
+const priceEl = builder.querySelector('.builder__price');
+const addBox = builder.querySelector('.builder__add');
+const counts = new Map(rows.map(r => [r, 0]));
+
+const boxSize = () => +sizeInputs.find(i => i.checked).value;
+const total = () => [...counts.values()].reduce((a, b) => a + b, 0);
+
+function renderBuilder() {
+  const size = boxSize(), n = total();
+  rows.forEach(r => {
+    const c = counts.get(r);
+    r.querySelector('output').textContent = c;
+    r.classList.toggle('has-qty', c > 0);
+    const [minus, plus] = r.querySelectorAll('button');
+    minus.disabled = c === 0;
+    plus.disabled = n >= size;
+  });
+  bar.style.width = `${(n / size) * 100}%`;
+  status.textContent = n === size ? 'Box full! Ready to add.' : `${n} of ${size} chosen`;
+  priceEl.textContent = '£' + sizeInputs.find(i => i.checked).dataset.price;
+  addBox.disabled = n !== size;
+}
+
+rows.forEach(r => {
+  const [minus, plus] = r.querySelectorAll('button');
+  plus.addEventListener('click', () => {
+    counts.set(r, counts.get(r) + 1);
+    r.classList.remove('bump'); void r.offsetWidth; r.classList.add('bump');
+    setTimeout(() => r.classList.remove('bump'), 500);
+    renderBuilder();
+  });
+  minus.addEventListener('click', () => { counts.set(r, counts.get(r) - 1); renderBuilder(); });
+});
+
+sizeInputs.forEach(i => i.addEventListener('change', () => {
+  // if the box shrank, trim picks from the last flavours first
+  let over = total() - boxSize();
+  for (const r of [...rows].reverse()) {
+    if (over <= 0) break;
+    const take = Math.min(counts.get(r), over);
+    counts.set(r, counts.get(r) - take);
+    over -= take;
+  }
+  renderBuilder();
+}));
+
+addBox.addEventListener('click', () => {
+  bag++;
+  showToast(`Your box of ${boxSize()} added to bag (${bag} item${bag > 1 ? 's' : ''})`);
+  rows.forEach(r => counts.set(r, 0));
+  renderBuilder();
+});
+
+renderBuilder();
+
+/* ---------- Wholesale case links pre-fill the enquiry form ---------- */
+document.querySelectorAll('.case__link').forEach(link => {
+  link.addEventListener('click', () => {
+    form.querySelector('input[value="wholesale"]').checked = true;
+    form.querySelector('textarea').value = `I'm interested in the ${link.dataset.case}.`;
+  });
+});
