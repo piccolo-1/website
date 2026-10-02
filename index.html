@@ -30,6 +30,10 @@
       <a href="#wholesale">Retail &amp; wholesale</a>
       <a href="#story">Our story</a>
     </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+    </div>
     <a href="#contact" class="btn btn--dark btn--sm nav__cta">Trade enquiries</a>
     <button class="nav__burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
   </header>
@@ -198,7 +202,7 @@
             <h3>Build your own box</h3>
             <p>Choose a size, then pick any mix of flavours.</p>
           </div>
-          <div class="builder__sizes" role="radiogroup" aria-label="Box size">
+          <div class="builder__sizes" role="radiogroup" aria-label="Box size" data-label="Box of">
             <label><input type="radio" name="size" value="4" data-price="16"><span>4</span></label>
             <label><input type="radio" name="size" value="6" data-price="24" checked><span>6</span></label>
             <label><input type="radio" name="size" value="12" data-price="44"><span>12</span></label>
@@ -253,7 +257,7 @@
               <div class="pack__bag">
                 <span class="logo-mark logo-mark--word pack__logo"></span>
                 <div class="pack__window"><img src="assets/salted-chunk-sm.webp" alt="" width="600" height="800" loading="lazy"></div>
-                <div class="pack__band"><strong>Salted Chocolate Chunk</strong><span>Chocolat &amp; fleur de sel</span></div>
+                <div class="pack__band" data-no-i18n><strong>Salted Chocolate Chunk</strong><span>Chocolat &amp; fleur de sel</span></div>
                 <span class="pack__wt">1 cookie · 110 g</span>
               </div>
               <figcaption>Salted Chocolate Chunk</figcaption>
@@ -262,7 +266,7 @@
               <div class="pack__bag">
                 <span class="logo-mark logo-mark--word pack__logo"></span>
                 <div class="pack__window"><img src="assets/chocolate-stuffed-sm.webp" alt="" width="600" height="800" loading="lazy"></div>
-                <div class="pack__band"><strong>Chocolate Stuffed</strong><span>Fourré au chocolat</span></div>
+                <div class="pack__band" data-no-i18n><strong>Chocolate Stuffed</strong><span>Fourré au chocolat</span></div>
                 <span class="pack__wt">1 cookie · 110 g</span>
               </div>
               <figcaption>Chocolate Stuffed</figcaption>
@@ -271,7 +275,7 @@
               <div class="pack__bag">
                 <span class="logo-mark logo-mark--word pack__logo"></span>
                 <div class="pack__window"><img src="assets/pistachio-stuffed-sm.webp" alt="" width="600" height="800" loading="lazy"></div>
-                <div class="pack__band"><strong>Pistachio Stuffed</strong><span>Fourré à la pistache</span></div>
+                <div class="pack__band" data-no-i18n><strong>Pistachio Stuffed</strong><span>Fourré à la pistache</span></div>
                 <span class="pack__wt">1 cookie · 110 g</span>
               </div>
               <figcaption>Pistachio Stuffed</figcaption>
@@ -498,6 +502,7 @@
 
   <div class="toast" role="status" aria-live="polite"></div>
 
+  <script src="i18n.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

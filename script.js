@@ -145,9 +145,9 @@ document.querySelectorAll('.add-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     bag++;
     const name = btn.closest('.box').querySelector('h3').textContent;
-    showToast(`${name} added to bag (${bag} item${bag > 1 ? 's' : ''})`);
-    btn.textContent = 'Added ✓';
-    setTimeout(() => (btn.textContent = 'Add to bag'), 1600);
+    showToast(i18n.f('added', name, bag));
+    btn.textContent = i18n.t('Added ✓');
+    setTimeout(() => (btn.textContent = i18n.t('Add to bag')), 1600);
   });
 });
 
@@ -163,16 +163,16 @@ form.addEventListener('submit', e => {
     input.closest('.field').classList.toggle('is-invalid', !valid);
     if (!valid) ok = false;
   });
-  if (!ok) { showToast('Please fill in your name and a valid email'); return; }
+  if (!ok) { showToast(i18n.t('Please fill in your name and a valid email')); return; }
   form.reset();
   form.querySelector('.form__success').hidden = false;
-  showToast('Enquiry sent. Speak soon!');
+  showToast(i18n.t('Enquiry sent. Speak soon!'));
 });
 
 document.querySelector('.news').addEventListener('submit', e => {
   e.preventDefault();
   e.target.reset();
-  showToast("You're on the list 🍪");
+  showToast(i18n.t("You're on the list 🍪"));
 });
 
 document.getElementById('year').textContent = new Date().getFullYear();
@@ -201,8 +201,8 @@ function renderBuilder() {
     plus.disabled = n >= size;
   });
   bar.style.width = `${(n / size) * 100}%`;
-  status.textContent = n === size ? 'Box full! Ready to add.' : `${n} of ${size} chosen`;
-  priceEl.textContent = '$' + sizeInputs.find(i => i.checked).dataset.price;
+  status.textContent = n === size ? i18n.t('Box full! Ready to add.') : i18n.f('chosen', n, size);
+  priceEl.textContent = i18n.price(sizeInputs.find(i => i.checked).dataset.price);
   addBox.disabled = n !== size;
 }
 
@@ -231,12 +231,13 @@ sizeInputs.forEach(i => i.addEventListener('change', () => {
 
 addBox.addEventListener('click', () => {
   bag++;
-  showToast(`Your box of ${boxSize()} added to bag (${bag} item${bag > 1 ? 's' : ''})`);
+  showToast(i18n.f('boxAdded', boxSize(), bag));
   rows.forEach(r => counts.set(r, 0));
   renderBuilder();
 });
 
 renderBuilder();
+document.addEventListener('langchange', () => { renderBuilder(); toast.classList.remove('is-visible'); });
 
 /* ---------- Retail & wholesale channel tabs ---------- */
 const tabs = [...document.querySelectorAll('.channels__tabs [role="tab"]')];
@@ -262,7 +263,7 @@ tabs.forEach((t, i) => {
 document.querySelectorAll('.case__link').forEach(link => {
   link.addEventListener('click', () => {
     form.querySelector(`input[name="type"][value="${link.dataset.type}"]`).checked = true;
-    form.querySelector('textarea').value = `I'm interested in ${link.dataset.case}.`;
+    form.querySelector('textarea').value = i18n.f('interested', i18n.t(link.dataset.case));
   });
 });
 

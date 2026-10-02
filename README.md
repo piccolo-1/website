@@ -4,6 +4,7 @@ A static, dependency-free site for a cookie bakery selling small batches to cons
 
 - `index.html`: page content (hero, all flavours, For home with a build-your-own box, Wholesale cases, story, trade enquiry form)
 - `styles.css`: design tokens at the top (colours, fonts) so the brand is easy to re-skin
+- `i18n.js`: English/French switch. French text lives in the `FR` dictionary at the top (English on the left, French on the right). New English text needs a matching line there.
 - `script.js`: animations (loader, scroll reveals, parallax, counters, testimonials) and a drag-to-scroll photo gallery
 
 ## Run locally
