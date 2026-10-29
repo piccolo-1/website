@@ -1,0 +1,182 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {}
+    },
+    "marquee": {
+      "type": "marquee",
+      "settings": {}
+    },
+    "paths": {
+      "type": "paths",
+      "settings": {}
+    },
+    "flavours": {
+      "type": "flavours",
+      "settings": {}
+    },
+    "shop": {
+      "type": "shop",
+      "settings": {}
+    },
+    "wholesale": {
+      "type": "wholesale",
+      "settings": {
+        "stat1": 120,
+        "stat2": 48,
+        "stat3": 12,
+        "stat4": 21
+      },
+      "blocks": {
+        "spec1": {
+          "type": "spec",
+          "settings": {
+            "product": "Salted Chocolate Chunk",
+            "format": "Single, wrapped",
+            "weight": "110 g",
+            "units": "12",
+            "shelf": "21 days",
+            "storage": "Ambient",
+            "msrp": "$4.99"
+          }
+        },
+        "spec2": {
+          "type": "spec",
+          "settings": {
+            "product": "Chocolate Stuffed",
+            "format": "Single, wrapped",
+            "weight": "110 g",
+            "units": "12",
+            "shelf": "21 days",
+            "storage": "Ambient",
+            "msrp": "$4.99"
+          }
+        },
+        "spec3": {
+          "type": "spec",
+          "settings": {
+            "product": "Pistachio Stuffed",
+            "format": "Single, wrapped",
+            "weight": "110 g",
+            "units": "12",
+            "shelf": "21 days",
+            "storage": "Ambient",
+            "msrp": "$4.99"
+          }
+        },
+        "spec4": {
+          "type": "spec",
+          "settings": {
+            "product": "Assorted 4-pack",
+            "format": "Gift box",
+            "weight": "440 g",
+            "units": "6",
+            "shelf": "21 days",
+            "storage": "Ambient",
+            "msrp": "$16.99"
+          }
+        },
+        "spec5": {
+          "type": "spec",
+          "settings": {
+            "product": "Display tray",
+            "format": "12 singles, shelf-ready",
+            "weight": "1.32 kg",
+            "units": "1",
+            "shelf": "21 days",
+            "storage": "Ambient",
+            "msrp": "$4.99 / unit"
+          }
+        }
+      },
+      "block_order": [
+        "spec1",
+        "spec2",
+        "spec3",
+        "spec4",
+        "spec5"
+      ]
+    },
+    "trusted": {
+      "type": "trusted",
+      "settings": {}
+    },
+    "story": {
+      "type": "story",
+      "settings": {}
+    },
+    "gallery": {
+      "type": "gallery",
+      "settings": {},
+      "blocks": {
+        "photo1": {
+          "type": "photo",
+          "settings": {
+            "fallback": "stuffed-stack.webp",
+            "alt": "Chocolate and pistachio stuffed cookies stacked"
+          }
+        },
+        "photo2": {
+          "type": "photo",
+          "settings": {
+            "fallback": "salted-chunk.webp",
+            "alt": "Salted chocolate chunk cookie held up"
+          }
+        },
+        "photo3": {
+          "type": "photo",
+          "settings": {
+            "fallback": "pistachio-stuffed.webp",
+            "alt": "Pistachio cream oozing from a stuffed cookie"
+          }
+        },
+        "photo4": {
+          "type": "photo",
+          "settings": {
+            "fallback": "salted-chunk-stack.webp",
+            "alt": "A stack of salted chocolate chunk cookies"
+          }
+        },
+        "photo5": {
+          "type": "photo",
+          "settings": {
+            "fallback": "chocolate-stuffed.webp",
+            "alt": "Chocolate stuffed cookie with molten centre"
+          }
+        }
+      },
+      "block_order": [
+        "photo1",
+        "photo2",
+        "photo3",
+        "photo4",
+        "photo5"
+      ]
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {}
+    },
+    "contact": {
+      "type": "contact",
+      "settings": {
+        "phone": "",
+        "address": ""
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "marquee",
+    "paths",
+    "flavours",
+    "shop",
+    "wholesale",
+    "trusted",
+    "story",
+    "gallery",
+    "testimonials",
+    "contact"
+  ]
+}

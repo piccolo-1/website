@@ -1,0 +1,16 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Les délices Nadia",
+    "theme_version": "1.0.0",
+    "theme_author": "Les délices Nadia",
+    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
+    "theme_support_url": "https://help.shopify.com"
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      { "type": "image_picker", "id": "favicon", "label": "Browser tab icon", "info": "Square image, at least 64 × 64 px. Leave empty to use the bundled cookie icon." }
+    ]
+  }
+]

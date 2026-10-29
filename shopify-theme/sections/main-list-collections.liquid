@@ -1,0 +1,17 @@
+<section class="listing">
+  <h1>{{ page_title }}</h1>
+  <div class="cookie-grid">
+    {%- for collection in collections -%}
+      <a class="cookie-card" href="{{ collection.url }}">
+        <div class="cookie-card__img">
+          {%- render 'theme-image', image: collection.featured_image, fallback: 'stuffed-stack-sm.webp', width: 800, alt: collection.title -%}
+        </div>
+        <div class="cookie-card__body"><h3>{{ collection.title }}</h3></div>
+      </a>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Collections list", "settings": [] }
+{% endschema %}

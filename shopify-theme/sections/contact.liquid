@@ -1,0 +1,52 @@
+<section class="contact" id="contact">
+  <div class="contact__copy">
+    <p class="eyebrow reveal">{{ 'contact.eyebrow' | t }}</p>
+    <h2 class="reveal">{{ 'contact.title' | t }} <em>{{ 'contact.title_em' | t }}</em></h2>
+    <p class="reveal">{{ 'contact.text' | t }}</p>
+    <ul class="contact__details reveal">
+      {%- assign email = section.settings.email | default: shop.email -%}
+      <li><span>{{ 'contact.email' | t }}</span><a href="mailto:{{ email }}">{{ email }}</a></li>
+      {%- if section.settings.phone != blank -%}
+        <li><span>{{ 'contact.phone' | t }}</span><a href="tel:{{ section.settings.phone | remove: ' ' }}">{{ section.settings.phone }}</a></li>
+      {%- endif -%}
+      {%- if section.settings.address != blank -%}
+        <li><span>{{ 'contact.bakery' | t }}</span>{{ section.settings.address }}</li>
+      {%- endif -%}
+    </ul>
+  </div>
+  {%- form 'contact', id: 'ContactForm', class: 'form reveal', novalidate: 'novalidate' -%}
+    {%- if form.posted_successfully? -%}
+      <p class="form__success" role="status" data-posted>{{ 'contact.success' | t }}</p>
+    {%- else -%}
+      {%- if form.errors -%}<div class="form__error" role="alert" data-posted>{{ form.errors | default_errors }}</div>{%- endif -%}
+      <div class="form__toggle" role="radiogroup" aria-label="{{ 'contact.type_label' | t }}">
+        <label><input type="radio" name="contact[Enquiry type]" value="Grocery / retail" checked data-type="retail"><span>{{ 'contact.type_retail' | t }}</span></label>
+        <label><input type="radio" name="contact[Enquiry type]" value="Café / food service" data-type="foodservice"><span>{{ 'contact.type_food' | t }}</span></label>
+        <label><input type="radio" name="contact[Enquiry type]" value="Corporate / events" data-type="corporate"><span>{{ 'contact.type_corp' | t }}</span></label>
+        <label><input type="radio" name="contact[Enquiry type]" value="Other" data-type="other"><span>{{ 'contact.type_other' | t }}</span></label>
+      </div>
+      <div class="form__row">
+        <label class="field"><input type="text" name="contact[name]" id="ContactName" placeholder=" " autocomplete="name" required value="{{ form.name }}"><span>{{ 'contact.name' | t }}</span></label>
+        <label class="field"><input type="text" name="contact[Business]" id="ContactBusiness" placeholder=" " autocomplete="organization"><span>{{ 'contact.business' | t }}</span></label>
+      </div>
+      <div class="form__row">
+        <label class="field"><input type="email" name="contact[email]" id="ContactEmail" placeholder=" " autocomplete="email" required value="{{ form.email }}"><span>{{ 'contact.email' | t }}</span></label>
+        <label class="field"><input type="tel" name="contact[phone]" id="ContactPhone" placeholder=" " autocomplete="tel" value="{{ form.phone }}"><span>{{ 'contact.phone' | t }}</span></label>
+      </div>
+      <label class="field"><textarea name="contact[body]" id="ContactBody" rows="4" placeholder=" ">{{ form.body }}</textarea><span>{{ 'contact.message' | t }}</span></label>
+      <button type="submit" class="btn btn--dark">{{ 'contact.submit' | t }} <span class="arrow">→</span></button>
+    {%- endif -%}
+  {%- endform -%}
+</section>
+
+{% schema %}
+{
+  "name": "Trade enquiry form",
+  "settings": [
+    { "type": "text", "id": "email", "label": "Email shown on the page", "info": "Leave empty to use your store's email. Form submissions always go to the store's sender email." },
+    { "type": "text", "id": "phone", "label": "Phone" },
+    { "type": "text", "id": "address", "label": "Bakery address" }
+  ],
+  "presets": [{ "name": "Trade enquiry form" }]
+}
+{% endschema %}

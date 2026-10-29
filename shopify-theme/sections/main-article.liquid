@@ -1,0 +1,10 @@
+<article class="text-page">
+  <p class="eyebrow">{{ article.published_at | date: format: 'date' }}</p>
+  <h1>{{ article.title }}</h1>
+  {%- if article.image -%}{{ article.image | image_url: width: 1400 | image_tag: class: 'text-page__img', alt: article.title }}{%- endif -%}
+  <div class="rte">{{ article.content }}</div>
+</article>
+
+{% schema %}
+{ "name": "Article", "settings": [] }
+{% endschema %}

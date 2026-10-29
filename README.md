@@ -22,3 +22,9 @@ python3 -m http.server 8000
 4. Update prices (box `data-price` values in the builder), the product spec table in the Retail & wholesale section, and the stats in the wholesale section (`data-count`) to your real numbers.
 
 Deploys as-is to Netlify, Vercel, Cloudflare Pages or GitHub Pages.
+
+## Shopify
+
+- `shopify-theme/`: the same site as a Shopify theme (English and French, real cart and checkout,
+  Shopify contact and newsletter forms). Zip the folder's contents to upload it.
+- `shopify-setup/`: `SETUP.md` (step-by-step), `products.csv` (product import) and product photos.

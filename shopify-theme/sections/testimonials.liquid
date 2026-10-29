@@ -1,0 +1,21 @@
+<section class="quotes">
+  <div class="quotes__inner">
+    {%- for i in (1..3) -%}
+      {%- assign q = 'testimonials.q' | append: i -%}
+      {%- assign c = 'testimonials.c' | append: i -%}
+      <div class="quote{% if forloop.first %} is-active{% endif %}">
+        <blockquote>{{ 'testimonials.open_quote' | t }}{{ q | t }}{{ 'testimonials.close_quote' | t }}</blockquote>
+        <cite>{{ c | t }}</cite>
+      </div>
+    {%- endfor -%}
+    <div class="quotes__dots" role="tablist" aria-label="{{ 'testimonials.label' | t }}">
+      {%- for i in (1..3) -%}
+        <button class="{% if forloop.first %}is-active{% endif %}" aria-label="{{ 'testimonials.show' | t | replace: '[n]', i }}"></button>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Reviews", "settings": [], "presets": [{ "name": "Reviews" }] }
+{% endschema %}

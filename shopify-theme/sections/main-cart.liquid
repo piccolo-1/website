@@ -1,0 +1,47 @@
+<section class="cart">
+  <h1>{{ 'cart.title' | t }}</h1>
+  {%- if cart.item_count > 0 -%}
+    <form action="{{ routes.cart_url }}" method="post" id="CartForm" class="cart__form">
+      <ul class="cart__items">
+        {%- for item in cart.items -%}
+          {%- capture fallback -%}{%- render 'product-fallback', handle: item.product.handle -%}{%- endcapture -%}
+          <li class="cart__item">
+            <a href="{{ item.url }}" class="cart__img">{%- render 'theme-image', image: item.image, fallback: fallback, width: 240, alt: item.product.title -%}</a>
+            <div class="cart__detail">
+              <a href="{{ item.url }}" class="cart__name">{{ item.product.title }}</a>
+              {%- unless item.product.has_only_default_variant -%}<p class="cart__variant">{{ item.variant.title }}</p>{%- endunless -%}
+              {%- if item.properties.size > 0 -%}
+                <ul class="cart__props">
+                  {%- for p in item.properties -%}
+                    {%- assign first = p.first | slice: 0 -%}
+                    {%- unless p.last == blank or first == '_' -%}<li>{{ p.first }}: {{ p.last }}</li>{%- endunless -%}
+                  {%- endfor -%}
+                </ul>
+              {%- endif -%}
+              <a class="cart__remove" href="{{ item.url_to_remove }}">{{ 'cart.remove' | t }}</a>
+            </div>
+            <label class="visually-hidden" for="Qty-{{ forloop.index }}">{{ 'cart.quantity' | t }}</label>
+            <input id="Qty-{{ forloop.index }}" class="product__qty" type="number" name="updates[]" value="{{ item.quantity }}" min="0">
+            <span class="cart__line">{{ item.final_line_price | money }}</span>
+          </li>
+        {%- endfor -%}
+      </ul>
+      <label class="field cart__note"><textarea name="note" rows="2" placeholder=" ">{{ cart.note }}</textarea><span>{{ 'cart.note' | t }}</span></label>
+      <div class="cart__summary">
+        <p class="cart__subtotal"><span>{{ 'cart.subtotal' | t }}</span> <strong>{{ cart.total_price | money }}</strong></p>
+        <p class="cart__taxes">{{ 'cart.taxes' | t }}</p>
+        <div class="cart__actions">
+          <button type="submit" name="update" class="btn btn--ghost">{{ 'cart.update' | t }}</button>
+          <button type="submit" name="checkout" class="btn btn--dark">{{ 'cart.checkout' | t }} <span class="arrow">→</span></button>
+        </div>
+      </div>
+    </form>
+  {%- else -%}
+    <p>{{ 'cart.empty' | t }}</p>
+    <a class="btn btn--dark" href="{{ routes.root_url }}#home">{{ 'general.continue_shopping' | t }} <span class="arrow">→</span></a>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{ "name": "Cart", "settings": [] }
+{% endschema %}

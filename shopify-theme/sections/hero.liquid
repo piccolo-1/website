@@ -1,0 +1,45 @@
+<section class="hero">
+  <div class="hero__copy">
+    <p class="eyebrow reveal">{{ 'hero.eyebrow' | t }}</p>
+    <h1 class="hero__title">
+      <span class="line"><span>{{ 'hero.line1' | t }}</span></span>
+      <span class="line"><span>{{ 'hero.line2' | t }} <em>{{ 'hero.line2_em' | t }}</em></span></span>
+      <span class="line"><span><em>{{ 'hero.line3_em' | t }}</em></span></span>
+    </h1>
+    <p class="hero__lede reveal">{{ 'hero.lede' | t }}</p>
+    <div class="hero__ctas reveal">
+      <a href="#home" class="btn btn--dark">{{ 'hero.cta_shop' | t }} <span class="arrow">→</span></a>
+      <a href="#wholesale" class="btn btn--ghost">{{ 'hero.cta_trade' | t }} <span class="arrow">→</span></a>
+    </div>
+  </div>
+  <div class="hero__visual">
+    <div class="hero__blob"></div>
+    {%- render 'theme-image', image: section.settings.image_main, fallback: 'cookie-cutout.webp', width: 900, alt: '', class: 'hero__cookie hero__cookie--main', loading: 'eager' -%}
+    <figure class="hero__polaroid hero__polaroid--a">
+      {%- render 'theme-image', image: section.settings.image_a, fallback: 'pistachio-stuffed-sm.webp', width: 500, alt: '', loading: 'eager' -%}
+    </figure>
+    <figure class="hero__polaroid hero__polaroid--b">
+      {%- render 'theme-image', image: section.settings.image_b, fallback: 'chocolate-stuffed-sm.webp', width: 500, alt: '', loading: 'eager' -%}
+    </figure>
+    <div class="hero__badge">
+      <svg viewBox="0 0 200 200" class="hero__badge-text" aria-hidden="true">
+        <defs><path id="hero-circle" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+        <text textLength="485" lengthAdjust="spacing"><textPath href="#hero-circle" textLength="485" lengthAdjust="spacing">{{ 'hero.badge' | t }}</textPath></text>
+      </svg>
+      <span class="hero__badge-mid"><span class="logo-mark logo-mark--icon"></span></span>
+    </div>
+  </div>
+  <a href="#paths" class="hero__scroll" aria-label="{{ 'general.scroll_down' | t }}"><span></span></a>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "image_picker", "id": "image_main", "label": "Spinning cookie", "info": "Use a cut-out cookie on a transparent background (PNG or WebP). Leave empty to use the bundled photo." },
+    { "type": "image_picker", "id": "image_a", "label": "Photo print, bottom left" },
+    { "type": "image_picker", "id": "image_b", "label": "Photo print, top right" }
+  ],
+  "presets": [{ "name": "Hero" }]
+}
+{% endschema %}

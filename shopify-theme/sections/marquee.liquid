@@ -1,0 +1,20 @@
+{%- assign coll = section.settings.collection | default: collections['flavours'] -%}
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    {%- for i in (1..4) -%}
+      {%- for product in coll.products limit: 8 -%}
+        <span>{{ product.title }}</span><i>✦</i>
+      {%- endfor -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Scrolling flavours",
+  "settings": [
+    { "type": "collection", "id": "collection", "label": "Flavours collection", "info": "Defaults to the collection with the handle “flavours”." }
+  ],
+  "presets": [{ "name": "Scrolling flavours" }]
+}
+{% endschema %}

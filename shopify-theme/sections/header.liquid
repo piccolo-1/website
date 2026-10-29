@@ -1,0 +1,38 @@
+{%- liquid
+  assign root = routes.root_url
+  if root == '/'
+    assign root = ''
+  endif
+-%}
+<header class="nav" id="top">
+  <a href="{{ routes.root_url }}" class="nav__logo" aria-label="{{ 'general.back_to_top' | t }}"><span class="logo-mark logo-mark--word"></span></a>
+  <nav class="nav__links" aria-label="{{ 'general.main_nav' | t }}">
+    <a href="{{ root }}/#flavours">{{ 'nav.flavours' | t }}</a>
+    <a href="{{ root }}/#home">{{ 'nav.home' | t }}</a>
+    <a href="{{ root }}/#wholesale">{{ 'nav.wholesale' | t }}</a>
+    <a href="{{ root }}/#story">{{ 'nav.story' | t }}</a>
+  </nav>
+  {%- render 'language-switch' -%}
+  <a href="{{ routes.cart_url }}" class="nav__bag" aria-label="{{ 'general.bag' | t }}">
+    {{ 'general.bag' | t }} <span class="nav__count" data-cart-count>{{ cart.item_count }}</span>
+  </a>
+  <a href="{{ root }}/#contact" class="btn btn--dark btn--sm nav__cta">{{ 'nav.trade' | t }}</a>
+  <button class="nav__burger" aria-label="{{ 'general.open_menu' | t }}" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<div class="menu" aria-hidden="true">
+  <a href="{{ root }}/#flavours">{{ 'nav.flavours' | t }}</a>
+  <a href="{{ root }}/#home">{{ 'nav.home' | t }}</a>
+  <a href="{{ root }}/#wholesale">{{ 'nav.wholesale' | t }}</a>
+  <a href="{{ root }}/#story">{{ 'nav.story' | t }}</a>
+  <a href="{{ routes.cart_url }}">{{ 'general.bag' | t }} (<span data-cart-count>{{ cart.item_count }}</span>)</a>
+  <a href="{{ root }}/#contact">{{ 'nav.trade' | t }}</a>
+</div>
+
+{% schema %}
+{
+  "name": "Header",
+  "class": "header-section",
+  "settings": []
+}
+{% endschema %}

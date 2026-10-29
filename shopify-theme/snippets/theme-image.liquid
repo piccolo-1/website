@@ -1,0 +1,13 @@
+{%- comment -%}
+  Renders a Shopify image, or a bundled theme photo when none is set.
+  Params: image, fallback (asset filename), width, alt, class, loading
+{%- endcomment -%}
+{%- liquid
+  assign w = width | default: 800
+  assign l = loading | default: 'lazy'
+-%}
+{%- if image != blank -%}
+  {{ image | image_url: width: w | image_tag: alt: alt, class: class, loading: l, widths: '300, 500, 800, 1200' }}
+{%- elsif fallback != blank -%}
+  <img src="{{ fallback | asset_url }}" alt="{{ alt | escape }}" class="{{ class }}" loading="{{ l }}" width="600" height="800">
+{%- endif -%}

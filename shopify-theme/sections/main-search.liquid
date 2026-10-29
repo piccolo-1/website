@@ -1,0 +1,24 @@
+<section class="listing">
+  <h1>{{ 'search.title' | t }}</h1>
+  <form action="{{ routes.search_url }}" method="get" role="search" class="news search-form">
+    <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'search.placeholder' | t }}" aria-label="{{ 'search.placeholder' | t }}">
+    <input type="hidden" name="type" value="product">
+    <button type="submit" aria-label="{{ 'search.submit' | t }}">→</button>
+  </form>
+  {%- if search.performed -%}
+    {%- if search.results_count > 0 -%}
+      <p>{{ 'search.results' | t | replace: '[count]', search.results_count | replace: '[terms]', search.terms }}</p>
+      <div class="cookie-grid">
+        {%- for item in search.results -%}
+          {%- if item.object_type == 'product' -%}{%- render 'product-card', product: item -%}{%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <p>{{ 'search.none' | t | replace: '[terms]', search.terms }}</p>
+    {%- endif -%}
+  {%- endif -%}
+</section>
+
+{% schema %}
+{ "name": "Search", "settings": [] }
+{% endschema %}

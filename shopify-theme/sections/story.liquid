@@ -1,0 +1,37 @@
+<section class="story" id="story">
+  <div class="story__sticky">
+    {%- render 'theme-image', image: section.settings.image, fallback: 'cookie-cutout.webp', width: 900, alt: '', class: 'story__cookie' -%}
+  </div>
+  <div class="story__steps">
+    <div class="story__step reveal">
+      <p class="eyebrow">{{ 'story.eyebrow' | t }}</p>
+      <h2>{{ 'story.title' | t }} <em>{{ 'story.title_em' | t }}</em></h2>
+      <p>{{ 'story.text' | t }}</p>
+    </div>
+    <div class="story__step reveal">
+      <span class="story__num">01</span>
+      <h3>{{ 'story.step1_title' | t }}</h3>
+      <p>{{ 'story.step1_text' | t }}</p>
+    </div>
+    <div class="story__step reveal">
+      <span class="story__num">02</span>
+      <h3>{{ 'story.step2_title' | t }}</h3>
+      <p>{{ 'story.step2_text' | t }}</p>
+    </div>
+    <div class="story__step reveal">
+      <span class="story__num">03</span>
+      <h3>{{ 'story.step3_title' | t }}</h3>
+      <p>{{ 'story.step3_text' | t }}</p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Our story",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Rolling cookie", "info": "A cut-out cookie on a transparent background works best." }
+  ],
+  "presets": [{ "name": "Our story" }]
+}
+{% endschema %}

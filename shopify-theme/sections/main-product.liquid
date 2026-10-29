@@ -1,0 +1,47 @@
+{%- capture fallback -%}{%- render 'product-fallback', handle: product.handle -%}{%- endcapture -%}
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+<section class="product">
+  <div class="product__media">
+    <div class="product__main">
+      {%- render 'theme-image', image: product.featured_image, fallback: fallback, width: 1200, alt: product.title, loading: 'eager' -%}
+      {%- render 'product-badge', product: product, class: 'cookie-card__tag' -%}
+    </div>
+    {%- if product.images.size > 1 -%}
+      <div class="product__thumbs">
+        {%- for image in product.images offset: 1 limit: 6 -%}
+          {{ image | image_url: width: 400 | image_tag: loading: 'lazy', alt: image.alt }}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+  <div class="product__info">
+    <a class="product__back" href="{{ routes.root_url }}#flavours">← {{ 'product.back' | t }}</a>
+    <h1>{{ product.title }}</h1>
+    <p class="product__price" data-product-price>{{ current_variant.price | money }}</p>
+    <div class="product__desc rte">{{ product.description }}</div>
+    {%- form 'product', product, class: 'product__form', id: 'ProductForm' -%}
+      {%- unless product.has_only_default_variant -%}
+        {%- assign option_label = 'product.option' | t -%}
+        <label class="product__label" for="ProductVariant">{{ product.options.first | default: option_label }}</label>
+        <select id="ProductVariant" name="id" class="product__select">
+          {%- for variant in product.variants -%}
+            <option value="{{ variant.id }}" data-price="{{ variant.price | money | escape }}" {% if variant == current_variant %}selected{% endif %} {% unless variant.available %}disabled{% endunless %}>
+              {{ variant.title }} · {{ variant.price | money }}{% unless variant.available %} · {{ 'general.sold_out' | t }}{% endunless %}
+            </option>
+          {%- endfor -%}
+        </select>
+      {%- else -%}
+        <input type="hidden" name="id" value="{{ current_variant.id }}">
+      {%- endunless -%}
+      <label class="product__label" for="ProductQty">{{ 'product.quantity' | t }}</label>
+      <input id="ProductQty" class="product__qty" type="number" name="quantity" value="1" min="1">
+      <button type="submit" class="btn btn--dark" {% unless product.available %}disabled{% endunless %}>
+        {%- if product.available -%}{{ 'general.add_to_bag' | t }} <span class="arrow">→</span>{%- else -%}{{ 'general.sold_out' | t }}{%- endif -%}
+      </button>
+    {%- endform -%}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Product", "settings": [] }
+{% endschema %}

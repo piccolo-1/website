@@ -1,0 +1,14 @@
+{%- comment -%} Badge from a product tag: badge-best-seller, badge-fan-favourite, badge-most-gifted, badge-new {%- endcomment -%}
+{%- liquid
+  assign badge = blank
+  if product.tags contains 'badge-best-seller'
+    assign badge = 'general.badge_best_seller' | t
+  elsif product.tags contains 'badge-fan-favourite'
+    assign badge = 'general.badge_fan_favourite' | t
+  elsif product.tags contains 'badge-most-gifted'
+    assign badge = 'general.badge_most_gifted' | t
+  elsif product.tags contains 'badge-new'
+    assign badge = 'general.badge_new' | t
+  endif
+-%}
+{%- if badge != blank -%}<span class="{{ class }}">{{ badge }}</span>{%- endif -%}

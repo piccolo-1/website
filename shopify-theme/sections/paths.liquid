@@ -1,0 +1,27 @@
+<section class="paths" id="paths">
+  <a href="#home" class="path path--home reveal">
+    <span class="path__tag">{{ 'paths.home_tag' | t }}</span>
+    <h2>{{ 'paths.home_title' | t }}</h2>
+    <p>{{ 'paths.home_text' | t }}</p>
+    <span class="path__link">{{ 'paths.home_link' | t }} <span class="arrow">→</span></span>
+    {%- render 'theme-image', image: section.settings.image_home, fallback: 'salted-chunk-stack-sm.webp', width: 500, alt: '', class: 'path__img' -%}
+  </a>
+  <a href="#wholesale" class="path path--trade reveal">
+    <span class="path__tag">{{ 'paths.trade_tag' | t }}</span>
+    <h2>{{ 'paths.trade_title' | t }}</h2>
+    <p>{{ 'paths.trade_text' | t }}</p>
+    <span class="path__link">{{ 'paths.trade_link' | t }} <span class="arrow">→</span></span>
+    {%- render 'theme-image', image: section.settings.image_trade, fallback: 'stuffed-stack-sm.webp', width: 500, alt: '', class: 'path__img' -%}
+  </a>
+</section>
+
+{% schema %}
+{
+  "name": "Home & business cards",
+  "settings": [
+    { "type": "image_picker", "id": "image_home", "label": "For home photo" },
+    { "type": "image_picker", "id": "image_trade", "label": "Retail & wholesale photo" }
+  ],
+  "presets": [{ "name": "Home & business cards" }]
+}
+{% endschema %}

@@ -1,0 +1,40 @@
+{%- assign coll = section.settings.collection | default: collections['flavours'] -%}
+<section class="cookies" id="flavours">
+  <div class="section-head section-head--split">
+    <div>
+      <p class="eyebrow reveal">{{ 'flavours.eyebrow' | t }}</p>
+      <h2 class="reveal">{{ 'flavours.title' | t }} <em>{{ 'flavours.title_em' | t }}</em></h2>
+    </div>
+    <p class="section-head__note reveal">{{ 'flavours.note' | t }}</p>
+  </div>
+  {%- if coll.products.size > 0 -%}
+    <div class="cookie-grid">
+      {%- for product in coll.products limit: 12 -%}
+        {%- capture fallback -%}{%- render 'product-fallback', handle: product.handle -%}{%- endcapture -%}
+        <a class="cookie-card reveal" href="{{ product.url }}">
+          <div class="cookie-card__img">
+            {%- render 'theme-image', image: product.featured_image, fallback: fallback, width: 800, alt: product.title -%}
+          </div>
+          <div class="cookie-card__body">
+            <h3>{{ product.title }}</h3>
+            <p>{{ product.description | strip_html | truncatewords: 22 }}</p>
+            <div class="cookie-card__avail"><span>{{ 'general.avail_home' | t }}</span><span>{{ 'general.avail_wholesale' | t }}</span></div>
+          </div>
+          {%- render 'product-badge', product: product, class: 'cookie-card__tag' -%}
+        </a>
+      {%- endfor -%}
+    </div>
+  {%- else -%}
+    <p class="setup-note">{{ 'general.no_products' | t | replace: '[collection]', 'flavours' }}</p>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Flavours",
+  "settings": [
+    { "type": "collection", "id": "collection", "label": "Flavours collection", "info": "Defaults to the collection with the handle “flavours”. Add a tag like badge-best-seller or badge-fan-favourite to a product to show a badge." }
+  ],
+  "presets": [{ "name": "Flavours" }]
+}
+{% endschema %}

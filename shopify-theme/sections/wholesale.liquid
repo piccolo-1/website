@@ -1,0 +1,161 @@
+{%- assign flavours = section.settings.flavours | default: collections['flavours'] -%}
+<section class="wholesale" id="wholesale">
+  <div class="wholesale__intro">
+    <p class="eyebrow eyebrow--light reveal">{{ 'wholesale.eyebrow' | t }}</p>
+    <h2 class="reveal">{{ 'wholesale.title' | t }} <em>{{ 'wholesale.title_em' | t }}</em></h2>
+    <p class="reveal">{{ 'wholesale.text' | t }}</p>
+    <a href="#contact" class="btn btn--light reveal">{{ 'wholesale.cta' | t }} <span class="arrow">→</span></a>
+  </div>
+
+  <ul class="claims reveal" aria-label="{{ 'wholesale.claims_label' | t }}">
+    <li>{{ 'wholesale.claim1' | t }}</li>
+    <li>{{ 'wholesale.claim2' | t }}</li>
+    <li>{{ 'wholesale.claim3' | t }}</li>
+    <li>{{ 'wholesale.claim4' | t }}</li>
+    <li>{{ 'wholesale.claim5' | t }}</li>
+  </ul>
+
+  <div class="channels">
+    <div class="channels__tabs reveal" role="tablist" aria-label="{{ 'wholesale.channels_label' | t }}">
+      <button role="tab" id="tab-retail" aria-controls="panel-retail" aria-selected="true">{{ 'wholesale.tab_retail' | t }}</button>
+      <button role="tab" id="tab-food" aria-controls="panel-food" aria-selected="false" tabindex="-1">{{ 'wholesale.tab_food' | t }}</button>
+      <button role="tab" id="tab-corp" aria-controls="panel-corp" aria-selected="false" tabindex="-1">{{ 'wholesale.tab_corp' | t }}</button>
+    </div>
+
+    <div class="channels__panel" id="panel-retail" role="tabpanel" aria-labelledby="tab-retail">
+      <div class="packs">
+        {%- for product in flavours.products limit: 6 -%}
+          {%- capture fallback -%}{%- render 'product-fallback', handle: product.handle -%}{%- endcapture -%}
+          <figure class="pack reveal">
+            <div class="pack__bag" style="--band: {% cycle '#b9773a', '#4d2a1c', '#7c9440', '#a3445a', '#8a6a2e', '#3f5a6b' %}">
+              <span class="logo-mark logo-mark--word pack__logo"></span>
+              <div class="pack__window">{%- render 'theme-image', image: product.featured_image, fallback: fallback, width: 400, alt: '' -%}</div>
+              <div class="pack__band"><strong>{{ product.title }}</strong></div>
+              <span class="pack__wt">{{ 'wholesale.pack_weight' | t }}</span>
+            </div>
+            <figcaption>{{ product.title }}</figcaption>
+          </figure>
+        {%- endfor -%}
+      </div>
+
+      <div class="retail-grid">
+        <div class="specs reveal">
+          <h3>{{ 'wholesale.specs_title' | t }}</h3>
+          <div class="specs__scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>{{ 'wholesale.th_product' | t }}</th><th>{{ 'wholesale.th_format' | t }}</th><th>{{ 'wholesale.th_weight' | t }}</th>
+                  <th>{{ 'wholesale.th_units' | t }}</th><th>{{ 'wholesale.th_shelf' | t }}</th><th>{{ 'wholesale.th_storage' | t }}</th><th>{{ 'wholesale.th_msrp' | t }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {%- for block in section.blocks -%}
+                  <tr {{ block.shopify_attributes }}>
+                    <td>{{ block.settings.product }}</td><td>{{ block.settings.format }}</td><td>{{ block.settings.weight }}</td>
+                    <td>{{ block.settings.units }}</td><td>{{ block.settings.shelf }}</td><td>{{ block.settings.storage }}</td><td>{{ block.settings.msrp }}</td>
+                  </tr>
+                {%- endfor -%}
+              </tbody>
+            </table>
+          </div>
+          <p class="specs__note">{{ 'wholesale.specs_note' | t }}</p>
+        </div>
+        <ul class="why reveal">
+          <li><strong>{{ 'wholesale.why1_title' | t }}</strong><span>{{ 'wholesale.why1_text' | t }}</span></li>
+          <li><strong>{{ 'wholesale.why2_title' | t }}</strong><span>{{ 'wholesale.why2_text' | t }}</span></li>
+          <li><strong>{{ 'wholesale.why3_title' | t }}</strong><span>{{ 'wholesale.why3_text' | t }}</span></li>
+          <li><strong>{{ 'wholesale.why4_title' | t }}</strong><span>{{ 'wholesale.why4_text' | t }}</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="channels__panel" id="panel-food" role="tabpanel" aria-labelledby="tab-food" hidden>
+      <div class="cases">
+        <article class="case">
+          <span class="case__size">24</span>
+          <h4>{{ 'wholesale.case1_title' | t }}</h4>
+          <ul><li>{{ 'wholesale.case1_li1' | t }}</li><li>{{ 'wholesale.case1_li2' | t }}</li><li>{{ 'wholesale.case1_li3' | t }}</li></ul>
+          <a href="#contact" class="case__link" data-type="foodservice" data-what="{{ 'wholesale.interest_case1' | t | escape }}">{{ 'wholesale.enquire' | t }} <span class="arrow">→</span></a>
+        </article>
+        <article class="case case--featured">
+          <span class="case__badge">{{ 'wholesale.most_popular' | t }}</span>
+          <span class="case__size">48</span>
+          <h4>{{ 'wholesale.case2_title' | t }}</h4>
+          <ul><li>{{ 'wholesale.case2_li1' | t }}</li><li>{{ 'wholesale.case2_li2' | t }}</li><li>{{ 'wholesale.case2_li3' | t }}</li></ul>
+          <a href="#contact" class="case__link" data-type="foodservice" data-what="{{ 'wholesale.interest_case2' | t | escape }}">{{ 'wholesale.enquire' | t }} <span class="arrow">→</span></a>
+        </article>
+        <article class="case">
+          <span class="case__size">96<small>+</small></span>
+          <h4>{{ 'wholesale.case3_title' | t }}</h4>
+          <ul><li>{{ 'wholesale.case3_li1' | t }}</li><li>{{ 'wholesale.case3_li2' | t }}</li><li>{{ 'wholesale.case3_li3' | t }}</li></ul>
+          <a href="#contact" class="case__link" data-type="foodservice" data-what="{{ 'wholesale.interest_case3' | t | escape }}">{{ 'wholesale.enquire' | t }} <span class="arrow">→</span></a>
+        </article>
+      </div>
+      <div class="offer offer--two">
+        <div class="offer__item"><h3>{{ 'wholesale.baked_title' | t }}</h3><p>{{ 'wholesale.baked_text' | t }}</p></div>
+        <div class="offer__item"><h3>{{ 'wholesale.frozen_title' | t }}</h3><p>{{ 'wholesale.frozen_text' | t }}</p></div>
+      </div>
+    </div>
+
+    <div class="channels__panel" id="panel-corp" role="tabpanel" aria-labelledby="tab-corp" hidden>
+      <div class="offer offer--two">
+        <div class="offer__item">
+          <h3>{{ 'wholesale.gift_title' | t }}</h3><p>{{ 'wholesale.gift_text' | t }}</p>
+          <a href="#contact" class="case__link" data-type="corporate" data-what="{{ 'wholesale.interest_gift' | t | escape }}">{{ 'wholesale.get_quote' | t }} <span class="arrow">→</span></a>
+        </div>
+        <div class="offer__item">
+          <h3>{{ 'wholesale.white_title' | t }}</h3><p>{{ 'wholesale.white_text' | t }}</p>
+          <a href="#contact" class="case__link" data-type="corporate" data-what="{{ 'wholesale.interest_white' | t | escape }}">{{ 'wholesale.get_quote' | t }} <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat reveal"><span class="stat__num" data-count="{{ section.settings.stat1 }}">0</span><span class="stat__plus">+</span><p>{{ 'wholesale.stat1' | t }}</p></div>
+    <div class="stat reveal"><span class="stat__num" data-count="{{ section.settings.stat2 }}">0</span><span class="stat__plus">{{ 'wholesale.stat2_unit' | t }}</span><p>{{ 'wholesale.stat2' | t }}</p></div>
+    <div class="stat reveal"><span class="stat__num" data-count="{{ section.settings.stat3 }}">0</span><p>{{ 'wholesale.stat3' | t }}</p></div>
+    <div class="stat reveal"><span class="stat__num" data-count="{{ section.settings.stat4 }}">0</span><span class="stat__plus">{{ 'wholesale.stat4_unit' | t }}</span><p>{{ 'wholesale.stat4' | t }}</p></div>
+  </div>
+
+  <div class="steps">
+    <h3 class="steps__title reveal">{{ 'wholesale.steps_title' | t }}</h3>
+    <ol>
+      <li class="reveal"><span>1</span><div><strong>{{ 'wholesale.step1_title' | t }}</strong><p>{{ 'wholesale.step1_text' | t }}</p></div></li>
+      <li class="reveal"><span>2</span><div><strong>{{ 'wholesale.step2_title' | t }}</strong><p>{{ 'wholesale.step2_text' | t }}</p></div></li>
+      <li class="reveal"><span>3</span><div><strong>{{ 'wholesale.step3_title' | t }}</strong><p>{{ 'wholesale.step3_text' | t }}</p></div></li>
+      <li class="reveal"><span>4</span><div><strong>{{ 'wholesale.step4_title' | t }}</strong><p>{{ 'wholesale.step4_text' | t }}</p></div></li>
+    </ol>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Retail & wholesale",
+  "settings": [
+    { "type": "collection", "id": "flavours", "label": "Flavours for the packaging mockups", "info": "Defaults to the collection with the handle “flavours”." },
+    { "type": "header", "content": "Numbers" },
+    { "type": "number", "id": "stat1", "label": "Stockists", "default": 120 },
+    { "type": "number", "id": "stat2", "label": "Hours from order to delivery", "default": 48 },
+    { "type": "number", "id": "stat3", "label": "Units per retail case", "default": 12 },
+    { "type": "number", "id": "stat4", "label": "Shelf life in days", "default": 21 }
+  ],
+  "blocks": [
+    {
+      "type": "spec",
+      "name": "Spec table row",
+      "settings": [
+        { "type": "text", "id": "product", "label": "Product" },
+        { "type": "text", "id": "format", "label": "Format" },
+        { "type": "text", "id": "weight", "label": "Net weight" },
+        { "type": "text", "id": "units", "label": "Units per case" },
+        { "type": "text", "id": "shelf", "label": "Shelf life" },
+        { "type": "text", "id": "storage", "label": "Storage" },
+        { "type": "text", "id": "msrp", "label": "Suggested retail price" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Retail & wholesale" }]
+}
+{% endschema %}

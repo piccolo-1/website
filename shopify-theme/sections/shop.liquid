@@ -1,0 +1,117 @@
+{%- liquid
+  assign boxes = section.settings.boxes | default: collections['boxes']
+  assign flavours = section.settings.flavours | default: collections['flavours']
+  assign builder = section.settings.builder_product | default: all_products['build-your-own-box']
+-%}
+<section class="shop" id="home">
+  <div class="section-head section-head--split">
+    <div>
+      <p class="eyebrow reveal">{{ 'shop.eyebrow' | t }}</p>
+      <h2 class="reveal">{{ 'shop.title' | t }} <em>{{ 'shop.title_em' | t }}</em></h2>
+    </div>
+    <ul class="perks reveal">
+      <li>{{ 'shop.perk1' | t }}</li>
+      <li>{{ 'shop.perk2' | t }}</li>
+      <li>{{ 'shop.perk3' | t }}</li>
+    </ul>
+  </div>
+
+  {%- if boxes.products.size > 0 -%}
+    <div class="box-grid">
+      {%- for product in boxes.products limit: 6 -%}
+        {%- capture fallback -%}{%- render 'product-fallback', handle: product.handle -%}{%- endcapture -%}
+        {%- assign featured = false -%}
+        {%- if product.tags contains 'badge-most-gifted' -%}{%- assign featured = true -%}{%- endif -%}
+        <article class="box{% if featured %} box--featured{% endif %} reveal">
+          {%- if featured -%}<span class="box__ribbon">{{ 'general.badge_most_gifted' | t }}</span>{%- endif -%}
+          <a class="box__visual" href="{{ product.url }}" tabindex="-1">
+            {%- render 'theme-image', image: product.featured_image, fallback: fallback, width: 800, alt: product.title -%}
+          </a>
+          <div class="box__info">
+            <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
+            {%- if product.description != blank -%}<p>{{ product.description | strip_html | truncatewords: 10 }}</p>{%- endif -%}
+            <div class="box__foot">
+              <span class="box__price">{{ product.price | money }}</span>
+              {%- if product.has_only_default_variant -%}
+                <button class="btn btn--dark btn--sm add-btn" data-variant-id="{{ product.selected_or_first_available_variant.id }}" data-name="{{ product.title | escape }}" {% unless product.available %}disabled{% endunless %}>
+                  {%- if product.available -%}{{ 'general.add_to_bag' | t }}{%- else -%}{{ 'general.sold_out' | t }}{%- endif -%}
+                </button>
+              {%- else -%}
+                <a class="btn btn--dark btn--sm" href="{{ product.url }}">{{ 'general.add_to_bag' | t }}</a>
+              {%- endif -%}
+            </div>
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+  {%- else -%}
+    <p class="setup-note">{{ 'general.no_products' | t | replace: '[collection]', 'boxes' }}</p>
+  {%- endif -%}
+
+  {%- if builder != blank and builder.variants.size > 0 -%}
+    {%- liquid
+      assign default_variant = builder.selected_or_first_available_variant
+      for v in builder.variants
+        if v.option1 == '6' and v.available
+          assign default_variant = v
+        endif
+      endfor
+    -%}
+    <div class="builder reveal" id="builder">
+      <div class="builder__head">
+        <div>
+          <h3>{{ 'builder.title' | t }}</h3>
+          <p>{{ 'builder.text' | t }}</p>
+        </div>
+        <div class="builder__sizes" role="radiogroup" aria-label="{{ 'builder.box_size' | t }}" data-label="{{ 'builder.box_of' | t }}">
+          {%- for v in builder.variants -%}
+            <label>
+              <input type="radio" name="builder-size" value="{{ v.id }}" data-size="{{ v.option1 | plus: 0 }}" data-price="{{ v.price | money | escape }}"
+                {% if v.id == default_variant.id %}checked{% endif %} {% unless v.available %}disabled{% endunless %}>
+              <span>{{ v.option1 }}</span>
+            </label>
+          {%- endfor -%}
+        </div>
+      </div>
+      <ul class="builder__list">
+        {%- for product in flavours.products limit: 12 -%}
+          {%- capture fallback -%}{%- render 'product-fallback', handle: product.handle -%}{%- endcapture -%}
+          <li data-flavour="{{ product.title | escape }}">
+            {%- render 'theme-image', image: product.featured_image, fallback: fallback, width: 120, alt: '' -%}
+            <span>{{ product.title }}</span>
+            <div class="qty">
+              <button type="button" aria-label="{{ 'builder.remove_one' | t }}">−</button>
+              <output>0</output>
+              <button type="button" aria-label="{{ 'builder.add_one' | t }}">+</button>
+            </div>
+          </li>
+        {%- endfor -%}
+      </ul>
+      <div class="builder__foot">
+        <div class="builder__progress">
+          <div class="builder__bar"><span></span></div>
+          <p class="builder__status"></p>
+        </div>
+        <div class="builder__buy">
+          <span class="box__price builder__price">{{ default_variant.price | money }}</span>
+          <button type="button" class="btn btn--dark builder__add" disabled>{{ 'builder.add' | t }}</button>
+        </div>
+      </div>
+    </div>
+  {%- elsif request.design_mode -%}
+    <p class="setup-note">{{ 'builder.setup' | t }}</p>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "For home (shop)",
+  "settings": [
+    { "type": "collection", "id": "boxes", "label": "Ready-made boxes collection", "info": "Defaults to the collection with the handle “boxes”. Tag a product badge-most-gifted to highlight it." },
+    { "type": "header", "content": "Build your own box" },
+    { "type": "product", "id": "builder_product", "label": "Build-your-own-box product", "info": "Defaults to the product with the handle “build-your-own-box”. Its variants must be the box sizes as plain numbers: 4, 6, 12." },
+    { "type": "collection", "id": "flavours", "label": "Flavours to choose from", "info": "Defaults to the collection with the handle “flavours”." }
+  ],
+  "presets": [{ "name": "For home (shop)" }]
+}
+{% endschema %}

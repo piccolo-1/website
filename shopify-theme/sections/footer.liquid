@@ -1,0 +1,56 @@
+{%- liquid
+  assign root = routes.root_url
+  if root == '/'
+    assign root = ''
+  endif
+-%}
+<footer class="footer">
+  <div class="footer__big"><span class="logo-mark logo-mark--full" role="img" aria-label="{{ shop.name | escape }}"></span></div>
+  <div class="footer__cols">
+    <div>
+      <h4>{{ 'footer.visit' | t }}</h4>
+      <a href="{{ root }}/#flavours">{{ 'nav.flavours' | t }}</a>
+      <a href="{{ root }}/#home">{{ 'nav.home' | t }}</a>
+      <a href="{{ root }}/#wholesale">{{ 'nav.wholesale' | t }}</a>
+      <a href="{{ root }}/#story">{{ 'nav.story' | t }}</a>
+      {%- for link in section.settings.menu.links -%}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {%- endfor -%}
+    </div>
+    <div>
+      <h4>{{ 'footer.follow' | t }}</h4>
+      {%- if section.settings.instagram != blank -%}<a href="{{ section.settings.instagram }}" target="_blank" rel="noopener">Instagram</a>{%- endif -%}
+      {%- if section.settings.tiktok != blank -%}<a href="{{ section.settings.tiktok }}" target="_blank" rel="noopener">TikTok</a>{%- endif -%}
+      {%- if section.settings.linkedin != blank -%}<a href="{{ section.settings.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>{%- endif -%}
+    </div>
+    <div class="footer__news">
+      <h4>{{ 'footer.news_title' | t }}</h4>
+      {%- form 'customer', id: 'NewsletterForm', class: 'news' -%}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        {%- if form.posted_successfully? -%}
+          <p class="news__done" role="status">{{ 'footer.news_success' | t }}</p>
+        {%- else -%}
+          <input type="email" name="contact[email]" id="NewsletterEmail" placeholder="{{ 'footer.news_email' | t }}" aria-label="{{ 'footer.news_email' | t }}" autocomplete="email" required>
+          <button type="submit" aria-label="{{ 'footer.news_submit' | t }}">→</button>
+        {%- endif -%}
+        {%- if form.errors -%}<p class="news__error">{{ form.errors | default_errors }}</p>{%- endif -%}
+      {%- endform -%}
+    </div>
+  </div>
+  <div class="footer__base">
+    <span>© {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ 'footer.rights' | t }}</span>
+    <span>{{ 'footer.allergens' | t }}</span>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    { "type": "link_list", "id": "menu", "label": "Extra links (e.g. shipping and refund policies)" },
+    { "type": "url", "id": "instagram", "label": "Instagram link" },
+    { "type": "url", "id": "tiktok", "label": "TikTok link" },
+    { "type": "url", "id": "linkedin", "label": "LinkedIn link" }
+  ]
+}
+{% endschema %}

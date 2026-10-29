@@ -1,0 +1,10 @@
+Handle,Title,Body (HTML),Vendor,Type,Tags,Published,Option1 Name,Option1 Value,Variant SKU,Variant Grams,Variant Inventory Tracker,Variant Inventory Policy,Variant Fulfillment Service,Variant Price,Variant Requires Shipping,Variant Taxable,Status
+salted-chocolate-chunk,Salted Chocolate Chunk,"<p>Thin and wide with crisp, caramelised edges, pools of dark chocolate and flaky sea salt.</p>",Les délices Nadia,Cookie,"flavour, badge-best-seller",TRUE,Title,Default Title,LDN-SCC-1,110,,deny,manual,4.99,TRUE,TRUE,active
+chocolate-stuffed,Chocolate Stuffed,"<p>Thick and soft, with a molten chocolate centre and a milk chocolate drizzle.</p>",Les délices Nadia,Cookie,flavour,TRUE,Title,Default Title,LDN-CHS-1,110,,deny,manual,4.99,TRUE,TRUE,active
+pistachio-stuffed,Pistachio Stuffed,<p>Filled with pistachio cream and finished with crushed pistachios. Contains tree nuts.</p>,Les délices Nadia,Cookie,"flavour, badge-fan-favourite",TRUE,Title,Default Title,LDN-PIS-1,110,,deny,manual,4.99,TRUE,TRUE,active
+the-taster,The Taster,"<p>4 Salted Chocolate Chunk cookies, baked the morning we post.</p>",Les délices Nadia,Box,box,TRUE,Title,Default Title,LDN-BOX-4,500,,deny,manual,16.00,TRUE,TRUE,active
+the-gift-box,The Gift Box,<p>6 cookies with a ribbon and a handwritten note.</p>,Les délices Nadia,Box,"box, badge-most-gifted",TRUE,Title,Default Title,LDN-BOX-6,750,,deny,manual,24.00,TRUE,TRUE,active
+the-full-collection,The Full Collection,"<p>12 cookies, four of each flavour.</p>",Les délices Nadia,Box,box,TRUE,Title,Default Title,LDN-BOX-12,1450,,deny,manual,42.00,TRUE,TRUE,active
+build-your-own-box,Build your own box,"<p>Choose a box size, then pick any mix of flavours on our homepage.</p>",Les délices Nadia,Box,builder,TRUE,Size,4,LDN-BYO-4,500,,deny,manual,16.00,TRUE,TRUE,active
+build-your-own-box,,,,,,,,6,LDN-BYO-6,750,,deny,manual,24.00,TRUE,TRUE,
+build-your-own-box,,,,,,,,12,LDN-BYO-12,1450,,deny,manual,44.00,TRUE,TRUE,

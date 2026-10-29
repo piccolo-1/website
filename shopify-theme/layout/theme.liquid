@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#74202c">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <title>
+    {{ page_title }}
+    {%- unless page_title contains shop.name %} · {{ shop.name }}{% endunless -%}
+  </title>
+  {%- assign meta_description = 'general.meta_description' | t -%}
+  <meta name="description" content="{{ page_description | default: meta_description | escape }}">
+  {%- if settings.favicon != blank -%}
+    <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 64, height: 64 }}">
+  {%- else -%}
+    <link rel="icon" type="image/png" href="{{ 'favicon.png' | asset_url }}">
+  {%- endif -%}
+  <link rel="apple-touch-icon" href="{{ 'apple-touch-icon.png' | asset_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  {{ 'base.css' | asset_url | stylesheet_tag }}
+  <style>
+    .logo-mark--word { --src: url("{{ 'logo-wordmark.png' | asset_url }}"); }
+    .logo-mark--icon { --src: url("{{ 'logo-icon.png' | asset_url }}"); }
+    .logo-mark--full { --src: url("{{ 'logo.png' | asset_url }}"); }
+  </style>
+  <script>
+    window.theme = {
+      template: {{ template.name | json }},
+      routes: {
+        cartAdd: {{ routes.cart_add_url | append: '.js' | json }},
+        cart: {{ routes.cart_url | json }},
+        cartJs: {{ routes.cart_url | append: '.js' | json }}
+      },
+      strings: {
+        added: {{ 'general.added' | t | json }},
+        addToBag: {{ 'general.add_to_bag' | t | json }},
+        addedToast: {{ 'general.added_toast' | t | json }},
+        viewBag: {{ 'general.view_bag' | t | json }},
+        addError: {{ 'general.add_error' | t | json }},
+        formInvalid: {{ 'general.form_invalid' | t | json }},
+        chosen: {{ 'builder.chosen' | t | json }},
+        full: {{ 'builder.full' | t | json }},
+        boxName: {{ 'builder.item_name' | t | json }},
+        interested: {{ 'wholesale.interested' | t | json }}
+      }
+    };
+  </script>
+  <script src="{{ 'theme.js' | asset_url }}" defer></script>
+  {{ content_for_header }}
+</head>
+<body class="template-{{ template.name }}">
+  {%- if template.name == 'index' -%}
+    <div class="loader" aria-hidden="true">
+      <span class="logo-mark logo-mark--word loader__word"></span>
+      <span class="logo-mark logo-mark--icon loader__icon"></span>
+    </div>
+  {%- endif -%}
+
+  {% sections 'header-group' %}
+
+  <main id="MainContent" class="{% unless template.name == 'index' %}page-shell{% endunless %}">
+    {{ content_for_layout }}
+  </main>
+
+  {% sections 'footer-group' %}
+
+  <div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

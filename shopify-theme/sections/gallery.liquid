@@ -1,0 +1,34 @@
+<section class="gallery" aria-label="{{ 'gallery.label' | t }}">
+  <div class="section-head section-head--split">
+    <div>
+      <p class="eyebrow reveal">{{ 'gallery.eyebrow' | t }}</p>
+      <h2 class="reveal">{{ 'gallery.title' | t }} <em>{{ 'gallery.title_em' | t }}</em></h2>
+    </div>
+  </div>
+  <div class="gallery__track">
+    {%- for block in section.blocks -%}
+      <figure class="reveal" {{ block.shopify_attributes }}>
+        {%- render 'theme-image', image: block.settings.image, fallback: block.settings.fallback, width: 900, alt: block.settings.alt -%}
+      </figure>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Photo gallery",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "photo",
+      "name": "Photo",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "text", "id": "alt", "label": "Description (for screen readers and Google)" },
+        { "type": "text", "id": "fallback", "label": "Bundled photo", "info": "Used until you pick a photo above. Leave as is." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Photo gallery" }]
+}
+{% endschema %}

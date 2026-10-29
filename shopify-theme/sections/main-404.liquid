@@ -1,0 +1,9 @@
+<section class="text-page">
+  <h1>{{ 'not_found.title' | t }}</h1>
+  <p>{{ 'not_found.text' | t }}</p>
+  <a class="btn btn--dark" href="{{ routes.root_url }}#flavours">{{ 'general.home_link' | t }} <span class="arrow">→</span></a>
+</section>
+
+{% schema %}
+{ "name": "404", "settings": [] }
+{% endschema %}
