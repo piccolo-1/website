@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Les délices Nadia — Wholesale catalog 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+@page { size: Letter; margin: 0; }
+* { box-sizing: border-box; }
+:root { --burgundy: #74202c; --cream: #f7eedf; --cream-2: #efe1cc; --ink: #3a1117; --muted: #8a5a5f; --line: rgba(116, 32, 44, .16); --rose: #b4485a; }
+html, body { margin: 0; background: #fff; color: var(--ink); font-family: "Inter", system-ui, sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 400; margin: 0; letter-spacing: -.01em; }
+.page { width: 8.5in; height: 11in; padding: .55in .6in; position: relative; overflow: hidden; page-break-after: always; background: var(--cream); display: flex; flex-direction: column; }
+.page:last-child { page-break-after: auto; }
+.mark { display: block; background: currentColor; -webkit-mask: var(--src) center / contain no-repeat; mask: var(--src) center / contain no-repeat; }
+.mark--full { --src: url("../assets/logo.png"); aspect-ratio: 958 / 816; }
+.mark--word { --src: url("../assets/logo-wordmark.png"); aspect-ratio: 958 / 588; }
+.eyebrow { font-size: 8pt; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; color: var(--muted); margin: 0 0 6pt; }
+
+.cover { background: var(--burgundy); color: var(--cream); justify-content: space-between; }
+.cover .mark--full { width: 3.4in; color: var(--cream); margin-top: .6in; }
+.cover h1 { font-size: 44pt; line-height: 1; }
+.cover h1 em { color: #f0bcb4; font-weight: 300; }
+.cover .tag { font-size: 12pt; opacity: .8; margin-top: 10pt; }
+.cover .cookies { display: flex; gap: 6pt; margin-top: 26pt; }
+.cover .cookies img { width: 1.05in; }
+.cover footer { display: flex; justify-content: space-between; font-size: 9.5pt; opacity: .85; border-top: 1px solid rgba(247,238,223,.3); padding-top: 12pt; }
+
+.head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 14pt; }
+.head h2 { font-size: 24pt; }
+.head .mark--word { width: .9in; color: var(--burgundy); }
+.note { font-size: 9pt; color: var(--muted); margin: -6pt 0 12pt; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 1fr); gap: 10pt; flex: 1; }
+.item { background: #fff; border-radius: 12pt; display: grid; grid-template-columns: 1.55in 1fr; overflow: hidden; }
+.item__img { background: var(--tint); display: grid; place-items: center; }
+.item__img img { width: 92%; }
+.item__body { padding: 10pt 12pt; display: flex; flex-direction: column; gap: 4pt; min-width: 0; }
+.meta { font-size: 6.5pt; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.item h3 { font-size: 13pt; line-height: 1.1; }
+.alt { font-size: 7.5pt; color: var(--muted); font-style: italic; margin-top: -2pt; }
+.desc { font-size: 7.8pt; line-height: 1.4; color: #5f3036; margin: 0; }
+.specs { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; column-gap: 9pt; margin: 2pt 0 0; padding-top: 5pt; border-top: 1px solid var(--line); }
+.specs dt { font-size: 5.8pt; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.specs dd { margin: 0; font-size: 8pt; font-weight: 600; white-space: nowrap; }
+.chips { display: flex; flex-wrap: wrap; gap: 3pt; margin-top: auto; }
+.chips span { font-size: 6.5pt; font-weight: 600; padding: 2pt 6pt; border-radius: 99pt; background: var(--cream-2); color: #5f3036; }
+.chips .nuts { background: transparent; color: var(--rose); padding-left: 0; }
+.pageno { position: absolute; bottom: .3in; right: .6in; font-size: 7.5pt; color: var(--muted); }
+
+.order h2 { font-size: 24pt; margin-bottom: 14pt; }
+.formats { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; }
+.box { background: #fff; border-radius: 12pt; padding: 14pt 16pt; }
+.box h3 { font-size: 13pt; margin-bottom: 4pt; }
+.box p { font-size: 9pt; line-height: 1.45; margin: 0; color: #5f3036; }
+.pricing { margin-top: 16pt; background: var(--burgundy); color: var(--cream); border-radius: 14pt; padding: 20pt 22pt; display: grid; grid-template-columns: 1.2fr 1fr; gap: 20pt; align-items: center; }
+.pricing h3 { font-size: 22pt; }
+.pricing h3 em { color: #f0bcb4; font-weight: 300; }
+.pricing p { font-size: 9.5pt; line-height: 1.5; opacity: .9; margin: 6pt 0 0; }
+.pricing dl { margin: 0; display: grid; gap: 6pt; font-size: 10pt; }
+.pricing dt { font-size: 7pt; letter-spacing: .14em; text-transform: uppercase; opacity: .7; }
+.pricing dd { margin: 0 0 4pt; font-weight: 600; }
+.allergens { margin-top: auto; font-size: 8pt; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10pt; }
+</style></head><body>
+<section class="page cover">
+  <span class="mark mark--full" role="img" aria-label="Les délices Nadia"></span>
+  <div>
+    <p class="eyebrow" style="color:#f0bcb4">2026</p>
+    <h1>Wholesale catalog</h1>
+    <p class="tag">Handmade cookies · Made in Montréal</p>
+    <div class="cookies"><img src="img/cover-pistachio-stuffed.jpg" alt=""><img src="img/cover-cookies-and-cream.jpg" alt=""><img src="img/cover-salted-chocolate-chunk.jpg" alt=""><img src="img/cover-almond-amaretti.jpg" alt=""><img src="img/cover-blueberry-glazed.jpg" alt=""></div>
+  </div>
+  <footer><span>lesdelicesnadia.com</span><span>hello@lesdelicesnadia.com</span><span>+1 (514) 000-0000</span></footer>
+</section>
+<section class="page">
+  <div class="head"><h2>The range</h2><span class="mark mark--word"></span></div>
+  <p class="note">Every cookie is available baked and individually wrapped, or as frozen dough to bake on site.</p>
+  <div class="grid">
+    <article class="item">
+      <div class="item__img" style="--tint:#f3e3cf"><img src="img/salted-chocolate-chunk.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Item LDN-SCC-1 · Classics</p>
+        <h3>Salted Chocolate Chunk</h3>
+        <p class="alt">Chocolat &amp; fleur de sel</p>
+        <p class="desc">Thin and wide with crisp, caramelised edges, pools of dark chocolate and flaky sea salt.</p>
+        <dl class="specs"><div><dt>Net wt</dt><dd>110 g</dd></div><div><dt>Case</dt><dd>12 units</dd></div><div><dt>Shelf life</dt><dd>21 days</dd></div></dl>
+        <div class="chips"><span>Baked, wrapped</span><span>Frozen dough</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="item__img" style="--tint:#eddcd0"><img src="img/chocolate-stuffed.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Item LDN-CHS-1 · Stuffed</p>
+        <h3>Chocolate Stuffed</h3>
+        <p class="alt">Fourré au chocolat</p>
+        <p class="desc">Thick and soft, with a molten chocolate centre and a milk chocolate drizzle.</p>
+        <dl class="specs"><div><dt>Net wt</dt><dd>110 g</dd></div><div><dt>Case</dt><dd>12 units</dd></div><div><dt>Shelf life</dt><dd>21 days</dd></div></dl>
+        <div class="chips"><span>Baked, wrapped</span><span>Frozen dough</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="item__img" style="--tint:#e5ead3"><img src="img/pistachio-stuffed.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Item LDN-PIS-1 · Stuffed</p>
+        <h3>Pistachio Stuffed</h3>
+        <p class="alt">Fourré à la pistache</p>
+        <p class="desc">Filled with pistachio cream and finished with crushed pistachios.</p>
+        <dl class="specs"><div><dt>Net wt</dt><dd>110 g</dd></div><div><dt>Case</dt><dd>12 units</dd></div><div><dt>Shelf life</dt><dd>21 days</dd></div></dl>
+        <div class="chips"><span>Baked, wrapped</span><span>Frozen dough</span><span class="nuts">⚠ Contains tree nuts</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="item__img" style="--tint:#efe0cc"><img src="img/oatmeal-chocolate-chunk.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Item LDN-OAT-1 · Classics</p>
+        <h3>Oatmeal Chocolate Chunk</h3>
+        <p class="alt">Avoine et chocolat</p>
+        <p class="desc">Chewy oats, brown sugar and dark chocolate chunks.</p>
+        <dl class="specs"><div><dt>Net wt</dt><dd>110 g</dd></div><div><dt>Case</dt><dd>12 units</dd></div><div><dt>Shelf life</dt><dd>21 days</dd></div></dl>
+        <div class="chips"><span>Baked, wrapped</span><span>Frozen dough</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="item__img" style="--tint:#e8e4e2"><img src="img/cookies-and-cream.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Item LDN-CNC-1 · Glazed &amp; drizzled</p>
+        <h3>Cookies &amp; Cream</h3>
+        <p class="alt">Biscuits et crème</p>
+        <p class="desc">Vanilla dough loaded with chocolate cookie pieces, a white chocolate drizzle and a mini chocolate sandwich cookie on top.</p>
+        <dl class="specs"><div><dt>Net wt</dt><dd>110 g</dd></div><div><dt>Case</dt><dd>12 units</dd></div><div><dt>Shelf life</dt><dd>21 days</dd></div></dl>
+        <div class="chips"><span>Baked, wrapped</span><span>Frozen dough</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="item__img" style="--tint:#f4dccb"><img src="img/cinnamon-sugar.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Item LDN-CIN-1 · Classics</p>
+        <h3>Cinnamon Sugar</h3>
+        <p class="alt">Sucre à la cannelle</p>
+        <p class="desc">Soft and thick, rolled in cinnamon sugar before baking.</p>
+        <dl class="specs"><div><dt>Net wt</dt><dd>110 g</dd></div><div><dt>Case</dt><dd>12 units</dd></div><div><dt>Shelf life</dt><dd>21 days</dd></div></dl>
+        <div class="chips"><span>Baked, wrapped</span><span>Frozen dough</span></div>
+      </div>
+    </article>
+  </div>
+  <span class="pageno">Page 2</span>
+</section>
+<section class="page">
+  <div class="head"><h2>The range</h2><span class="mark mark--word"></span></div>
+  
+  <div class="grid">
+    <article class="item">
+      <div class="item__img" style="--tint:#f3ece0"><img src="img/white-chocolate-glazed.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Item LDN-WCG-1 · Glazed &amp; drizzled</p>
+        <h3>White Chocolate Glazed</h3>
+        <p class="alt">Glacé au chocolat blanc</p>
+        <p class="desc">Soft vanilla cookie finished with a smooth white chocolate glaze.</p>
+        <dl class="specs"><div><dt>Net wt</dt><dd>110 g</dd></div><div><dt>Case</dt><dd>12 units</dd></div><div><dt>Shelf life</dt><dd>21 days</dd></div></dl>
+        <div class="chips"><span>Baked, wrapped</span><span>Frozen dough</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="item__img" style="--tint:#e3e4ef"><img src="img/blueberry-glazed.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Item LDN-BLG-1 · Glazed &amp; drizzled</p>
+        <h3>Blueberry Glazed</h3>
+        <p class="alt">Bleuets et glaçage</p>
+        <p class="desc">Packed with blueberries and finished with a sweet vanilla glaze.</p>
+        <dl class="specs"><div><dt>Net wt</dt><dd>110 g</dd></div><div><dt>Case</dt><dd>12 units</dd></div><div><dt>Shelf life</dt><dd>21 days</dd></div></dl>
+        <div class="chips"><span>Baked, wrapped</span><span>Frozen dough</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="item__img" style="--tint:#f2e2cf"><img src="img/cinnamon-roll.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Item LDN-CRL-1 · Glazed &amp; drizzled</p>
+        <h3>Cinnamon Roll</h3>
+        <p class="alt">Roulé à la cannelle</p>
+        <p class="desc">Swirled with cinnamon sugar and topped with a cream glaze, like a cinnamon bun in cookie form.</p>
+        <dl class="specs"><div><dt>Net wt</dt><dd>110 g</dd></div><div><dt>Case</dt><dd>12 units</dd></div><div><dt>Shelf life</dt><dd>21 days</dd></div></dl>
+        <div class="chips"><span>Baked, wrapped</span><span>Frozen dough</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="item__img" style="--tint:#f1ebe3"><img src="img/almond-amaretti.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Item LDN-AMA-1 · Specialty</p>
+        <h3>Almond Amaretti</h3>
+        <p class="alt">Amaretti aux amandes</p>
+        <p class="desc">Chewy almond cookie rolled in icing sugar and topped with a whole almond.</p>
+        <dl class="specs"><div><dt>Net wt</dt><dd>110 g</dd></div><div><dt>Case</dt><dd>12 units</dd></div><div><dt>Shelf life</dt><dd>21 days</dd></div></dl>
+        <div class="chips"><span>Baked, wrapped</span><span>Frozen dough</span><span class="nuts">⚠ Contains tree nuts</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="item__img" style="--tint:#e9ead5"><img src="img/salted-pistachio.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Item LDN-SPI-1 · Classics</p>
+        <h3>Salted Pistachio</h3>
+        <p class="alt">Pistache et fleur de sel</p>
+        <p class="desc">Thin and chewy brown-sugar cookie with pistachio pieces and flaky sea salt.</p>
+        <dl class="specs"><div><dt>Net wt</dt><dd>110 g</dd></div><div><dt>Case</dt><dd>12 units</dd></div><div><dt>Shelf life</dt><dd>21 days</dd></div></dl>
+        <div class="chips"><span>Baked, wrapped</span><span>Frozen dough</span><span class="nuts">⚠ Contains tree nuts</span></div>
+      </div>
+    </article>
+  </div>
+  <span class="pageno">Page 3</span>
+</section>
+<section class="page order">
+  <div class="head"><h2>Formats &amp; ordering</h2><span class="mark mark--word"></span></div>
+  <div class="formats"><div class="box"><h3>Baked &amp; individually wrapped</h3><p>110 g · 12 per case · 21 days at room temperature. Bilingual EN/FR labels.</p></div><div class="box"><h3>Frozen dough</h3><p>Pre-portioned dough balls. Bake from frozen in 12 minutes. Keeps 6 months frozen.</p></div><div class="box"><h3>Shelf-ready display tray</h3><p>12 wrapped singles in a tray that goes straight from case to counter.</p></div><div class="box"><h3>Assorted 4-pack gift box</h3><p>440 g · 6 per case.</p></div><div class="box"><h3>Cafés &amp; food service</h3><p>Cases of 24, 48 or 96+ cookies, any mix of flavours, weekly standing orders.</p></div><div class="box"><h3>Corporate &amp; events</h3><p>Branded gift boxes, logo cookies and white label for larger accounts.</p></div></div>
+  <div class="pricing">
+    <div><h3><em>Pricing on request</em></h3><p>Tell us your business type, locations and volumes, and we’ll send case pricing and a free sample box within one working day.</p></div>
+    <dl><dt>Contact</dt><dd>hello@lesdelicesnadia.com</dd><dd>+1 (514) 000-0000</dd><dd>lesdelicesnadia.com</dd></dl>
+  </div>
+  <p class="allergens">All products contain wheat, milk and egg and are made in a facility that handles tree nuts.</p>
+  <span class="pageno">Page 4</span>
+</section>
+</body></html>

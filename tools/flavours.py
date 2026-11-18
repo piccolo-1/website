@@ -50,3 +50,25 @@ FLAVOURS += [
      '', '#5f7a36', '#e9ead5'),
 ]
 NUTS = {'pistachio-stuffed', 'almond-amaretti', 'salted-pistachio'}
+
+# Catalog groups (wholesale catalog filters)
+CATEGORIES = [
+    ('classic', 'Classics', 'Classiques'),
+    ('stuffed', 'Stuffed', 'Fourrés'),
+    ('glazed', 'Glazed & drizzled', 'Glacés et nappés'),
+    ('specialty', 'Specialty', 'Spécialités'),
+]
+CATEGORY = {
+    'salted-chocolate-chunk': 'classic', 'oatmeal-chocolate-chunk': 'classic', 'cinnamon-sugar': 'classic', 'salted-pistachio': 'classic',
+    'chocolate-stuffed': 'stuffed', 'pistachio-stuffed': 'stuffed',
+    'cookies-and-cream': 'glazed', 'white-chocolate-glazed': 'glazed', 'blueberry-glazed': 'glazed', 'cinnamon-roll': 'glazed',
+    'almond-amaretti': 'specialty',
+}
+
+# Item codes (Shopify SKU for a single wrapped cookie)
+SKU = {
+    'salted-chocolate-chunk': 'LDN-SCC-1', 'chocolate-stuffed': 'LDN-CHS-1', 'pistachio-stuffed': 'LDN-PIS-1',
+    'oatmeal-chocolate-chunk': 'LDN-OAT-1', 'cookies-and-cream': 'LDN-CNC-1', 'cinnamon-sugar': 'LDN-CIN-1',
+    'white-chocolate-glazed': 'LDN-WCG-1', 'blueberry-glazed': 'LDN-BLG-1', 'cinnamon-roll': 'LDN-CRL-1',
+    'almond-amaretti': 'LDN-AMA-1', 'salted-pistachio': 'LDN-SPI-1',
+}

@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="fr-CA"><head><meta charset="utf-8">
+<title>Les délices Nadia — Catalogue de gros 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+@page { size: Letter; margin: 0; }
+* { box-sizing: border-box; }
+:root { --burgundy: #74202c; --cream: #f7eedf; --cream-2: #efe1cc; --ink: #3a1117; --muted: #8a5a5f; --line: rgba(116, 32, 44, .16); --rose: #b4485a; }
+html, body { margin: 0; background: #fff; color: var(--ink); font-family: "Inter", system-ui, sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 400; margin: 0; letter-spacing: -.01em; }
+.page { width: 8.5in; height: 11in; padding: .55in .6in; position: relative; overflow: hidden; page-break-after: always; background: var(--cream); display: flex; flex-direction: column; }
+.page:last-child { page-break-after: auto; }
+.mark { display: block; background: currentColor; -webkit-mask: var(--src) center / contain no-repeat; mask: var(--src) center / contain no-repeat; }
+.mark--full { --src: url("../assets/logo.png"); aspect-ratio: 958 / 816; }
+.mark--word { --src: url("../assets/logo-wordmark.png"); aspect-ratio: 958 / 588; }
+.eyebrow { font-size: 8pt; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; color: var(--muted); margin: 0 0 6pt; }
+
+.cover { background: var(--burgundy); color: var(--cream); justify-content: space-between; }
+.cover .mark--full { width: 3.4in; color: var(--cream); margin-top: .6in; }
+.cover h1 { font-size: 44pt; line-height: 1; }
+.cover h1 em { color: #f0bcb4; font-weight: 300; }
+.cover .tag { font-size: 12pt; opacity: .8; margin-top: 10pt; }
+.cover .cookies { display: flex; gap: 6pt; margin-top: 26pt; }
+.cover .cookies img { width: 1.05in; }
+.cover footer { display: flex; justify-content: space-between; font-size: 9.5pt; opacity: .85; border-top: 1px solid rgba(247,238,223,.3); padding-top: 12pt; }
+
+.head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 14pt; }
+.head h2 { font-size: 24pt; }
+.head .mark--word { width: .9in; color: var(--burgundy); }
+.note { font-size: 9pt; color: var(--muted); margin: -6pt 0 12pt; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 1fr); gap: 10pt; flex: 1; }
+.item { background: #fff; border-radius: 12pt; display: grid; grid-template-columns: 1.55in 1fr; overflow: hidden; }
+.item__img { background: var(--tint); display: grid; place-items: center; }
+.item__img img { width: 92%; }
+.item__body { padding: 10pt 12pt; display: flex; flex-direction: column; gap: 4pt; min-width: 0; }
+.meta { font-size: 6.5pt; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.item h3 { font-size: 13pt; line-height: 1.1; }
+.alt { font-size: 7.5pt; color: var(--muted); font-style: italic; margin-top: -2pt; }
+.desc { font-size: 7.8pt; line-height: 1.4; color: #5f3036; margin: 0; }
+.specs { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; column-gap: 9pt; margin: 2pt 0 0; padding-top: 5pt; border-top: 1px solid var(--line); }
+.specs dt { font-size: 5.8pt; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.specs dd { margin: 0; font-size: 8pt; font-weight: 600; white-space: nowrap; }
+.chips { display: flex; flex-wrap: wrap; gap: 3pt; margin-top: auto; }
+.chips span { font-size: 6.5pt; font-weight: 600; padding: 2pt 6pt; border-radius: 99pt; background: var(--cream-2); color: #5f3036; }
+.chips .nuts { background: transparent; color: var(--rose); padding-left: 0; }
+.pageno { position: absolute; bottom: .3in; right: .6in; font-size: 7.5pt; color: var(--muted); }
+
+.order h2 { font-size: 24pt; margin-bottom: 14pt; }
+.formats { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; }
+.box { background: #fff; border-radius: 12pt; padding: 14pt 16pt; }
+.box h3 { font-size: 13pt; margin-bottom: 4pt; }
+.box p { font-size: 9pt; line-height: 1.45; margin: 0; color: #5f3036; }
+.pricing { margin-top: 16pt; background: var(--burgundy); color: var(--cream); border-radius: 14pt; padding: 20pt 22pt; display: grid; grid-template-columns: 1.2fr 1fr; gap: 20pt; align-items: center; }
+.pricing h3 { font-size: 22pt; }
+.pricing h3 em { color: #f0bcb4; font-weight: 300; }
+.pricing p { font-size: 9.5pt; line-height: 1.5; opacity: .9; margin: 6pt 0 0; }
+.pricing dl { margin: 0; display: grid; gap: 6pt; font-size: 10pt; }
+.pricing dt { font-size: 7pt; letter-spacing: .14em; text-transform: uppercase; opacity: .7; }
+.pricing dd { margin: 0 0 4pt; font-weight: 600; }
+.allergens { margin-top: auto; font-size: 8pt; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10pt; }
+</style></head><body>
+<section class="page cover">
+  <span class="mark mark--full" role="img" aria-label="Les délices Nadia"></span>
+  <div>
+    <p class="eyebrow" style="color:#f0bcb4">2026</p>
+    <h1>Catalogue de gros</h1>
+    <p class="tag">Biscuits faits à la main · Fait à Montréal</p>
+    <div class="cookies"><img src="img/cover-pistachio-stuffed.jpg" alt=""><img src="img/cover-cookies-and-cream.jpg" alt=""><img src="img/cover-salted-chocolate-chunk.jpg" alt=""><img src="img/cover-almond-amaretti.jpg" alt=""><img src="img/cover-blueberry-glazed.jpg" alt=""></div>
+  </div>
+  <footer><span>lesdelicesnadia.com</span><span>hello@lesdelicesnadia.com</span><span>+1 (514) 000-0000</span></footer>
+</section>
+<section class="page">
+  <div class="head"><h2>La gamme</h2><span class="mark mark--word"></span></div>
+  <p class="note">Chaque biscuit est offert cuit et emballé individuellement, ou en pâte congelée à cuire sur place.</p>
+  <div class="grid">
+    <article class="item">
+      <div class="item__img" style="--tint:#f3e3cf"><img src="img/salted-chocolate-chunk.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Article LDN-SCC-1 · Classiques</p>
+        <h3>Chocolat &amp; fleur de sel</h3>
+        <p class="alt">Salted Chocolate Chunk</p>
+        <p class="desc">Mince et large, aux bords croustillants et caramélisés, avec des flaques de chocolat noir et de la fleur de sel.</p>
+        <dl class="specs"><div><dt>Poids net</dt><dd>110 g</dd></div><div><dt>Caisse</dt><dd>12 unités</dd></div><div><dt>Conservation</dt><dd>21 jours</dd></div></dl>
+        <div class="chips"><span>Cuit, emballé</span><span>Pâte congelée</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="item__img" style="--tint:#eddcd0"><img src="img/chocolate-stuffed.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Article LDN-CHS-1 · Fourrés</p>
+        <h3>Fourré au chocolat</h3>
+        <p class="alt">Chocolate Stuffed</p>
+        <p class="desc">Épais et moelleux, au cœur de chocolat fondant, avec un filet de chocolat au lait.</p>
+        <dl class="specs"><div><dt>Poids net</dt><dd>110 g</dd></div><div><dt>Caisse</dt><dd>12 unités</dd></div><div><dt>Conservation</dt><dd>21 jours</dd></div></dl>
+        <div class="chips"><span>Cuit, emballé</span><span>Pâte congelée</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="item__img" style="--tint:#e5ead3"><img src="img/pistachio-stuffed.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Article LDN-PIS-1 · Fourrés</p>
+        <h3>Fourré à la pistache</h3>
+        <p class="alt">Pistachio Stuffed</p>
+        <p class="desc">Garni de crème de pistache et parsemé de pistaches concassées.</p>
+        <dl class="specs"><div><dt>Poids net</dt><dd>110 g</dd></div><div><dt>Caisse</dt><dd>12 unités</dd></div><div><dt>Conservation</dt><dd>21 jours</dd></div></dl>
+        <div class="chips"><span>Cuit, emballé</span><span>Pâte congelée</span><span class="nuts">⚠ Contient des noix</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="item__img" style="--tint:#efe0cc"><img src="img/oatmeal-chocolate-chunk.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Article LDN-OAT-1 · Classiques</p>
+        <h3>Avoine et chocolat</h3>
+        <p class="alt">Oatmeal Chocolate Chunk</p>
+        <p class="desc">Flocons d’avoine moelleux, cassonade et gros morceaux de chocolat noir.</p>
+        <dl class="specs"><div><dt>Poids net</dt><dd>110 g</dd></div><div><dt>Caisse</dt><dd>12 unités</dd></div><div><dt>Conservation</dt><dd>21 jours</dd></div></dl>
+        <div class="chips"><span>Cuit, emballé</span><span>Pâte congelée</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="item__img" style="--tint:#e8e4e2"><img src="img/cookies-and-cream.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Article LDN-CNC-1 · Glacés et nappés</p>
+        <h3>Biscuits et crème</h3>
+        <p class="alt">Cookies &amp; Cream</p>
+        <p class="desc">Pâte à la vanille garnie de morceaux de biscuits au chocolat, d’un filet de chocolat blanc et d’un mini biscuit sandwich au chocolat.</p>
+        <dl class="specs"><div><dt>Poids net</dt><dd>110 g</dd></div><div><dt>Caisse</dt><dd>12 unités</dd></div><div><dt>Conservation</dt><dd>21 jours</dd></div></dl>
+        <div class="chips"><span>Cuit, emballé</span><span>Pâte congelée</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="item__img" style="--tint:#f4dccb"><img src="img/cinnamon-sugar.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Article LDN-CIN-1 · Classiques</p>
+        <h3>Sucre à la cannelle</h3>
+        <p class="alt">Cinnamon Sugar</p>
+        <p class="desc">Épais et moelleux, roulé dans le sucre à la cannelle avant la cuisson.</p>
+        <dl class="specs"><div><dt>Poids net</dt><dd>110 g</dd></div><div><dt>Caisse</dt><dd>12 unités</dd></div><div><dt>Conservation</dt><dd>21 jours</dd></div></dl>
+        <div class="chips"><span>Cuit, emballé</span><span>Pâte congelée</span></div>
+      </div>
+    </article>
+  </div>
+  <span class="pageno">Page 2</span>
+</section>
+<section class="page">
+  <div class="head"><h2>La gamme</h2><span class="mark mark--word"></span></div>
+  
+  <div class="grid">
+    <article class="item">
+      <div class="item__img" style="--tint:#f3ece0"><img src="img/white-chocolate-glazed.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Article LDN-WCG-1 · Glacés et nappés</p>
+        <h3>Glacé au chocolat blanc</h3>
+        <p class="alt">White Chocolate Glazed</p>
+        <p class="desc">Biscuit moelleux à la vanille recouvert d’un glaçage lisse au chocolat blanc.</p>
+        <dl class="specs"><div><dt>Poids net</dt><dd>110 g</dd></div><div><dt>Caisse</dt><dd>12 unités</dd></div><div><dt>Conservation</dt><dd>21 jours</dd></div></dl>
+        <div class="chips"><span>Cuit, emballé</span><span>Pâte congelée</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="item__img" style="--tint:#e3e4ef"><img src="img/blueberry-glazed.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Article LDN-BLG-1 · Glacés et nappés</p>
+        <h3>Bleuets et glaçage</h3>
+        <p class="alt">Blueberry Glazed</p>
+        <p class="desc">Rempli de bleuets et nappé d’un glaçage sucré à la vanille.</p>
+        <dl class="specs"><div><dt>Poids net</dt><dd>110 g</dd></div><div><dt>Caisse</dt><dd>12 unités</dd></div><div><dt>Conservation</dt><dd>21 jours</dd></div></dl>
+        <div class="chips"><span>Cuit, emballé</span><span>Pâte congelée</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="item__img" style="--tint:#f2e2cf"><img src="img/cinnamon-roll.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Article LDN-CRL-1 · Glacés et nappés</p>
+        <h3>Roulé à la cannelle</h3>
+        <p class="alt">Cinnamon Roll</p>
+        <p class="desc">Tourbillons de sucre à la cannelle et glaçage à la crème, comme une brioche à la cannelle en version biscuit.</p>
+        <dl class="specs"><div><dt>Poids net</dt><dd>110 g</dd></div><div><dt>Caisse</dt><dd>12 unités</dd></div><div><dt>Conservation</dt><dd>21 jours</dd></div></dl>
+        <div class="chips"><span>Cuit, emballé</span><span>Pâte congelée</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="item__img" style="--tint:#f1ebe3"><img src="img/almond-amaretti.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Article LDN-AMA-1 · Spécialités</p>
+        <h3>Amaretti aux amandes</h3>
+        <p class="alt">Almond Amaretti</p>
+        <p class="desc">Biscuit moelleux aux amandes roulé dans le sucre glace et garni d’une amande entière.</p>
+        <dl class="specs"><div><dt>Poids net</dt><dd>110 g</dd></div><div><dt>Caisse</dt><dd>12 unités</dd></div><div><dt>Conservation</dt><dd>21 jours</dd></div></dl>
+        <div class="chips"><span>Cuit, emballé</span><span>Pâte congelée</span><span class="nuts">⚠ Contient des noix</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="item__img" style="--tint:#e9ead5"><img src="img/salted-pistachio.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Article LDN-SPI-1 · Classiques</p>
+        <h3>Pistache et fleur de sel</h3>
+        <p class="alt">Salted Pistachio</p>
+        <p class="desc">Biscuit mince et moelleux à la cassonade, avec des éclats de pistache et de la fleur de sel.</p>
+        <dl class="specs"><div><dt>Poids net</dt><dd>110 g</dd></div><div><dt>Caisse</dt><dd>12 unités</dd></div><div><dt>Conservation</dt><dd>21 jours</dd></div></dl>
+        <div class="chips"><span>Cuit, emballé</span><span>Pâte congelée</span><span class="nuts">⚠ Contient des noix</span></div>
+      </div>
+    </article>
+  </div>
+  <span class="pageno">Page 3</span>
+</section>
+<section class="page order">
+  <div class="head"><h2>Formats et commandes</h2><span class="mark mark--word"></span></div>
+  <div class="formats"><div class="box"><h3>Cuits et emballés individuellement</h3><p>110 g · 12 par caisse · 21 jours à température ambiante. Étiquettes bilingues FR/EN.</p></div><div class="box"><h3>Pâte congelée</h3><p>Boules de pâte portionnées. Cuisson directement du congélateur en 12 minutes. Se conserve 6 mois congelée.</p></div><div class="box"><h3>Présentoir prêt pour la tablette</h3><p>12 biscuits emballés dans un présentoir qui passe directement de la caisse au comptoir.</p></div><div class="box"><h3>Boîte-cadeau assortie de 4</h3><p>440 g · 6 par caisse.</p></div><div class="box"><h3>Cafés et restauration</h3><p>Caisses de 24, 48 ou 96+ biscuits, toutes les saveurs au choix, commandes hebdomadaires récurrentes.</p></div><div class="box"><h3>Entreprises et événements</h3><p>Boîtes-cadeaux personnalisées, biscuits à votre logo et marque blanche pour les grands comptes.</p></div></div>
+  <div class="pricing">
+    <div><h3><em>Prix sur demande</em></h3><p>Indiquez-nous votre type d’entreprise, vos emplacements et vos volumes : nous vous enverrons nos prix à la caisse et une boîte d’échantillons gratuite en un jour ouvrable.</p></div>
+    <dl><dt>Contact</dt><dd>hello@lesdelicesnadia.com</dd><dd>+1 (514) 000-0000</dd><dd>lesdelicesnadia.com</dd></dl>
+  </div>
+  <p class="allergens">Tous nos produits contiennent du blé, du lait et des œufs et sont fabriqués dans un établissement qui manipule des noix.</p>
+  <span class="pageno">Page 4</span>
+</section>
+</body></html>

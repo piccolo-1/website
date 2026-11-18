@@ -5,7 +5,7 @@ Photos are expected as assets/cut-<handle>-sm.webp (site) and shopify-theme/asse
 """
 import csv, json, os, re, sys
 sys.path.insert(0, os.path.dirname(__file__))
-from flavours import FLAVOURS, NUTS
+from flavours import FLAVOURS, NUTS, CATEGORIES, CATEGORY, SKU
 
 esc = lambda t: t.replace('&', '&amp;')
 NOTE_EN_OLD = 'Contains wheat, milk and egg; Pistachio Stuffed contains tree nuts.'
@@ -22,23 +22,35 @@ def sub1(pattern, repl, s):
 s = open('index.html', encoding='utf-8').read()
 s = sub1(r'(<div class="marquee__track">).*?(\n      </div>)',
          ''.join(f'\n        <span>{esc(en)}</span><i>✦</i>' for _, en, *_ in FLAVOURS * 2), s)
-cards = ''
+
+# wholesale catalog: filters + one card per flavour (no prices)
+used = [c for c in CATEGORIES if any(CATEGORY[f[0]] == c[0] for f in FLAVOURS)]
+chips = '\n        <button type="button" data-filter="all" aria-pressed="true">All</button>' + ''.join(
+    f'\n        <button type="button" data-filter="{key}" aria-pressed="false">{esc(label)}</button>' for key, label, _ in used)
+s = sub1(r'(<div class="catalog__filters reveal" role="group" aria-label="Filter the catalog">).*?(</div>\n      <div class="catalog__grid">)', chips + '\n      ', s)
+cat_label = {key: label for key, label, _ in CATEGORIES}
+items = ''
 for h, en, fr, de, dfr, badge, band, tint in FLAVOURS:
-    tag = f'\n          <span class="cookie-card__tag">{badge}</span>' if badge else ''
-    cards += f'''
-        <article class="cookie-card reveal">
-          <div class="cookie-card__img cookie-card__img--cut" style="--tint: {tint}"><img src="assets/cut-{h}-sm.webp" alt="{esc(en)} cookie" width="400" height="400" loading="lazy"></div>
-          <div class="cookie-card__body">
+    tag = f'\n          <span class="cat-item__tag">{badge}</span>' if badge else ''
+    nuts = '\n            <p class="cat-item__allergen">Contains tree nuts</p>' if h in NUTS else ''
+    items += f'''
+        <article class="cat-item reveal" data-handle="{h}" data-cat="{CATEGORY[h]}">
+          <div class="cat-item__img" style="--tint: {tint}"><img src="assets/cut-{h}-sm.webp" alt="{esc(en)} cookie" width="400" height="400" loading="lazy"></div>{tag}
+          <div class="cat-item__body">
+            <p class="cat-item__meta"><span data-no-i18n>{SKU[h]}</span> · <span>{esc(cat_label[CATEGORY[h]])}</span></p>
             <h3>{esc(en)}</h3>
-            <p>{esc(de)}</p>
-            <div class="cookie-card__avail"><span>Home</span><span>Wholesale</span></div>
-          </div>{tag}
+            <p class="cat-item__desc">{esc(de)}</p>
+            <dl class="cat-item__specs">
+              <div><dt>Net wt</dt><dd>110 g</dd></div>
+              <div><dt>Case</dt><dd>12 units</dd></div>
+              <div><dt>Shelf life</dt><dd>21 days</dd></div>
+            </dl>
+            <ul class="cat-item__formats"><li>Baked, wrapped</li><li>Frozen dough</li></ul>{nuts}
+            <button type="button" class="cat-item__add" aria-pressed="false"><span class="cat-item__off">+ Add to inquiry</span><span class="cat-item__on">✓ In your inquiry</span></button>
+          </div>
         </article>'''
-s = sub1(r'(<div class="cookie-grid">).*?(\n      </div>\n    </section>)', cards, s)
-s = sub1(r'(<ul class="builder__list">).*?(\n        </ul>)', ''.join(
-    f'\n          <li data-flavour="{esc(en)}"><img src="assets/cut-{h}-sm.webp" alt="" width="56" height="56" loading="lazy"><span>{esc(en)}</span>'
-    '<div class="qty"><button aria-label="Remove one">−</button><output>0</output><button aria-label="Add one">+</button></div></li>'
-    for h, en, *_ in FLAVOURS), s)
+s = sub1(r'(<div class="catalog__grid">).*?(</div>\n    </section>)', items + '\n      ', s)
+
 packs = ''
 for h, en, fr, de, dfr, badge, band, tint in FLAVOURS:
     packs += f'''
@@ -52,11 +64,19 @@ for h, en, fr, de, dfr, badge, band, tint in FLAVOURS:
               <figcaption>{esc(en)}</figcaption>
             </figure>'''
 s = sub1(r'(<div class="packs">).*?(\n          </div>\n\n          <div class="retail-grid">)', packs, s)
-rows = ''.join(f'\n                    <tr><td>{esc(en)}</td><td>Single, wrapped</td><td>110 g</td><td>12</td><td>21 days</td><td>Ambient</td><td>$4.99</td></tr>'
+rows = ''.join(f'\n                    <tr><td>{esc(en)}</td><td>Single, wrapped</td><td>110 g</td><td>12</td><td>21 days</td><td>Ambient</td></tr>'
                for _, en, *_ in FLAVOURS)
 s = sub1(r'(<tbody>)(?:\s*<tr><td>(?!Assorted).*?</tr>)+()', rows, s)
 s = s.replace(NOTE_EN_OLD, NOTE_EN)
 open('index.html', 'w', encoding='utf-8').write(s)
+
+# retail page: box builder rows
+s = open('shop.html', encoding='utf-8').read()
+s = sub1(r'(<ul class="builder__list">).*?(\n        </ul>)', ''.join(
+    f'\n          <li data-flavour="{esc(en)}"><img src="assets/cut-{h}-sm.webp" alt="" width="56" height="56" loading="lazy"><span>{esc(en)}</span>'
+    '<div class="qty"><button aria-label="Remove one">−</button><output>0</output><button aria-label="Add one">+</button></div></li>'
+    for h, en, *_ in FLAVOURS), s)
+open('shop.html', 'w', encoding='utf-8').write(s)
 
 j = open('i18n.js', encoding='utf-8').read()
 j = j.replace(f"'{NOTE_EN_OLD}'", f"'{NOTE_EN}'").replace(NOTE_FR_OLD, NOTE_FR)
@@ -65,6 +85,9 @@ for h, en, fr, de, dfr, *_ in FLAVOURS:
     for k, v in ((en, fr), (de, dfr), (f'{en} cookie', f'Biscuit « {fr} »')):
         if repr(k) + ':' not in j:
             add += f'  {k!r}: {v!r},\n'
+for _, en, fr in CATEGORIES:
+    if repr(en) + ':' not in j:
+        add += f'  {en!r}: {fr!r},\n'
 if add:
     j = j.replace('  // Messages shown by script.js', add + '\n  // Messages shown by script.js', 1)
 open('i18n.js', 'w', encoding='utf-8').write(j)
@@ -105,8 +128,10 @@ by = {r['Handle']: r for r in rows if r['Title']}
 template = dict(by['chocolate-stuffed'])
 flavour_rows = []
 for h, en, fr, de, dfr, badge, *_ in FLAVOURS:
-    r = by.get(h) or dict(template, **{'Handle': h, 'Title': en, 'Variant SKU': 'LDN-' + ''.join(x[0] for x in h.split('-')).upper() + '-1'})
-    r['Tags'] = 'flavour' + {'Best seller': ', badge-best-seller', 'Fan favourite': ', badge-fan-favourite', 'New': ', badge-new'}.get(badge, '')
+    r = by.get(h) or dict(template, **{'Handle': h, 'Title': en})
+    r['Variant SKU'] = SKU[h]
+    r['Tags'] = ''
+    r['Tags'] = f'flavour, cat-{CATEGORY[h]}' + {'Best seller': ', badge-best-seller', 'Fan favourite': ', badge-fan-favourite', 'New': ', badge-new'}.get(badge, '')
     r['Body (HTML)'] = f'<p>{de}</p>' + (' <p>Contains tree nuts.</p>' if h in NUTS else '')
     flavour_rows.append(r)
 handles = {f[0] for f in FLAVOURS}

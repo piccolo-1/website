@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shop boxes · Les délices Nadia</title>
+  <meta name="description" content="Order cookie boxes for home from Les délices Nadia: ready-made gift boxes or build your own mix.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#74202c">
+</head>
+<body class="page-shop">
+
+  <!-- Navigation -->
+  <header class="nav" id="top">
+    <a href="index.html" class="nav__logo" aria-label="Les délices Nadia, back to top"><span class="logo-mark logo-mark--word"></span></a>
+    <nav class="nav__links" aria-label="Main">
+      <a href="index.html#catalog">Catalog</a>
+      <a href="index.html#wholesale">Wholesale</a>
+      <a href="index.html#story">Our story</a>
+      <a href="shop.html" aria-current="page">Shop for home</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+    </div>
+    <a href="index.html#contact" class="btn btn--dark btn--sm nav__cta">Request pricing</a>
+    <button class="nav__burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+  </header>
+
+  <div class="menu" aria-hidden="true">
+    <a href="index.html#catalog">Catalog</a>
+    <a href="index.html#wholesale">Wholesale</a>
+    <a href="index.html#story">Our story</a>
+    <a href="shop.html">Shop for home</a>
+    <a href="index.html#contact">Request pricing</a>
+  </div>
+
+  <main>
+    <!-- ============ SHOP FOR HOME ============ -->
+    <section class="shop" id="home">
+      <a class="shop__back" href="index.html#catalog">← Buying for a business? See the wholesale catalog</a>
+      <div class="section-head section-head--split">
+        <div>
+          <p class="eyebrow reveal">Shop for home</p>
+          <h1 class="reveal shop__title">Small batches, <em>baked the morning we post.</em></h1>
+        </div>
+        <ul class="perks reveal">
+          <li>Boxes of 4, 6 or 12</li>
+          <li>Nationwide delivery</li>
+          <li>Local collection available</li>
+        </ul>
+      </div>
+
+      <div class="box-grid">
+        <article class="box reveal">
+          <div class="box__visual"><img src="assets/salted-chunk-stack-sm.webp" alt="" width="600" height="800" loading="lazy"></div>
+          <div class="box__info">
+            <h3>The Taster</h3>
+            <p>4 cookies · Salted Chocolate Chunk</p>
+            <div class="box__foot"><span class="box__price">$16</span><button class="btn btn--dark btn--sm add-btn" data-name="The Taster">Add to bag</button></div>
+          </div>
+        </article>
+        <article class="box box--featured reveal">
+          <span class="box__ribbon">Most gifted</span>
+          <div class="box__visual"><img src="assets/stuffed-stack-sm.webp" alt="" width="600" height="800" loading="lazy"></div>
+          <div class="box__info">
+            <h3>The Gift Box</h3>
+            <p>6 cookies · ribbon &amp; handwritten note</p>
+            <div class="box__foot"><span class="box__price">$24</span><button class="btn btn--dark btn--sm add-btn" data-name="The Gift Box">Add to bag</button></div>
+          </div>
+        </article>
+        <article class="box reveal">
+          <div class="box__visual"><img src="assets/chocolate-stuffed-sm.webp" alt="" width="600" height="800" loading="lazy"></div>
+          <div class="box__info">
+            <h3>The Full Collection</h3>
+            <p>12 cookies · a mix of our favourites</p>
+            <div class="box__foot"><span class="box__price">$42</span><button class="btn btn--dark btn--sm add-btn" data-name="The Full Collection">Add to bag</button></div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Build your own box -->
+      <div class="builder reveal" id="builder">
+        <div class="builder__head">
+          <div>
+            <h3>Build your own box</h3>
+            <p>Choose a size, then pick any mix of flavours.</p>
+          </div>
+          <div class="builder__sizes" role="radiogroup" aria-label="Box size" data-label="Box of">
+            <label><input type="radio" name="size" value="4" data-price="16"><span>4</span></label>
+            <label><input type="radio" name="size" value="6" data-price="24" checked><span>6</span></label>
+            <label><input type="radio" name="size" value="12" data-price="44"><span>12</span></label>
+          </div>
+        </div>
+        <ul class="builder__list">
+          <li data-flavour="Salted Chocolate Chunk"><img src="assets/cut-salted-chocolate-chunk-sm.webp" alt="" width="56" height="56" loading="lazy"><span>Salted Chocolate Chunk</span><div class="qty"><button aria-label="Remove one">−</button><output>0</output><button aria-label="Add one">+</button></div></li>
+          <li data-flavour="Chocolate Stuffed"><img src="assets/cut-chocolate-stuffed-sm.webp" alt="" width="56" height="56" loading="lazy"><span>Chocolate Stuffed</span><div class="qty"><button aria-label="Remove one">−</button><output>0</output><button aria-label="Add one">+</button></div></li>
+          <li data-flavour="Pistachio Stuffed"><img src="assets/cut-pistachio-stuffed-sm.webp" alt="" width="56" height="56" loading="lazy"><span>Pistachio Stuffed</span><div class="qty"><button aria-label="Remove one">−</button><output>0</output><button aria-label="Add one">+</button></div></li>
+          <li data-flavour="Oatmeal Chocolate Chunk"><img src="assets/cut-oatmeal-chocolate-chunk-sm.webp" alt="" width="56" height="56" loading="lazy"><span>Oatmeal Chocolate Chunk</span><div class="qty"><button aria-label="Remove one">−</button><output>0</output><button aria-label="Add one">+</button></div></li>
+          <li data-flavour="Cookies &amp; Cream"><img src="assets/cut-cookies-and-cream-sm.webp" alt="" width="56" height="56" loading="lazy"><span>Cookies &amp; Cream</span><div class="qty"><button aria-label="Remove one">−</button><output>0</output><button aria-label="Add one">+</button></div></li>
+          <li data-flavour="Cinnamon Sugar"><img src="assets/cut-cinnamon-sugar-sm.webp" alt="" width="56" height="56" loading="lazy"><span>Cinnamon Sugar</span><div class="qty"><button aria-label="Remove one">−</button><output>0</output><button aria-label="Add one">+</button></div></li>
+          <li data-flavour="White Chocolate Glazed"><img src="assets/cut-white-chocolate-glazed-sm.webp" alt="" width="56" height="56" loading="lazy"><span>White Chocolate Glazed</span><div class="qty"><button aria-label="Remove one">−</button><output>0</output><button aria-label="Add one">+</button></div></li>
+          <li data-flavour="Blueberry Glazed"><img src="assets/cut-blueberry-glazed-sm.webp" alt="" width="56" height="56" loading="lazy"><span>Blueberry Glazed</span><div class="qty"><button aria-label="Remove one">−</button><output>0</output><button aria-label="Add one">+</button></div></li>
+          <li data-flavour="Cinnamon Roll"><img src="assets/cut-cinnamon-roll-sm.webp" alt="" width="56" height="56" loading="lazy"><span>Cinnamon Roll</span><div class="qty"><button aria-label="Remove one">−</button><output>0</output><button aria-label="Add one">+</button></div></li>
+          <li data-flavour="Almond Amaretti"><img src="assets/cut-almond-amaretti-sm.webp" alt="" width="56" height="56" loading="lazy"><span>Almond Amaretti</span><div class="qty"><button aria-label="Remove one">−</button><output>0</output><button aria-label="Add one">+</button></div></li>
+          <li data-flavour="Salted Pistachio"><img src="assets/cut-salted-pistachio-sm.webp" alt="" width="56" height="56" loading="lazy"><span>Salted Pistachio</span><div class="qty"><button aria-label="Remove one">−</button><output>0</output><button aria-label="Add one">+</button></div></li>
+        </ul>
+        <div class="builder__foot">
+          <div class="builder__progress">
+            <div class="builder__bar"><span></span></div>
+            <p class="builder__status">0 of 6 chosen</p>
+          </div>
+          <div class="builder__buy">
+            <span class="box__price builder__price">$24</span>
+            <button class="btn btn--dark builder__add" disabled>Add box to bag</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__big"><span class="logo-mark logo-mark--full" role="img" aria-label="Les délices Nadia"></span></div>
+    <div class="footer__cols">
+      <div>
+        <h4>Visit</h4>
+        <a href="index.html#catalog">Catalog</a><a href="index.html#wholesale">Wholesale</a><a href="index.html#story">Our story</a><a href="shop.html">Shop for home</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#">Instagram</a><a href="#">TikTok</a><a href="#">LinkedIn</a>
+      </div>
+      <div class="footer__news">
+        <h4>Get first dibs on new flavours</h4>
+        <form class="news">
+          <input type="email" placeholder="Email address" aria-label="Email address" required>
+          <button type="submit" aria-label="Subscribe">→</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>© <span id="year"></span> Les délices Nadia. All rights reserved.</span>
+      <span>Allergens: all products contain gluten, dairy and egg, and may contain nuts.</span>
+    </div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
