@@ -7,10 +7,10 @@
 <header class="nav" id="top">
   <a href="{{ routes.root_url }}" class="nav__logo" aria-label="{{ 'general.back_to_top' | t }}"><span class="logo-mark logo-mark--word"></span></a>
   <nav class="nav__links" aria-label="{{ 'general.main_nav' | t }}">
-    <a href="{{ root }}/#flavours">{{ 'nav.flavours' | t }}</a>
-    <a href="{{ root }}/#home">{{ 'nav.home' | t }}</a>
+    <a href="{{ root }}/#catalog">{{ 'nav.catalog' | t }}</a>
     <a href="{{ root }}/#wholesale">{{ 'nav.wholesale' | t }}</a>
     <a href="{{ root }}/#story">{{ 'nav.story' | t }}</a>
+    <a href="{{ root }}/pages/shop"{% if page.handle == 'shop' %} aria-current="page"{% endif %}>{{ 'nav.shop' | t }}</a>
   </nav>
   {%- render 'language-switch' -%}
   <a href="{{ routes.cart_url }}" class="nav__bag" aria-label="{{ 'general.bag' | t }}">
@@ -21,10 +21,10 @@
 </header>
 
 <div class="menu" aria-hidden="true">
-  <a href="{{ root }}/#flavours">{{ 'nav.flavours' | t }}</a>
-  <a href="{{ root }}/#home">{{ 'nav.home' | t }}</a>
+  <a href="{{ root }}/#catalog">{{ 'nav.catalog' | t }}</a>
   <a href="{{ root }}/#wholesale">{{ 'nav.wholesale' | t }}</a>
   <a href="{{ root }}/#story">{{ 'nav.story' | t }}</a>
+  <a href="{{ root }}/pages/shop"{% if page.handle == 'shop' %} aria-current="page"{% endif %}>{{ 'nav.shop' | t }}</a>
   <a href="{{ routes.cart_url }}">{{ 'general.bag' | t }} (<span data-cart-count>{{ cart.item_count }}</span>)</a>
   <a href="{{ root }}/#contact">{{ 'nav.trade' | t }}</a>
 </div>

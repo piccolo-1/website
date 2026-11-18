@@ -11,8 +11,11 @@ three ready-made boxes and the **Build your own box** product with sizes 4, 6 an
 Prices and weights are placeholders, so change them on each product afterwards.
 
 Tags control the site:
-- `flavour` puts a product in the flavours section, the box builder and the packaging mockups.
-- `box` puts it in the ready-made boxes.
+- `flavour` puts a product in the wholesale catalog, the box builder and the packaging mockups.
+  Flavour products never show a price on the site: buyers request pricing.
+- `cat-classic`, `cat-stuffed`, `cat-glazed`, `cat-specialty` set the catalog filter group.
+- `contains-nuts` adds the tree-nut warning in the catalog.
+- `box` puts it in the ready-made boxes on the Shop page (these do show prices).
 - `badge-best-seller`, `badge-fan-favourite`, `badge-most-gifted`, `badge-new` add a badge.
 
 ## 2. Add the photos
@@ -31,15 +34,28 @@ Until a product has a photo, the theme shows the matching bundled photo, so the 
 
 Keep the titles exactly as shown, so their web addresses are `flavours` and `boxes`.
 
-## 4. Upload the theme
+## 4. Create the Shop page (retail orders)
+
+**Online Store → Pages → Add page.** Title it **Shop**, leave the content empty, and under
+**Theme template** choose **page.shop**. Save. This is the separate page with the gift boxes and the
+build-your-own box; the homepage links to it.
+
+## 5. Upload the theme
 
 **Online Store → Themes → Add theme → Upload zip file → `les-delices-nadia-theme.zip`**.
 Click **Customize** to check it, then **Publish** when you're happy.
 
-In **Customize** you can change photos, the spec table rows, the numbers, your phone and address,
+In **Customize** you can change photos, the catalog specs (weight, case size, shelf life), the spec
+table rows, the numbers, your phone and address,
 and the footer links (Instagram, TikTok, LinkedIn, policies).
 
-## 5. Turn on French
+## 6. Add the catalog PDFs
+
+**Content → Files → Upload files** and upload `les-delices-nadia-catalog-en.pdf` and
+`les-delices-nadia-catalog-fr.pdf`. Copy each file's link, then in **Customize → Wholesale catalog**
+paste them into *English PDF link* and *French PDF link*. The download button appears once a link is set.
+
+## 7. Turn on French
 
 1. **Settings → Languages → Add language → French**, then **Publish** it.
    All the site's own text is already translated, and the EN | FR switch appears in the menu bar.
@@ -65,12 +81,12 @@ and the footer links (Instagram, TikTok, LinkedIn, policies).
 
 Also translate the spec table rows there (they're under the homepage's Retail & wholesale section).
 
-## 6. Change any wording
+## 8. Change any wording
 
 **Online Store → Themes → ⋯ → Edit default theme content.** Pick English or French at the top and
 edit any sentence on the site. No code needed.
 
-## 7. Before you take orders
+## 9. Before you take orders
 
 - **Settings → Taxes and duties:** add your GST/QST registration. Ask your accountant how sales tax
   applies to your baked goods.
@@ -81,5 +97,7 @@ edit any sentence on the site. No code needed.
 
 - Build-your-own-box orders show the chosen flavours on the order, for example
   `Salted Chocolate Chunk: 2`, `Pistachio Stuffed: 4`.
+- Wholesale buyers pick products in the catalog ("Add to inquiry") and send the pricing form. The
+  products they picked arrive in the email as a *Products* line.
 - Wholesale and retail buyers send the enquiry form. Shopify's built-in wholesale price lists need
   Shopify Plus; wholesale apps can add online wholesale ordering on other plans later.

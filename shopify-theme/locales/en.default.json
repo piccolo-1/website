@@ -1,6 +1,6 @@
 {
   "general": {
-    "meta_description": "Handmade, small-batch cookies from Les délices Nadia. Order a box for home, or stock them in your store, café, hotel or office.",
+    "meta_description": "Handmade cookies from Montréal for épiceries fines, grocery stores, cafés, hotels and offices. Browse the wholesale catalog and ask for pricing.",
     "back_to_top": "Les délices Nadia, back to top",
     "main_nav": "Main",
     "open_menu": "Open menu",
@@ -22,24 +22,28 @@
     "no_products": "Add products to the “[collection]” collection to show them here.",
     "form_invalid": "Please fill in your name and a valid email",
     "home_link": "Back to home",
-    "continue_shopping": "Continue shopping"
+    "continue_shopping": "Continue shopping",
+    "price_on_request": "Wholesale pricing on request",
+    "request_pricing": "Request pricing"
   },
   "nav": {
     "flavours": "Flavours",
     "home": "For home",
-    "wholesale": "Retail & wholesale",
+    "wholesale": "Wholesale",
     "story": "Our story",
-    "trade": "Trade enquiries"
+    "trade": "Request pricing",
+    "catalog": "Catalog",
+    "shop": "Shop for home"
   },
   "hero": {
-    "eyebrow": "Made in Montréal · Handmade · Small-batch",
+    "eyebrow": "Wholesale · Made in Montréal · Handmade",
     "line1": "Cookies worth",
     "line2": "putting on",
     "line2_em": "the",
     "line3_em": "counter.",
-    "lede": "Crisp-edged, gooey-centred, properly indulgent cookies, baked by hand. Order a box for home, or stock them on your shelves, counter or menu.",
-    "cta_shop": "Shop small batches",
-    "cta_trade": "Retail & wholesale",
+    "lede": "Handmade cookies for épiceries fines, grocery stores, cafés, hotels and offices. Browse the catalog and ask us for wholesale pricing.",
+    "cta_shop": "Browse the catalog",
+    "cta_trade": "Request pricing",
     "badge": "baked fresh · delivered fast · baked fresh · delivered fast ·"
   },
   "paths": {
@@ -59,12 +63,13 @@
     "note": "Every flavour is available by the box for home and by the case for wholesale."
   },
   "shop": {
-    "eyebrow": "For home",
+    "eyebrow": "Shop for home",
     "title": "Small batches,",
     "title_em": "baked the morning we post.",
     "perk1": "Boxes of 4, 6 or 12",
     "perk2": "Nationwide delivery",
-    "perk3": "Local pickup available"
+    "perk3": "Local pickup available",
+    "back": "← Buying for a business? See the wholesale catalog"
   },
   "builder": {
     "title": "Build your own box",
@@ -80,11 +85,11 @@
     "setup": "Choose the “Build your own box” product in this section’s settings."
   },
   "wholesale": {
-    "eyebrow": "Retail & wholesale",
+    "eyebrow": "Wholesale",
     "title": "The cookie your customers",
     "title_em": "come back for.",
     "text": "From épiceries fines and grocery shelves to café counters and office pantries. Shelf-ready packaging for retail, bulk cases for food service, and custom boxes for events.",
-    "cta": "Request a sell sheet & samples",
+    "cta": "Request pricing & samples",
     "claims_label": "Product highlights",
     "claim1": "Made in Montréal",
     "claim2": "Individually wrapped",
@@ -198,10 +203,10 @@
     "close_quote": "”"
   },
   "contact": {
-    "eyebrow": "Retail & trade enquiries",
-    "title": "Let's get you",
-    "title_em": "stocked.",
-    "text": "Tell us about your stores or business and we'll come back within one working day with our sell sheet, case pricing and a free sample box.",
+    "eyebrow": "Wholesale inquiries",
+    "title": "Let’s talk",
+    "title_em": "pricing.",
+    "text": "Tell us about your business and the products you’re interested in. We’ll reply within one working day with case pricing, our catalog and a free sample box.",
     "email": "Email",
     "phone": "Phone",
     "bakery": "Bakery",
@@ -213,8 +218,12 @@
     "name": "Your name",
     "business": "Store or business name",
     "message": "Number of stores, location, distributor, volumes…",
-    "submit": "Request sell sheet & samples",
-    "success": "Thanks! We'll be in touch within one working day."
+    "submit": "Request pricing & samples",
+    "success": "Thanks! We'll be in touch within one working day.",
+    "inquiry_label": "Products in your inquiry",
+    "inquiry_empty": "None yet.",
+    "inquiry_empty_link": "Add products from the catalog",
+    "inquiry_empty_after": ", or just tell us what you need below."
   },
   "footer": {
     "visit": "Visit",
@@ -229,7 +238,7 @@
   "product": {
     "quantity": "Quantity",
     "option": "Option",
-    "back": "Back to all flavours"
+    "back": "Back to the catalog"
   },
   "cart": {
     "title": "Your bag",
@@ -266,5 +275,39 @@
     "text": "Our online shop is almost ready. Enter the password to look around.",
     "label": "Password",
     "submit": "Enter"
+  },
+  "catalog": {
+    "eyebrow": "Wholesale catalog",
+    "title": "The full range.",
+    "title_em": "Priced on request.",
+    "text": "Every cookie is available baked and individually wrapped, or as frozen dough to bake on site. Add products to your inquiry and we'll send case pricing within one working day.",
+    "pdf": "Download the catalog (PDF)",
+    "filter_label": "Filter the catalog",
+    "all": "All",
+    "cat_classic": "Classics",
+    "cat_stuffed": "Stuffed",
+    "cat_glazed": "Glazed & drizzled",
+    "cat_specialty": "Specialty",
+    "net": "Net wt",
+    "case": "Case",
+    "shelf": "Shelf life",
+    "units": "[n] units",
+    "days": "[n] days",
+    "baked": "Baked, wrapped",
+    "frozen": "Frozen dough",
+    "nuts": "Contains tree nuts",
+    "add": "+ Add to inquiry",
+    "added": "✓ In your inquiry",
+    "added_toast": "[item] added to your inquiry",
+    "remove": "Remove [item]",
+    "bar_one": "product in your inquiry",
+    "bar_many": "products in your inquiry"
+  },
+  "retail": {
+    "eyebrow": "Ordering for home?",
+    "title": "Gift boxes and",
+    "title_em": "build-your-own boxes.",
+    "text": "Small batches for birthdays, thank-yous and treats, delivered or ready for pickup.",
+    "cta": "Shop boxes"
   }
 }

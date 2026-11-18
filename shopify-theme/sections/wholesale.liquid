@@ -46,14 +46,14 @@
               <thead>
                 <tr>
                   <th>{{ 'wholesale.th_product' | t }}</th><th>{{ 'wholesale.th_format' | t }}</th><th>{{ 'wholesale.th_weight' | t }}</th>
-                  <th>{{ 'wholesale.th_units' | t }}</th><th>{{ 'wholesale.th_shelf' | t }}</th><th>{{ 'wholesale.th_storage' | t }}</th><th>{{ 'wholesale.th_msrp' | t }}</th>
+                  <th>{{ 'wholesale.th_units' | t }}</th><th>{{ 'wholesale.th_shelf' | t }}</th><th>{{ 'wholesale.th_storage' | t }}</th>
                 </tr>
               </thead>
               <tbody>
                 {%- for block in section.blocks -%}
                   <tr {{ block.shopify_attributes }}>
                     <td>{{ block.settings.product }}</td><td>{{ block.settings.format }}</td><td>{{ block.settings.weight }}</td>
-                    <td>{{ block.settings.units }}</td><td>{{ block.settings.shelf }}</td><td>{{ block.settings.storage }}</td><td>{{ block.settings.msrp }}</td>
+                    <td>{{ block.settings.units }}</td><td>{{ block.settings.shelf }}</td><td>{{ block.settings.storage }}</td>
                   </tr>
                 {%- endfor -%}
               </tbody>
@@ -151,8 +151,7 @@
         { "type": "text", "id": "weight", "label": "Net weight" },
         { "type": "text", "id": "units", "label": "Units per case" },
         { "type": "text", "id": "shelf", "label": "Shelf life" },
-        { "type": "text", "id": "storage", "label": "Storage" },
-        { "type": "text", "id": "msrp", "label": "Suggested retail price" }
+        { "type": "text", "id": "storage", "label": "Storage" }
       ]
     }
   ],

@@ -276,8 +276,75 @@
     }
   }
 
+
+  /* ---------- Wholesale catalog: filters + inquiry list ---------- */
+  let inquiry = [];
+  try { inquiry = JSON.parse(localStorage.getItem('ldn-inquiry') || '[]'); } catch (e) {}
+  const saveInquiry = () => { try { localStorage.setItem('ldn-inquiry', JSON.stringify(inquiry)); } catch (e) {} };
+  const nameOf = h => document.querySelector(`.cat-item[data-handle="${h}"] h3`)?.textContent.trim() || h;
+  const contactInView = () => { const r = document.getElementById('contact')?.getBoundingClientRect(); return !!r && r.top < window.innerHeight && r.bottom > 0; };
+
+  function renderInquiry() {
+    if (document.querySelector('.cat-item')) inquiry = inquiry.filter(h => document.querySelector(`.cat-item[data-handle="${h}"]`));
+    document.querySelectorAll('.cat-item').forEach(it => {
+      const on = inquiry.includes(it.dataset.handle);
+      it.classList.toggle('is-picked', on);
+      it.querySelector('.cat-item__add')?.setAttribute('aria-pressed', on);
+    });
+    const list = document.querySelector('.inquiry__list');
+    if (list) {
+      list.innerHTML = '';
+      inquiry.forEach(h => {
+        const li = document.createElement('li');
+        const label = document.createElement('span'); label.textContent = nameOf(h);
+        const x = document.createElement('button');
+        x.type = 'button'; x.textContent = '×';
+        x.setAttribute('aria-label', fill(T.inquiryRemove, { item: nameOf(h) }));
+        x.addEventListener('click', () => { inquiry = inquiry.filter(v => v !== h); saveInquiry(); renderInquiry(); });
+        li.append(label, x); list.append(li);
+      });
+      const empty = document.querySelector('.inquiry__empty');
+      if (empty) empty.hidden = inquiry.length > 0;
+      const field = document.querySelector('[data-inquiry-field]');
+      if (field) field.value = inquiry.map(nameOf).join(', ');
+    }
+    const bar = document.querySelector('.inquiry-bar');
+    if (bar) {
+      bar.querySelector('.inquiry-bar__count').textContent = inquiry.length;
+      bar.querySelector('.inquiry-bar__label').textContent = inquiry.length === 1 ? T.inquiryOne : T.inquiryMany;
+      bar.hidden = inquiry.length === 0 || contactInView();
+    }
+  }
+  window.addEventListener('scroll', () => {
+    const bar = document.querySelector('.inquiry-bar');
+    if (bar) bar.hidden = inquiry.length === 0 || contactInView();
+  }, { passive: true });
+
+  function initCatalog(root) {
+    const chips = [...root.querySelectorAll('.catalog__filters button')];
+    const items = [...root.querySelectorAll('.cat-item')];
+    chips.forEach(chip => chip.addEventListener('click', () => {
+      chips.forEach(c => c.setAttribute('aria-pressed', c === chip));
+      items.forEach(it => {
+        it.hidden = chip.dataset.filter !== 'all' && it.dataset.cat !== chip.dataset.filter;
+        if (!it.hidden) it.classList.add('is-in');
+      });
+    }));
+    root.querySelectorAll('.cat-item__add').forEach(btn => btn.addEventListener('click', () => {
+      const h = btn.closest('.cat-item').dataset.handle;
+      const adding = !inquiry.includes(h);
+      inquiry = adding ? [...inquiry, h] : inquiry.filter(v => v !== h);
+      saveInquiry(); renderInquiry();
+      if (adding) showToast(fill(T.inquiryAdded, { item: nameOf(h) }));
+    }));
+    renderInquiry();
+  }
+  // after a successful send, start a fresh list
+  if (document.querySelector('#ContactForm .form__success')) { inquiry = []; saveInquiry(); }
+
   init(document);
-  document.addEventListener('shopify:section:load', e => init(e.target));
+  initCatalog(document);
+  document.addEventListener('shopify:section:load', e => { init(e.target); initCatalog(e.target); });
 
   /* ---------- Contact form: light check before sending, then return to it ---------- */
   document.addEventListener('submit', e => {

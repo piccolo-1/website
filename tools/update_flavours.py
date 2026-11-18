@@ -100,9 +100,10 @@ s = re.sub(r"(\{%- case handle -%\}\n).*?(  \{%- when 'the-taster')", lambda m: 
 open(p, 'w', encoding='utf-8').write(s)
 
 cyc = lambda vals: '{% cycle ' + ', '.join(f"'{v}'" for v in vals) + ' %}'
-p = T + 'sections/flavours.liquid'; s = open(p, encoding='utf-8').read()
-s = re.sub(r'--tint: \{% cycle [^%]*%\}', '--tint: ' + cyc([f[7] for f in FLAVOURS]), s)
-open(p, 'w', encoding='utf-8').write(s)
+for p in (T + 'sections/flavours.liquid', T + 'sections/catalog.liquid'):
+    s = open(p, encoding='utf-8').read()
+    s = re.sub(r'--tint: \{% cycle [^%]*%\}', '--tint: ' + cyc([f[7] for f in FLAVOURS]), s)
+    open(p, 'w', encoding='utf-8').write(s)
 p = T + 'sections/wholesale.liquid'; s = open(p, encoding='utf-8').read()
 s = re.sub(r'--band: \{% cycle [^%]*%\}', '--band: ' + cyc([f[6] for f in FLAVOURS]), s)
 s = s.replace('for product in flavours.products limit: 6', 'for product in flavours.products limit: 16')
@@ -112,7 +113,7 @@ p = T + 'templates/index.json'; d = json.load(open(p, encoding='utf-8'))
 w = d['sections']['wholesale']
 extra = [w['blocks'][k] for k in w['block_order'] if w['blocks'][k]['settings']['product'] in ('Assorted 4-pack', 'Display tray')]
 blocks = [{"type": "spec", "settings": {"product": en, "format": "Single, wrapped", "weight": "110 g", "units": "12",
-                                        "shelf": "21 days", "storage": "Ambient", "msrp": "$4.99"}} for _, en, *_ in FLAVOURS] + extra
+                                        "shelf": "21 days", "storage": "Ambient"}} for _, en, *_ in FLAVOURS] + extra
 w['blocks'] = {f'spec{i}': b for i, b in enumerate(blocks, 1)}
 w['block_order'] = list(w['blocks'])
 open(p, 'w', encoding='utf-8').write(json.dumps(d, indent=2, ensure_ascii=False) + '\n')
@@ -131,7 +132,7 @@ for h, en, fr, de, dfr, badge, *_ in FLAVOURS:
     r = by.get(h) or dict(template, **{'Handle': h, 'Title': en})
     r['Variant SKU'] = SKU[h]
     r['Tags'] = ''
-    r['Tags'] = f'flavour, cat-{CATEGORY[h]}' + {'Best seller': ', badge-best-seller', 'Fan favourite': ', badge-fan-favourite', 'New': ', badge-new'}.get(badge, '')
+    r['Tags'] = f'flavour, cat-{CATEGORY[h]}' + (', contains-nuts' if h in NUTS else '') + {'Best seller': ', badge-best-seller', 'Fan favourite': ', badge-fan-favourite', 'New': ', badge-new'}.get(badge, '')
     r['Body (HTML)'] = f'<p>{de}</p>' + (' <p>Contains tree nuts.</p>' if h in NUTS else '')
     flavour_rows.append(r)
 handles = {f[0] for f in FLAVOURS}

@@ -1,6 +1,6 @@
 {
   "general": {
-    "meta_description": "Biscuits faits à la main en petites fournées par Les délices Nadia. Commandez une boîte pour la maison ou offrez-les dans votre épicerie, café, hôtel ou bureau.",
+    "meta_description": "Biscuits faits à la main à Montréal pour les épiceries fines, épiceries, cafés, hôtels et bureaux. Consultez le catalogue et demandez nos prix de gros.",
     "back_to_top": "Les délices Nadia, retour en haut",
     "main_nav": "Principal",
     "open_menu": "Ouvrir le menu",
@@ -22,24 +22,28 @@
     "no_products": "Ajoutez des produits à la collection « [collection] » pour les afficher ici.",
     "form_invalid": "Veuillez indiquer votre nom et un courriel valide",
     "home_link": "Retour à l’accueil",
-    "continue_shopping": "Continuer vos achats"
+    "continue_shopping": "Continuer vos achats",
+    "price_on_request": "Prix de gros sur demande",
+    "request_pricing": "Demander nos prix"
   },
   "nav": {
     "flavours": "Saveurs",
     "home": "Pour la maison",
-    "wholesale": "Détail et gros",
+    "wholesale": "Vente en gros",
     "story": "Notre histoire",
-    "trade": "Demandes commerciales"
+    "trade": "Demander nos prix",
+    "catalog": "Catalogue",
+    "shop": "Pour la maison"
   },
   "hero": {
-    "eyebrow": "Fait à Montréal · Fait main · Petites fournées",
+    "eyebrow": "Vente en gros · Fait à Montréal · Fait main",
     "line1": "Des biscuits dignes",
     "line2": "d’une place sur",
     "line2_em": "le",
     "line3_em": "comptoir.",
-    "lede": "Bords croustillants, cœur fondant, vraiment gourmands : des biscuits cuits à la main. Commandez une boîte pour la maison, ou offrez-les sur vos tablettes, votre comptoir ou votre menu.",
-    "cta_shop": "Commander une boîte",
-    "cta_trade": "Détail et gros",
+    "lede": "Des biscuits faits à la main pour les épiceries fines, épiceries, cafés, hôtels et bureaux. Consultez le catalogue et demandez-nous nos prix de gros.",
+    "cta_shop": "Voir le catalogue",
+    "cta_trade": "Demander nos prix",
     "badge": "cuits frais · livrés vite · cuits frais · livrés vite ·"
   },
   "paths": {
@@ -64,7 +68,8 @@
     "title_em": "cuites le matin de l’envoi.",
     "perk1": "Boîtes de 4, 6 ou 12",
     "perk2": "Livraison partout au pays",
-    "perk3": "Cueillette sur place possible"
+    "perk3": "Cueillette sur place possible",
+    "back": "← Vous achetez pour une entreprise? Voir le catalogue de gros"
   },
   "builder": {
     "title": "Composez votre boîte",
@@ -80,11 +85,11 @@
     "setup": "Choisissez le produit « Composez votre boîte » dans les paramètres de cette section."
   },
   "wholesale": {
-    "eyebrow": "Détail et gros",
+    "eyebrow": "Vente en gros",
     "title": "Le biscuit que vos clients",
     "title_em": "reviennent chercher.",
     "text": "Des épiceries fines aux tablettes d’épicerie, des comptoirs de café aux cuisinettes de bureau. Emballages prêts pour la tablette, caisses en vrac pour la restauration et boîtes personnalisées pour vos événements.",
-    "cta": "Demander la fiche produit et des échantillons",
+    "cta": "Demander nos prix et des échantillons",
     "claims_label": "Points forts du produit",
     "claim1": "Fait à Montréal",
     "claim2": "Emballés individuellement",
@@ -198,10 +203,10 @@
     "close_quote": " »"
   },
   "contact": {
-    "eyebrow": "Demandes commerciales",
-    "title": "Mettons nos biscuits",
-    "title_em": "sur vos tablettes.",
-    "text": "Parlez-nous de vos magasins ou de votre entreprise : nous vous répondrons en un jour ouvrable avec notre fiche produit, nos prix à la caisse et une boîte d’échantillons gratuite.",
+    "eyebrow": "Demandes de prix de gros",
+    "title": "Parlons",
+    "title_em": "prix.",
+    "text": "Parlez-nous de votre entreprise et des produits qui vous intéressent. Nous vous répondrons en un jour ouvrable avec nos prix à la caisse, notre catalogue et une boîte d’échantillons gratuite.",
     "email": "Courriel",
     "phone": "Téléphone",
     "bakery": "Biscuiterie",
@@ -213,8 +218,12 @@
     "name": "Votre nom",
     "business": "Nom du magasin ou de l’entreprise",
     "message": "Nombre de magasins, emplacement, distributeur, volumes…",
-    "submit": "Demander la fiche produit et des échantillons",
-    "success": "Merci! Nous vous répondrons en un jour ouvrable."
+    "submit": "Demander nos prix et des échantillons",
+    "success": "Merci! Nous vous répondrons en un jour ouvrable.",
+    "inquiry_label": "Produits dans votre demande",
+    "inquiry_empty": "Aucun pour le moment.",
+    "inquiry_empty_link": "Ajoutez des produits du catalogue",
+    "inquiry_empty_after": ", ou dites-nous simplement ce qu’il vous faut ci-dessous."
   },
   "footer": {
     "visit": "Explorer",
@@ -229,7 +238,7 @@
   "product": {
     "quantity": "Quantité",
     "option": "Option",
-    "back": "Retour aux saveurs"
+    "back": "Retour au catalogue"
   },
   "cart": {
     "title": "Votre panier",
@@ -266,5 +275,39 @@
     "text": "Notre boutique en ligne est presque prête. Entrez le mot de passe pour la visiter.",
     "label": "Mot de passe",
     "submit": "Entrer"
+  },
+  "catalog": {
+    "eyebrow": "Catalogue de gros",
+    "title": "Toute la gamme.",
+    "title_em": "Prix sur demande.",
+    "text": "Chaque biscuit est offert cuit et emballé individuellement, ou en pâte congelée à cuire sur place. Ajoutez des produits à votre demande et nous vous enverrons nos prix à la caisse en un jour ouvrable.",
+    "pdf": "Télécharger le catalogue (PDF)",
+    "filter_label": "Filtrer le catalogue",
+    "all": "Tous",
+    "cat_classic": "Classiques",
+    "cat_stuffed": "Fourrés",
+    "cat_glazed": "Glacés et nappés",
+    "cat_specialty": "Spécialités",
+    "net": "Poids net",
+    "case": "Caisse",
+    "shelf": "Conservation",
+    "units": "[n] unités",
+    "days": "[n] jours",
+    "baked": "Cuit, emballé",
+    "frozen": "Pâte congelée",
+    "nuts": "Contient des noix",
+    "add": "+ Ajouter à ma demande",
+    "added": "✓ Dans ma demande",
+    "added_toast": "[item] ajouté à votre demande",
+    "remove": "Retirer [item]",
+    "bar_one": "produit dans votre demande",
+    "bar_many": "produits dans votre demande"
+  },
+  "retail": {
+    "eyebrow": "Pour la maison?",
+    "title": "Boîtes-cadeaux et",
+    "title_em": "boîtes à composer.",
+    "text": "Petites fournées pour les anniversaires, les remerciements et les petites gâteries, livrées ou prêtes à cueillir.",
+    "cta": "Voir les boîtes"
   }
 }

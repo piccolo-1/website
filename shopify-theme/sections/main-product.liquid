@@ -15,10 +15,27 @@
     {%- endif -%}
   </div>
   <div class="product__info">
-    <a class="product__back" href="{{ routes.root_url }}#flavours">← {{ 'product.back' | t }}</a>
+    <a class="product__back" href="{{ routes.root_url }}#catalog">← {{ 'product.back' | t }}</a>
     <h1>{{ product.title }}</h1>
-    <p class="product__price" data-product-price>{{ current_variant.price | money }}</p>
+    {%- liquid
+      assign root = routes.root_url
+      if root == '/'
+        assign root = ''
+      endif
+      assign wholesale_only = false
+      if product.tags contains 'flavour'
+        assign wholesale_only = true
+      endif
+    -%}
+    {%- if wholesale_only -%}
+      <p class="product__price product__price--request">{{ 'general.price_on_request' | t }}</p>
+    {%- else -%}
+      <p class="product__price" data-product-price>{{ current_variant.price | money }}</p>
+    {%- endif -%}
     <div class="product__desc rte">{{ product.description }}</div>
+    {%- if wholesale_only -%}
+      <a class="btn btn--dark" href="{{ root }}/#contact">{{ 'general.request_pricing' | t }} <span class="arrow">→</span></a>
+    {%- else -%}
     {%- form 'product', product, class: 'product__form', id: 'ProductForm' -%}
       {%- unless product.has_only_default_variant -%}
         {%- assign option_label = 'product.option' | t -%}
@@ -39,6 +56,7 @@
         {%- if product.available -%}{{ 'general.add_to_bag' | t }} <span class="arrow">→</span>{%- else -%}{{ 'general.sold_out' | t }}{%- endif -%}
       </button>
     {%- endform -%}
+    {%- endif -%}
   </div>
 </section>
 

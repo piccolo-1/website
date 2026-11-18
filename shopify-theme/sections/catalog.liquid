@@ -1,0 +1,98 @@
+{%- liquid
+  assign coll = section.settings.collection | default: collections['flavours']
+  assign cats = 'classic,stuffed,glazed,specialty' | split: ','
+  if request.locale.iso_code == 'fr'
+    assign pdf_url = section.settings.pdf_fr | default: section.settings.pdf_en
+  else
+    assign pdf_url = section.settings.pdf_en
+  endif
+-%}
+<section class="catalog" id="catalog">
+  <div class="section-head section-head--split">
+    <div>
+      <p class="eyebrow reveal">{{ 'catalog.eyebrow' | t }}</p>
+      <h2 class="reveal">{{ 'catalog.title' | t }} <em>{{ 'catalog.title_em' | t }}</em></h2>
+    </div>
+    <div class="catalog__intro reveal">
+      <p>{{ 'catalog.text' | t }}</p>
+      {%- if pdf_url != blank -%}
+        <a class="btn btn--ghost btn--sm catalog__pdf" href="{{ pdf_url }}" target="_blank" rel="noopener">{{ 'catalog.pdf' | t }} <span class="arrow">↓</span></a>
+      {%- endif -%}
+    </div>
+  </div>
+
+  {%- if coll.products.size > 0 -%}
+    <div class="catalog__filters reveal" role="group" aria-label="{{ 'catalog.filter_label' | t }}">
+      <button type="button" data-filter="all" aria-pressed="true">{{ 'catalog.all' | t }}</button>
+      {%- for c in cats -%}
+        {%- assign tag = 'cat-' | append: c -%}
+        {%- assign has = false -%}
+        {%- for product in coll.products -%}{%- if product.tags contains tag -%}{%- assign has = true -%}{%- endif -%}{%- endfor -%}
+        {%- if has -%}
+          {%- assign label = 'catalog.cat_' | append: c -%}
+          <button type="button" data-filter="{{ c }}" aria-pressed="false">{{ label | t }}</button>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="catalog__grid">
+      {%- for product in coll.products limit: 48 -%}
+        {%- liquid
+          assign cat = ''
+          for c in cats
+            assign tag = 'cat-' | append: c
+            if product.tags contains tag
+              assign cat = c
+            endif
+          endfor
+          capture fallback
+            render 'product-fallback', handle: product.handle
+          endcapture
+          assign sku = product.selected_or_first_available_variant.sku
+        -%}
+        <article class="cat-item reveal" data-handle="{{ product.handle }}" data-cat="{{ cat }}">
+          <div class="cat-item__img" style="--tint: {% cycle '#f3e3cf', '#eddcd0', '#e5ead3', '#efe0cc', '#e8e4e2', '#f4dccb', '#f3ece0', '#e3e4ef', '#f2e2cf', '#f1ebe3', '#e9ead5' %}">
+            {%- render 'theme-image', image: product.featured_image, fallback: fallback, width: 500, alt: product.title -%}
+          </div>
+          {%- render 'product-badge', product: product, class: 'cat-item__tag' -%}
+          <div class="cat-item__body">
+            <p class="cat-item__meta">
+              {%- if sku != blank -%}<span>{{ sku }}</span>{%- endif -%}
+              {%- if sku != blank and cat != blank %} · {% endif -%}
+              {%- if cat != blank -%}{%- assign label = 'catalog.cat_' | append: cat -%}<span>{{ label | t }}</span>{%- endif -%}
+            </p>
+            <h3>{{ product.title }}</h3>
+            {%- if product.description != blank -%}<p class="cat-item__desc">{{ product.description | strip_html | truncatewords: 26 }}</p>{%- endif -%}
+            <dl class="cat-item__specs">
+              <div><dt>{{ 'catalog.net' | t }}</dt><dd>{{ section.settings.weight }}</dd></div>
+              <div><dt>{{ 'catalog.case' | t }}</dt><dd>{{ 'catalog.units' | t | replace: '[n]', section.settings.case_units }}</dd></div>
+              <div><dt>{{ 'catalog.shelf' | t }}</dt><dd>{{ 'catalog.days' | t | replace: '[n]', section.settings.shelf_days }}</dd></div>
+            </dl>
+            <ul class="cat-item__formats"><li>{{ 'catalog.baked' | t }}</li><li>{{ 'catalog.frozen' | t }}</li></ul>
+            {%- if product.tags contains 'contains-nuts' -%}<p class="cat-item__allergen">{{ 'catalog.nuts' | t }}</p>{%- endif -%}
+            <button type="button" class="cat-item__add" aria-pressed="false"><span class="cat-item__off">{{ 'catalog.add' | t }}</span><span class="cat-item__on">{{ 'catalog.added' | t }}</span></button>
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+  {%- else -%}
+    <p class="setup-note">{{ 'general.no_products' | t | replace: '[collection]', 'flavours' }}</p>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Wholesale catalog",
+  "settings": [
+    { "type": "collection", "id": "collection", "label": "Catalog products", "info": "Defaults to the collection with the handle “flavours”. No prices are shown. Tag products cat-classic, cat-stuffed, cat-glazed or cat-specialty for the filters, and contains-nuts for the allergen note. The item code is the product's SKU." },
+    { "type": "header", "content": "Specs shown on every product" },
+    { "type": "text", "id": "weight", "label": "Net weight", "default": "110 g" },
+    { "type": "number", "id": "case_units", "label": "Units per case", "default": 12 },
+    { "type": "number", "id": "shelf_days", "label": "Shelf life in days", "default": 21 },
+    { "type": "header", "content": "Catalog PDF" },
+    { "type": "url", "id": "pdf_en", "label": "English PDF link", "info": "Upload the catalog PDF in Content → Files, copy its link and paste it here. The download button appears once a link is set." },
+    { "type": "url", "id": "pdf_fr", "label": "French PDF link" }
+  ],
+  "presets": [{ "name": "Wholesale catalog" }]
+}
+{% endschema %}

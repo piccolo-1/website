@@ -1,0 +1,37 @@
+{%- liquid
+  assign root = routes.root_url
+  if root == '/'
+    assign root = ''
+  endif
+  assign shop_url = section.settings.link | default: ''
+  if shop_url == blank
+    assign shop_url = root | append: '/pages/shop'
+  endif
+  assign flavours = collections['flavours']
+-%}
+<section class="retail-band" aria-labelledby="retail-band-title">
+  <div class="retail-band__inner reveal">
+    <div class="retail-band__cookies" aria-hidden="true">
+      {%- for product in flavours.products limit: 3 -%}
+        {%- capture fallback -%}{%- render 'product-fallback', handle: product.handle -%}{%- endcapture -%}
+        {%- render 'theme-image', image: product.featured_image, fallback: fallback, width: 200, alt: '' -%}
+      {%- endfor -%}
+    </div>
+    <div class="retail-band__copy">
+      <p class="eyebrow">{{ 'retail.eyebrow' | t }}</p>
+      <h2 id="retail-band-title">{{ 'retail.title' | t }} <em>{{ 'retail.title_em' | t }}</em></h2>
+      <p>{{ 'retail.text' | t }}</p>
+    </div>
+    <a class="btn btn--dark" href="{{ shop_url }}">{{ 'retail.cta' | t }} <span class="arrow">→</span></a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Retail link",
+  "settings": [
+    { "type": "url", "id": "link", "label": "Shop page", "info": "Defaults to the page with the handle “shop”." }
+  ],
+  "presets": [{ "name": "Retail link" }]
+}
+{% endschema %}

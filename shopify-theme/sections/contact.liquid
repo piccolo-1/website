@@ -33,6 +33,12 @@
         <label class="field"><input type="email" name="contact[email]" id="ContactEmail" placeholder=" " autocomplete="email" required value="{{ form.email }}"><span>{{ 'contact.email' | t }}</span></label>
         <label class="field"><input type="tel" name="contact[phone]" id="ContactPhone" placeholder=" " autocomplete="tel" value="{{ form.phone }}"><span>{{ 'contact.phone' | t }}</span></label>
       </div>
+      <div class="inquiry" aria-live="polite">
+        <p class="inquiry__label">{{ 'contact.inquiry_label' | t }}</p>
+        <ul class="inquiry__list"></ul>
+        <p class="inquiry__empty">{{ 'contact.inquiry_empty' | t }} <a href="#catalog">{{ 'contact.inquiry_empty_link' | t }}</a>{{ 'contact.inquiry_empty_after' | t }}</p>
+        <input type="hidden" name="contact[Products]" value="" data-inquiry-field>
+      </div>
       <label class="field"><textarea name="contact[body]" id="ContactBody" rows="4" placeholder=" ">{{ form.body }}</textarea><span>{{ 'contact.message' | t }}</span></label>
       <button type="submit" class="btn btn--dark">{{ 'contact.submit' | t }} <span class="arrow">→</span></button>
     {%- endif -%}

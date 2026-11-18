@@ -2,7 +2,8 @@
 
 A static, dependency-free site for a cookie bakery selling small batches to consumers and wholesale cases to businesses.
 
-- `index.html`: page content (hero, all flavours, For home with a build-your-own box, Wholesale cases, story, trade enquiry form)
+- `index.html`: the wholesale homepage (hero, catalog with inquiry list, wholesale details, story, pricing request form)
+- `shop.html`: retail page (ready-made boxes and build-your-own box)
 - `styles.css`: design tokens at the top (colours, fonts) so the brand is easy to re-skin
 - `i18n.js`: English/French switch. French text lives in the `FR` dictionary at the top (English on the left, French on the right). New English text needs a matching line there.
 - `script.js`: animations (loader, scroll reveals, parallax, counters, testimonials) and a drag-to-scroll photo gallery
@@ -28,3 +29,11 @@ Deploys as-is to Netlify, Vercel, Cloudflare Pages or GitHub Pages.
 - `shopify-theme/`: the same site as a Shopify theme (English and French, real cart and checkout,
   Shopify contact and newsletter forms). Zip the folder's contents to upload it.
 - `shopify-setup/`: `SETUP.md` (step-by-step), `products.csv` (product import) and product photos.
+
+## Flavours and the catalog
+
+1. Edit `tools/flavours.py` (names, descriptions, French names, category, item code, nut warning).
+2. Add the photo as `assets/cut-<handle>-sm.webp` and `shopify-theme/assets/cut-<handle>-sm.webp`.
+3. Run `python3 tools/update_flavours.py` (site, Shopify theme and product CSV).
+4. Run `python3 tools/build_catalog.py`, then `node tools/print_catalog.mjs` with a local server
+   on port 8123, to refresh the catalog PDFs in `assets/`.

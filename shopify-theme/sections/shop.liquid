@@ -3,11 +3,18 @@
   assign flavours = section.settings.flavours | default: collections['flavours']
   assign builder = section.settings.builder_product | default: all_products['build-your-own-box']
 -%}
+{%- liquid
+  assign root = routes.root_url
+  if root == '/'
+    assign root = ''
+  endif
+-%}
 <section class="shop" id="home">
+  {%- if section.settings.show_back -%}<a class="shop__back" href="{{ root }}/#catalog">{{ 'shop.back' | t }}</a>{%- endif -%}
   <div class="section-head section-head--split">
     <div>
       <p class="eyebrow reveal">{{ 'shop.eyebrow' | t }}</p>
-      <h2 class="reveal">{{ 'shop.title' | t }} <em>{{ 'shop.title_em' | t }}</em></h2>
+      <h1 class="reveal shop__title">{{ 'shop.title' | t }} <em>{{ 'shop.title_em' | t }}</em></h1>
     </div>
     <ul class="perks reveal">
       <li>{{ 'shop.perk1' | t }}</li>
@@ -107,6 +114,7 @@
 {
   "name": "For home (shop)",
   "settings": [
+    { "type": "checkbox", "id": "show_back", "label": "Show link back to the wholesale catalog", "default": true },
     { "type": "collection", "id": "boxes", "label": "Ready-made boxes collection", "info": "Defaults to the collection with the handle “boxes”. Tag a product badge-most-gifted to highlight it." },
     { "type": "header", "content": "Build your own box" },
     { "type": "product", "id": "builder_product", "label": "Build-your-own-box product", "info": "Defaults to the product with the handle “build-your-own-box”. Its variants must be the box sizes as plain numbers: 4, 6, 12." },

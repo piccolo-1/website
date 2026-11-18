@@ -44,7 +44,11 @@
         chosen: {{ 'builder.chosen' | t | json }},
         full: {{ 'builder.full' | t | json }},
         boxName: {{ 'builder.item_name' | t | json }},
-        interested: {{ 'wholesale.interested' | t | json }}
+        interested: {{ 'wholesale.interested' | t | json }},
+        inquiryAdded: {{ 'catalog.added_toast' | t | json }},
+        inquiryRemove: {{ 'catalog.remove' | t | json }},
+        inquiryOne: {{ 'catalog.bar_one' | t | json }},
+        inquiryMany: {{ 'catalog.bar_many' | t | json }}
       }
     };
   </script>
@@ -67,6 +71,12 @@
 
   {% sections 'footer-group' %}
 
+  {%- if template.name == 'index' -%}
+    <div class="inquiry-bar" hidden>
+      <span><strong class="inquiry-bar__count">0</strong> <span class="inquiry-bar__label"></span></span>
+      <a href="#contact" class="btn btn--light btn--sm">{{ 'general.request_pricing' | t }} <span class="arrow">→</span></a>
+    </div>
+  {%- endif -%}
   <div class="toast" role="status" aria-live="polite"></div>
 </body>
 </html>

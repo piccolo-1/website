@@ -8,18 +8,6 @@
       "type": "marquee",
       "settings": {}
     },
-    "paths": {
-      "type": "paths",
-      "settings": {}
-    },
-    "flavours": {
-      "type": "flavours",
-      "settings": {}
-    },
-    "shop": {
-      "type": "shop",
-      "settings": {}
-    },
     "wholesale": {
       "type": "wholesale",
       "settings": {
@@ -37,8 +25,7 @@
             "weight": "110 g",
             "units": "12",
             "shelf": "21 days",
-            "storage": "Ambient",
-            "msrp": "$4.99"
+            "storage": "Ambient"
           }
         },
         "spec2": {
@@ -49,8 +36,7 @@
             "weight": "110 g",
             "units": "12",
             "shelf": "21 days",
-            "storage": "Ambient",
-            "msrp": "$4.99"
+            "storage": "Ambient"
           }
         },
         "spec3": {
@@ -61,8 +47,7 @@
             "weight": "110 g",
             "units": "12",
             "shelf": "21 days",
-            "storage": "Ambient",
-            "msrp": "$4.99"
+            "storage": "Ambient"
           }
         },
         "spec4": {
@@ -73,8 +58,7 @@
             "weight": "110 g",
             "units": "12",
             "shelf": "21 days",
-            "storage": "Ambient",
-            "msrp": "$4.99"
+            "storage": "Ambient"
           }
         },
         "spec5": {
@@ -85,8 +69,7 @@
             "weight": "110 g",
             "units": "12",
             "shelf": "21 days",
-            "storage": "Ambient",
-            "msrp": "$4.99"
+            "storage": "Ambient"
           }
         },
         "spec6": {
@@ -97,8 +80,7 @@
             "weight": "110 g",
             "units": "12",
             "shelf": "21 days",
-            "storage": "Ambient",
-            "msrp": "$4.99"
+            "storage": "Ambient"
           }
         },
         "spec7": {
@@ -109,8 +91,7 @@
             "weight": "110 g",
             "units": "12",
             "shelf": "21 days",
-            "storage": "Ambient",
-            "msrp": "$4.99"
+            "storage": "Ambient"
           }
         },
         "spec8": {
@@ -121,8 +102,7 @@
             "weight": "110 g",
             "units": "12",
             "shelf": "21 days",
-            "storage": "Ambient",
-            "msrp": "$4.99"
+            "storage": "Ambient"
           }
         },
         "spec9": {
@@ -133,8 +113,7 @@
             "weight": "110 g",
             "units": "12",
             "shelf": "21 days",
-            "storage": "Ambient",
-            "msrp": "$4.99"
+            "storage": "Ambient"
           }
         },
         "spec10": {
@@ -145,8 +124,7 @@
             "weight": "110 g",
             "units": "12",
             "shelf": "21 days",
-            "storage": "Ambient",
-            "msrp": "$4.99"
+            "storage": "Ambient"
           }
         },
         "spec11": {
@@ -157,8 +135,7 @@
             "weight": "110 g",
             "units": "12",
             "shelf": "21 days",
-            "storage": "Ambient",
-            "msrp": "$4.99"
+            "storage": "Ambient"
           }
         },
         "spec12": {
@@ -169,8 +146,7 @@
             "weight": "440 g",
             "units": "6",
             "shelf": "21 days",
-            "storage": "Ambient",
-            "msrp": "$16.99"
+            "storage": "Ambient"
           }
         },
         "spec13": {
@@ -181,8 +157,7 @@
             "weight": "1.32 kg",
             "units": "1",
             "shelf": "21 days",
-            "storage": "Ambient",
-            "msrp": "$4.99 / unit"
+            "storage": "Ambient"
           }
         }
       },
@@ -268,19 +243,26 @@
         "phone": "",
         "address": ""
       }
+    },
+    "catalog": {
+      "type": "catalog",
+      "settings": {}
+    },
+    "retail_band": {
+      "type": "retail-band",
+      "settings": {}
     }
   },
   "order": [
     "hero",
     "marquee",
-    "paths",
-    "flavours",
-    "shop",
+    "catalog",
     "wholesale",
     "trusted",
     "story",
     "gallery",
     "testimonials",
+    "retail_band",
     "contact"
   ]
 }

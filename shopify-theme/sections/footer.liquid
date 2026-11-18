@@ -9,10 +9,10 @@
   <div class="footer__cols">
     <div>
       <h4>{{ 'footer.visit' | t }}</h4>
-      <a href="{{ root }}/#flavours">{{ 'nav.flavours' | t }}</a>
-      <a href="{{ root }}/#home">{{ 'nav.home' | t }}</a>
+      <a href="{{ root }}/#catalog">{{ 'nav.catalog' | t }}</a>
       <a href="{{ root }}/#wholesale">{{ 'nav.wholesale' | t }}</a>
       <a href="{{ root }}/#story">{{ 'nav.story' | t }}</a>
+      <a href="{{ root }}/pages/shop">{{ 'nav.shop' | t }}</a>
       {%- for link in section.settings.menu.links -%}
         <a href="{{ link.url }}">{{ link.title }}</a>
       {%- endfor -%}
