@@ -74,6 +74,8 @@ paste them into *English PDF link* and *French PDF link*. The download button ap
 | Cinnamon Roll | Roulé à la cannelle |
 | Almond Amaretti | Amaretti aux amandes |
 | Salted Pistachio | Pistache et fleur de sel |
+| Ricotta Lemon | Ricotta et citron |
+| Lemon Drop | Bouchées au citron |
 | The Taster | La Découverte |
 | The Gift Box | La Boîte-cadeau |
 | The Full Collection | La Collection complète |

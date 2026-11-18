@@ -123,8 +123,8 @@ const FR = {
   '12 singles, shelf-ready': '12 unités, prêt pour la tablette',
   '1.32 kg': '1,32 kg',
   '$4.99 / unit': '4,99 $ / unité',
-  'UPC codes, nutrition facts and full ingredient lists are on our sell sheet. Contains wheat, milk and egg; Pistachio Stuffed contains tree nuts.':
-    'Les codes CUP, valeurs nutritives et listes complètes d’ingrédients figurent sur notre fiche produit. Contient : blé, lait et œufs; les saveurs à la pistache et aux amandes contiennent des noix.',
+  'UPC codes, nutrition facts and full ingredient lists are on our sell sheet. Contains wheat, milk and egg; pistachio, almond and hazelnut flavours contain tree nuts.':
+    'Les codes CUP, valeurs nutritives et listes complètes d’ingrédients figurent sur notre fiche produit. Contient : blé, lait et œufs; les saveurs à la pistache, aux amandes et à la noisette contiennent des noix.',
   'Built for the shelf': 'Conçu pour la tablette',
   'Individually wrapped singles and display trays that go straight from case to counter.': 'Biscuits emballés individuellement et présentoirs qui passent directement de la caisse au comptoir.',
   'Québec-ready labels': 'Étiquetage conforme au Québec',
@@ -321,6 +321,23 @@ const FR = {
   'products in your inquiry': 'produits dans votre demande',
   'product in your inquiry': 'produit dans votre demande',
   '← Buying for a business? See the wholesale catalog': '← Vous achetez pour une entreprise? Voir le catalogue de gros',
+
+  'Size': 'Format',
+  'Small': 'Petit',
+  'Sold by': 'Vendu',
+  'The dozen': 'À la douzaine',
+  'Box of 12': 'Boîte de 12',
+  'Box of 12, small': 'Boîte de 12, petits',
+  "Regular cookies come baked and individually wrapped, or as frozen dough to bake on site. Small cookies come by the dozen. Add products to your inquiry and we'll send case pricing within one working day.": 'Les biscuits réguliers sont offerts cuits et emballés individuellement, ou en pâte congelée à cuire sur place. Les petits biscuits sont vendus à la douzaine. Ajoutez des produits à votre demande et nous vous enverrons nos prix à la caisse en un jour ouvrable.',
+
+  'Thick and soft, with a molten chocolate-hazelnut centre and a milk chocolate drizzle.': 'Épais et moelleux, au cœur fondant chocolat-noisette, avec un filet de chocolat au lait.',
+  'Ricotta Lemon': 'Ricotta et citron',
+  'Soft, cake-like ricotta cookies with lemon zest and a lemon glaze.': 'Biscuits moelleux à la ricotta, au zeste de citron et au glaçage au citron.',
+  'Ricotta Lemon cookie': 'Biscuit « Ricotta et citron »',
+  'Lemon Drop': 'Bouchées au citron',
+  'Small, tender lemon cookies finished with a sweet lemon glaze.': 'Petits biscuits tendres au citron, nappés d’un glaçage sucré au citron.',
+  'Lemon Drop cookie': 'Biscuit « Bouchées au citron »',
+  'By the dozen': 'À la douzaine',
 
   // Messages shown by script.js
   'Added ✓': 'Ajouté ✓',

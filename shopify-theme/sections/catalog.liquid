@@ -1,6 +1,6 @@
 {%- liquid
   assign coll = section.settings.collection | default: collections['flavours']
-  assign cats = 'classic,stuffed,glazed,specialty' | split: ','
+  assign cats = 'classic,stuffed,glazed,specialty,small' | split: ','
   if request.locale.iso_code == 'fr'
     assign pdf_url = section.settings.pdf_fr | default: section.settings.pdf_en
   else
@@ -51,7 +51,7 @@
           assign sku = product.selected_or_first_available_variant.sku
         -%}
         <article class="cat-item reveal" data-handle="{{ product.handle }}" data-cat="{{ cat }}">
-          <div class="cat-item__img" style="--tint: {% cycle '#f3e3cf', '#eddcd0', '#e5ead3', '#efe0cc', '#e8e4e2', '#f4dccb', '#f3ece0', '#e3e4ef', '#f2e2cf', '#f1ebe3', '#e9ead5' %}">
+          <div class="cat-item__img" style="--tint: {% cycle '#f3e3cf', '#eddcd0', '#e5ead3', '#efe0cc', '#e8e4e2', '#f4dccb', '#f3ece0', '#e3e4ef', '#f2e2cf', '#f1ebe3', '#e9ead5', '#f4efd9', '#f6f0cf' %}">
             {%- render 'theme-image', image: product.featured_image, fallback: fallback, width: 500, alt: product.title -%}
           </div>
           {%- render 'product-badge', product: product, class: 'cat-item__tag' -%}
@@ -63,12 +63,21 @@
             </p>
             <h3>{{ product.title }}</h3>
             {%- if product.description != blank -%}<p class="cat-item__desc">{{ product.description | strip_html | truncatewords: 26 }}</p>{%- endif -%}
-            <dl class="cat-item__specs">
-              <div><dt>{{ 'catalog.net' | t }}</dt><dd>{{ section.settings.weight }}</dd></div>
-              <div><dt>{{ 'catalog.case' | t }}</dt><dd>{{ 'catalog.units' | t | replace: '[n]', section.settings.case_units }}</dd></div>
-              <div><dt>{{ 'catalog.shelf' | t }}</dt><dd>{{ 'catalog.days' | t | replace: '[n]', section.settings.shelf_days }}</dd></div>
-            </dl>
-            <ul class="cat-item__formats"><li>{{ 'catalog.baked' | t }}</li><li>{{ 'catalog.frozen' | t }}</li></ul>
+            {%- if product.tags contains 'size-small' -%}
+              <dl class="cat-item__specs">
+                <div><dt>{{ 'catalog.size' | t }}</dt><dd>{{ 'catalog.small' | t }}</dd></div>
+                <div><dt>{{ 'catalog.sold_by' | t }}</dt><dd>{{ 'catalog.dozen' | t }}</dd></div>
+                <div><dt>{{ 'catalog.shelf' | t }}</dt><dd>{{ 'catalog.days' | t | replace: '[n]', section.settings.shelf_days }}</dd></div>
+              </dl>
+              <ul class="cat-item__formats"><li>{{ 'catalog.box_of_12' | t }}</li></ul>
+            {%- else -%}
+              <dl class="cat-item__specs">
+                <div><dt>{{ 'catalog.net' | t }}</dt><dd>{{ section.settings.weight }}</dd></div>
+                <div><dt>{{ 'catalog.case' | t }}</dt><dd>{{ 'catalog.units' | t | replace: '[n]', section.settings.case_units }}</dd></div>
+                <div><dt>{{ 'catalog.shelf' | t }}</dt><dd>{{ 'catalog.days' | t | replace: '[n]', section.settings.shelf_days }}</dd></div>
+              </dl>
+              <ul class="cat-item__formats"><li>{{ 'catalog.baked' | t }}</li><li>{{ 'catalog.frozen' | t }}</li></ul>
+            {%- endif -%}
             {%- if product.tags contains 'contains-nuts' -%}<p class="cat-item__allergen">{{ 'catalog.nuts' | t }}</p>{%- endif -%}
             <button type="button" class="cat-item__add" aria-pressed="false"><span class="cat-item__off">{{ 'catalog.add' | t }}</span><span class="cat-item__on">{{ 'catalog.added' | t }}</span></button>
           </div>
@@ -84,8 +93,8 @@
 {
   "name": "Wholesale catalog",
   "settings": [
-    { "type": "collection", "id": "collection", "label": "Catalog products", "info": "Defaults to the collection with the handle “flavours”. No prices are shown. Tag products cat-classic, cat-stuffed, cat-glazed or cat-specialty for the filters, and contains-nuts for the allergen note. The item code is the product's SKU." },
-    { "type": "header", "content": "Specs shown on every product" },
+    { "type": "collection", "id": "collection", "label": "Catalog products", "info": "Defaults to the collection with the handle “flavours”. No prices are shown. Tag products cat-classic, cat-stuffed, cat-glazed, cat-specialty or cat-small for the filters, size-small for cookies sold by the dozen, and contains-nuts for the allergen note. The item code is the product's SKU." },
+    { "type": "header", "content": "Specs shown on the products" },
     { "type": "text", "id": "weight", "label": "Net weight", "default": "110 g" },
     { "type": "number", "id": "case_units", "label": "Units per case", "default": 12 },
     { "type": "number", "id": "shelf_days", "label": "Shelf life in days", "default": 21 },

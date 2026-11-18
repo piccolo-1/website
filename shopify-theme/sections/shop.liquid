@@ -81,7 +81,8 @@
         </div>
       </div>
       <ul class="builder__list">
-        {%- for product in flavours.products limit: 12 -%}
+        {%- for product in flavours.products limit: 24 -%}
+          {%- if product.tags contains 'size-small' -%}{%- continue -%}{%- endif -%}
           {%- capture fallback -%}{%- render 'product-fallback', handle: product.handle -%}{%- endcapture -%}
           <li data-flavour="{{ product.title | escape }}">
             {%- render 'theme-image', image: product.featured_image, fallback: fallback, width: 120, alt: '' -%}

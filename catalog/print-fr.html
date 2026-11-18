@@ -28,15 +28,15 @@ h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 400; margin: 
 .head h2 { font-size: 24pt; }
 .head .mark--word { width: .9in; color: var(--burgundy); }
 .note { font-size: 9pt; color: var(--muted); margin: -6pt 0 12pt; }
-.grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 1fr); gap: 10pt; flex: 1; }
-.item { background: #fff; border-radius: 12pt; display: grid; grid-template-columns: 1.55in 1fr; overflow: hidden; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(4, 1fr); gap: 9pt; flex: 1; }
+.item { background: #fff; border-radius: 12pt; display: grid; grid-template-columns: 1.3in 1fr; overflow: hidden; }
 .item__img { background: var(--tint); display: grid; place-items: center; }
 .item__img img { width: 92%; }
-.item__body { padding: 10pt 12pt; display: flex; flex-direction: column; gap: 4pt; min-width: 0; }
+.item__body { padding: 8pt 11pt; display: flex; flex-direction: column; gap: 3pt; min-width: 0; }
 .meta { font-size: 6.5pt; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
 .item h3 { font-size: 13pt; line-height: 1.1; }
 .alt { font-size: 7.5pt; color: var(--muted); font-style: italic; margin-top: -2pt; }
-.desc { font-size: 7.8pt; line-height: 1.4; color: #5f3036; margin: 0; }
+.desc { font-size: 7.4pt; line-height: 1.35; color: #5f3036; margin: 0; }
 .specs { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; column-gap: 9pt; margin: 2pt 0 0; padding-top: 5pt; border-top: 1px solid var(--line); }
 .specs dt { font-size: 5.8pt; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
 .specs dd { margin: 0; font-size: 8pt; font-weight: 600; white-space: nowrap; }
@@ -71,7 +71,7 @@ h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 400; margin: 
 </section>
 <section class="page">
   <div class="head"><h2>La gamme</h2><span class="mark mark--word"></span></div>
-  <p class="note">Chaque biscuit est offert cuit et emballé individuellement, ou en pâte congelée à cuire sur place.</p>
+  <p class="note">Les biscuits réguliers sont offerts cuits et emballés individuellement, ou en pâte congelée à cuire sur place. Les petits biscuits sont vendus à la douzaine.</p>
   <div class="grid">
     <article class="item">
       <div class="item__img" style="--tint:#f3e3cf"><img src="img/salted-chocolate-chunk.jpg" alt=""></div>
@@ -90,9 +90,9 @@ h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 400; margin: 
         <p class="meta">Article LDN-CHS-1 · Fourrés</p>
         <h3>Fourré au chocolat</h3>
         <p class="alt">Chocolate Stuffed</p>
-        <p class="desc">Épais et moelleux, au cœur de chocolat fondant, avec un filet de chocolat au lait.</p>
+        <p class="desc">Épais et moelleux, au cœur fondant chocolat-noisette, avec un filet de chocolat au lait.</p>
         <dl class="specs"><div><dt>Poids net</dt><dd>110 g</dd></div><div><dt>Caisse</dt><dd>12 unités</dd></div><div><dt>Conservation</dt><dd>21 jours</dd></div></dl>
-        <div class="chips"><span>Cuit, emballé</span><span>Pâte congelée</span></div>
+        <div class="chips"><span>Cuit, emballé</span><span>Pâte congelée</span><span class="nuts">⚠ Contient des noix</span></div>
       </div>
     </article>
     <article class="item">
@@ -139,13 +139,6 @@ h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 400; margin: 
         <div class="chips"><span>Cuit, emballé</span><span>Pâte congelée</span></div>
       </div>
     </article>
-  </div>
-  <span class="pageno">Page 2</span>
-</section>
-<section class="page">
-  <div class="head"><h2>La gamme</h2><span class="mark mark--word"></span></div>
-  
-  <div class="grid">
     <article class="item">
       <div class="item__img" style="--tint:#f3ece0"><img src="img/white-chocolate-glazed.jpg" alt=""></div>
       <div class="item__body">
@@ -168,6 +161,13 @@ h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 400; margin: 
         <div class="chips"><span>Cuit, emballé</span><span>Pâte congelée</span></div>
       </div>
     </article>
+  </div>
+  <span class="pageno">Page 2</span>
+</section>
+<section class="page">
+  <div class="head"><h2>La gamme</h2><span class="mark mark--word"></span></div>
+  
+  <div class="grid">
     <article class="item">
       <div class="item__img" style="--tint:#f2e2cf"><img src="img/cinnamon-roll.jpg" alt=""></div>
       <div class="item__body">
@@ -180,17 +180,6 @@ h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 400; margin: 
       </div>
     </article>
     <article class="item">
-      <div class="item__img" style="--tint:#f1ebe3"><img src="img/almond-amaretti.jpg" alt=""></div>
-      <div class="item__body">
-        <p class="meta">Article LDN-AMA-1 · Spécialités</p>
-        <h3>Amaretti aux amandes</h3>
-        <p class="alt">Almond Amaretti</p>
-        <p class="desc">Biscuit moelleux aux amandes roulé dans le sucre glace et garni d’une amande entière.</p>
-        <dl class="specs"><div><dt>Poids net</dt><dd>110 g</dd></div><div><dt>Caisse</dt><dd>12 unités</dd></div><div><dt>Conservation</dt><dd>21 jours</dd></div></dl>
-        <div class="chips"><span>Cuit, emballé</span><span>Pâte congelée</span><span class="nuts">⚠ Contient des noix</span></div>
-      </div>
-    </article>
-    <article class="item">
       <div class="item__img" style="--tint:#e9ead5"><img src="img/salted-pistachio.jpg" alt=""></div>
       <div class="item__body">
         <p class="meta">Article LDN-SPI-1 · Classiques</p>
@@ -199,6 +188,39 @@ h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 400; margin: 
         <p class="desc">Biscuit mince et moelleux à la cassonade, avec des éclats de pistache et de la fleur de sel.</p>
         <dl class="specs"><div><dt>Poids net</dt><dd>110 g</dd></div><div><dt>Caisse</dt><dd>12 unités</dd></div><div><dt>Conservation</dt><dd>21 jours</dd></div></dl>
         <div class="chips"><span>Cuit, emballé</span><span>Pâte congelée</span><span class="nuts">⚠ Contient des noix</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="item__img" style="--tint:#f1ebe3"><img src="img/almond-amaretti.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Article LDN-AMA-12 · À la douzaine</p>
+        <h3>Amaretti aux amandes</h3>
+        <p class="alt">Almond Amaretti</p>
+        <p class="desc">Biscuit moelleux aux amandes roulé dans le sucre glace et garni d’une amande entière.</p>
+        <dl class="specs"><div><dt>Format</dt><dd>Petit</dd></div><div><dt>Vendu</dt><dd>À la douzaine</dd></div><div><dt>Conservation</dt><dd>21 jours</dd></div></dl>
+        <div class="chips"><span>Boîte de 12</span><span class="nuts">⚠ Contient des noix</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="item__img" style="--tint:#f4efd9"><img src="img/ricotta-lemon.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Article LDN-RLM-12 · À la douzaine</p>
+        <h3>Ricotta et citron</h3>
+        <p class="alt">Ricotta Lemon</p>
+        <p class="desc">Biscuits moelleux à la ricotta, au zeste de citron et au glaçage au citron.</p>
+        <dl class="specs"><div><dt>Format</dt><dd>Petit</dd></div><div><dt>Vendu</dt><dd>À la douzaine</dd></div><div><dt>Conservation</dt><dd>21 jours</dd></div></dl>
+        <div class="chips"><span>Boîte de 12</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="item__img" style="--tint:#f6f0cf"><img src="img/lemon-drop.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Article LDN-LDR-12 · À la douzaine</p>
+        <h3>Bouchées au citron</h3>
+        <p class="alt">Lemon Drop</p>
+        <p class="desc">Petits biscuits tendres au citron, nappés d’un glaçage sucré au citron.</p>
+        <dl class="specs"><div><dt>Format</dt><dd>Petit</dd></div><div><dt>Vendu</dt><dd>À la douzaine</dd></div><div><dt>Conservation</dt><dd>21 jours</dd></div></dl>
+        <div class="chips"><span>Boîte de 12</span></div>
       </div>
     </article>
   </div>

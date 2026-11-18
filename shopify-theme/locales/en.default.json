@@ -109,7 +109,7 @@
     "th_shelf": "Shelf life",
     "th_storage": "Storage",
     "th_msrp": "Suggested retail",
-    "specs_note": "UPC codes, nutrition facts and full ingredient lists are on our sell sheet. Contains wheat, milk and egg; pistachio and almond flavours contain tree nuts.",
+    "specs_note": "UPC codes, nutrition facts and full ingredient lists are on our sell sheet. Contains wheat, milk and egg; pistachio, almond and hazelnut flavours contain tree nuts.",
     "why1_title": "Built for the shelf",
     "why1_text": "Individually wrapped singles and display trays that go straight from case to counter.",
     "why2_title": "Québec-ready labels",
@@ -280,7 +280,7 @@
     "eyebrow": "Wholesale catalog",
     "title": "The full range.",
     "title_em": "Priced on request.",
-    "text": "Every cookie is available baked and individually wrapped, or as frozen dough to bake on site. Add products to your inquiry and we'll send case pricing within one working day.",
+    "text": "Regular cookies come baked and individually wrapped, or as frozen dough to bake on site. Small cookies come by the dozen. Add products to your inquiry and we'll send case pricing within one working day.",
     "pdf": "Download the catalog (PDF)",
     "filter_label": "Filter the catalog",
     "all": "All",
@@ -301,7 +301,13 @@
     "added_toast": "[item] added to your inquiry",
     "remove": "Remove [item]",
     "bar_one": "product in your inquiry",
-    "bar_many": "products in your inquiry"
+    "bar_many": "products in your inquiry",
+    "cat_small": "By the dozen",
+    "size": "Size",
+    "small": "Small",
+    "sold_by": "Sold by",
+    "dozen": "The dozen",
+    "box_of_12": "Box of 12"
   },
   "retail": {
     "eyebrow": "Ordering for home?",

@@ -28,15 +28,15 @@ h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 400; margin: 
 .head h2 { font-size: 24pt; }
 .head .mark--word { width: .9in; color: var(--burgundy); }
 .note { font-size: 9pt; color: var(--muted); margin: -6pt 0 12pt; }
-.grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 1fr); gap: 10pt; flex: 1; }
-.item { background: #fff; border-radius: 12pt; display: grid; grid-template-columns: 1.55in 1fr; overflow: hidden; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(4, 1fr); gap: 9pt; flex: 1; }
+.item { background: #fff; border-radius: 12pt; display: grid; grid-template-columns: 1.3in 1fr; overflow: hidden; }
 .item__img { background: var(--tint); display: grid; place-items: center; }
 .item__img img { width: 92%; }
-.item__body { padding: 10pt 12pt; display: flex; flex-direction: column; gap: 4pt; min-width: 0; }
+.item__body { padding: 8pt 11pt; display: flex; flex-direction: column; gap: 3pt; min-width: 0; }
 .meta { font-size: 6.5pt; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
 .item h3 { font-size: 13pt; line-height: 1.1; }
 .alt { font-size: 7.5pt; color: var(--muted); font-style: italic; margin-top: -2pt; }
-.desc { font-size: 7.8pt; line-height: 1.4; color: #5f3036; margin: 0; }
+.desc { font-size: 7.4pt; line-height: 1.35; color: #5f3036; margin: 0; }
 .specs { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; column-gap: 9pt; margin: 2pt 0 0; padding-top: 5pt; border-top: 1px solid var(--line); }
 .specs dt { font-size: 5.8pt; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
 .specs dd { margin: 0; font-size: 8pt; font-weight: 600; white-space: nowrap; }
@@ -71,7 +71,7 @@ h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 400; margin: 
 </section>
 <section class="page">
   <div class="head"><h2>The range</h2><span class="mark mark--word"></span></div>
-  <p class="note">Every cookie is available baked and individually wrapped, or as frozen dough to bake on site.</p>
+  <p class="note">Regular cookies come baked and individually wrapped, or as frozen dough to bake on site. Small cookies come by the dozen.</p>
   <div class="grid">
     <article class="item">
       <div class="item__img" style="--tint:#f3e3cf"><img src="img/salted-chocolate-chunk.jpg" alt=""></div>
@@ -90,9 +90,9 @@ h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 400; margin: 
         <p class="meta">Item LDN-CHS-1 · Stuffed</p>
         <h3>Chocolate Stuffed</h3>
         <p class="alt">Fourré au chocolat</p>
-        <p class="desc">Thick and soft, with a molten chocolate centre and a milk chocolate drizzle.</p>
+        <p class="desc">Thick and soft, with a molten chocolate-hazelnut centre and a milk chocolate drizzle.</p>
         <dl class="specs"><div><dt>Net wt</dt><dd>110 g</dd></div><div><dt>Case</dt><dd>12 units</dd></div><div><dt>Shelf life</dt><dd>21 days</dd></div></dl>
-        <div class="chips"><span>Baked, wrapped</span><span>Frozen dough</span></div>
+        <div class="chips"><span>Baked, wrapped</span><span>Frozen dough</span><span class="nuts">⚠ Contains tree nuts</span></div>
       </div>
     </article>
     <article class="item">
@@ -139,13 +139,6 @@ h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 400; margin: 
         <div class="chips"><span>Baked, wrapped</span><span>Frozen dough</span></div>
       </div>
     </article>
-  </div>
-  <span class="pageno">Page 2</span>
-</section>
-<section class="page">
-  <div class="head"><h2>The range</h2><span class="mark mark--word"></span></div>
-  
-  <div class="grid">
     <article class="item">
       <div class="item__img" style="--tint:#f3ece0"><img src="img/white-chocolate-glazed.jpg" alt=""></div>
       <div class="item__body">
@@ -168,6 +161,13 @@ h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 400; margin: 
         <div class="chips"><span>Baked, wrapped</span><span>Frozen dough</span></div>
       </div>
     </article>
+  </div>
+  <span class="pageno">Page 2</span>
+</section>
+<section class="page">
+  <div class="head"><h2>The range</h2><span class="mark mark--word"></span></div>
+  
+  <div class="grid">
     <article class="item">
       <div class="item__img" style="--tint:#f2e2cf"><img src="img/cinnamon-roll.jpg" alt=""></div>
       <div class="item__body">
@@ -180,17 +180,6 @@ h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 400; margin: 
       </div>
     </article>
     <article class="item">
-      <div class="item__img" style="--tint:#f1ebe3"><img src="img/almond-amaretti.jpg" alt=""></div>
-      <div class="item__body">
-        <p class="meta">Item LDN-AMA-1 · Specialty</p>
-        <h3>Almond Amaretti</h3>
-        <p class="alt">Amaretti aux amandes</p>
-        <p class="desc">Chewy almond cookie rolled in icing sugar and topped with a whole almond.</p>
-        <dl class="specs"><div><dt>Net wt</dt><dd>110 g</dd></div><div><dt>Case</dt><dd>12 units</dd></div><div><dt>Shelf life</dt><dd>21 days</dd></div></dl>
-        <div class="chips"><span>Baked, wrapped</span><span>Frozen dough</span><span class="nuts">⚠ Contains tree nuts</span></div>
-      </div>
-    </article>
-    <article class="item">
       <div class="item__img" style="--tint:#e9ead5"><img src="img/salted-pistachio.jpg" alt=""></div>
       <div class="item__body">
         <p class="meta">Item LDN-SPI-1 · Classics</p>
@@ -199,6 +188,39 @@ h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 400; margin: 
         <p class="desc">Thin and chewy brown-sugar cookie with pistachio pieces and flaky sea salt.</p>
         <dl class="specs"><div><dt>Net wt</dt><dd>110 g</dd></div><div><dt>Case</dt><dd>12 units</dd></div><div><dt>Shelf life</dt><dd>21 days</dd></div></dl>
         <div class="chips"><span>Baked, wrapped</span><span>Frozen dough</span><span class="nuts">⚠ Contains tree nuts</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="item__img" style="--tint:#f1ebe3"><img src="img/almond-amaretti.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Item LDN-AMA-12 · By the dozen</p>
+        <h3>Almond Amaretti</h3>
+        <p class="alt">Amaretti aux amandes</p>
+        <p class="desc">Chewy almond cookie rolled in icing sugar and topped with a whole almond.</p>
+        <dl class="specs"><div><dt>Size</dt><dd>Small</dd></div><div><dt>Sold by</dt><dd>The dozen</dd></div><div><dt>Shelf life</dt><dd>21 days</dd></div></dl>
+        <div class="chips"><span>Box of 12</span><span class="nuts">⚠ Contains tree nuts</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="item__img" style="--tint:#f4efd9"><img src="img/ricotta-lemon.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Item LDN-RLM-12 · By the dozen</p>
+        <h3>Ricotta Lemon</h3>
+        <p class="alt">Ricotta et citron</p>
+        <p class="desc">Soft, cake-like ricotta cookies with lemon zest and a lemon glaze.</p>
+        <dl class="specs"><div><dt>Size</dt><dd>Small</dd></div><div><dt>Sold by</dt><dd>The dozen</dd></div><div><dt>Shelf life</dt><dd>21 days</dd></div></dl>
+        <div class="chips"><span>Box of 12</span></div>
+      </div>
+    </article>
+    <article class="item">
+      <div class="item__img" style="--tint:#f6f0cf"><img src="img/lemon-drop.jpg" alt=""></div>
+      <div class="item__body">
+        <p class="meta">Item LDN-LDR-12 · By the dozen</p>
+        <h3>Lemon Drop</h3>
+        <p class="alt">Bouchées au citron</p>
+        <p class="desc">Small, tender lemon cookies finished with a sweet lemon glaze.</p>
+        <dl class="specs"><div><dt>Size</dt><dd>Small</dd></div><div><dt>Sold by</dt><dd>The dozen</dd></div><div><dt>Shelf life</dt><dd>21 days</dd></div></dl>
+        <div class="chips"><span>Box of 12</span></div>
       </div>
     </article>
   </div>

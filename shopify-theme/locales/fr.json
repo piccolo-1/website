@@ -109,7 +109,7 @@
     "th_shelf": "Durée de conservation",
     "th_storage": "Entreposage",
     "th_msrp": "Prix de détail suggéré",
-    "specs_note": "Les codes CUP, valeurs nutritives et listes complètes d’ingrédients figurent sur notre fiche produit. Contient : blé, lait et œufs; les saveurs à la pistache et aux amandes contiennent des noix.",
+    "specs_note": "Les codes CUP, valeurs nutritives et listes complètes d’ingrédients figurent sur notre fiche produit. Contient : blé, lait et œufs; les saveurs à la pistache, aux amandes et à la noisette contiennent des noix.",
     "why1_title": "Conçu pour la tablette",
     "why1_text": "Biscuits emballés individuellement et présentoirs qui passent directement de la caisse au comptoir.",
     "why2_title": "Étiquetage conforme au Québec",
@@ -280,7 +280,7 @@
     "eyebrow": "Catalogue de gros",
     "title": "Toute la gamme.",
     "title_em": "Prix sur demande.",
-    "text": "Chaque biscuit est offert cuit et emballé individuellement, ou en pâte congelée à cuire sur place. Ajoutez des produits à votre demande et nous vous enverrons nos prix à la caisse en un jour ouvrable.",
+    "text": "Les biscuits réguliers sont offerts cuits et emballés individuellement, ou en pâte congelée à cuire sur place. Les petits biscuits sont vendus à la douzaine. Ajoutez des produits à votre demande et nous vous enverrons nos prix à la caisse en un jour ouvrable.",
     "pdf": "Télécharger le catalogue (PDF)",
     "filter_label": "Filtrer le catalogue",
     "all": "Tous",
@@ -301,7 +301,13 @@
     "added_toast": "[item] ajouté à votre demande",
     "remove": "Retirer [item]",
     "bar_one": "produit dans votre demande",
-    "bar_many": "produits dans votre demande"
+    "bar_many": "produits dans votre demande",
+    "cat_small": "À la douzaine",
+    "size": "Format",
+    "small": "Petit",
+    "sold_by": "Vendu",
+    "dozen": "À la douzaine",
+    "box_of_12": "Boîte de 12"
   },
   "retail": {
     "eyebrow": "Pour la maison?",

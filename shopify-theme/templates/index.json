@@ -119,7 +119,7 @@
         "spec10": {
           "type": "spec",
           "settings": {
-            "product": "Almond Amaretti",
+            "product": "Salted Pistachio",
             "format": "Single, wrapped",
             "weight": "110 g",
             "units": "12",
@@ -130,15 +130,37 @@
         "spec11": {
           "type": "spec",
           "settings": {
-            "product": "Salted Pistachio",
-            "format": "Single, wrapped",
-            "weight": "110 g",
-            "units": "12",
+            "product": "Almond Amaretti",
+            "format": "Box of 12, small",
+            "weight": "—",
+            "units": "—",
             "shelf": "21 days",
             "storage": "Ambient"
           }
         },
         "spec12": {
+          "type": "spec",
+          "settings": {
+            "product": "Ricotta Lemon",
+            "format": "Box of 12, small",
+            "weight": "—",
+            "units": "—",
+            "shelf": "21 days",
+            "storage": "Ambient"
+          }
+        },
+        "spec13": {
+          "type": "spec",
+          "settings": {
+            "product": "Lemon Drop",
+            "format": "Box of 12, small",
+            "weight": "—",
+            "units": "—",
+            "shelf": "21 days",
+            "storage": "Ambient"
+          }
+        },
+        "spec14": {
           "type": "spec",
           "settings": {
             "product": "Assorted 4-pack",
@@ -149,7 +171,7 @@
             "storage": "Ambient"
           }
         },
-        "spec13": {
+        "spec15": {
           "type": "spec",
           "settings": {
             "product": "Display tray",
@@ -174,7 +196,9 @@
         "spec10",
         "spec11",
         "spec12",
-        "spec13"
+        "spec13",
+        "spec14",
+        "spec15"
       ]
     },
     "trusted": {

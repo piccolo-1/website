@@ -6,8 +6,8 @@ FLAVOURS = [
      'Mince et large, aux bords croustillants et caramélisés, avec des flaques de chocolat noir et de la fleur de sel.',
      'Best seller', '#b9773a', '#f3e3cf'),
     ('chocolate-stuffed', 'Chocolate Stuffed', 'Fourré au chocolat',
-     'Thick and soft, with a molten chocolate centre and a milk chocolate drizzle.',
-     'Épais et moelleux, au cœur de chocolat fondant, avec un filet de chocolat au lait.',
+     'Thick and soft, with a molten chocolate-hazelnut centre and a milk chocolate drizzle.',
+     'Épais et moelleux, au cœur fondant chocolat-noisette, avec un filet de chocolat au lait.',
      '', '#4d2a1c', '#eddcd0'),
     ('pistachio-stuffed', 'Pistachio Stuffed', 'Fourré à la pistache',
      'Filled with pistachio cream and finished with crushed pistachios.',
@@ -49,7 +49,7 @@ FLAVOURS += [
      'Biscuit mince et moelleux à la cassonade, avec des éclats de pistache et de la fleur de sel.',
      '', '#5f7a36', '#e9ead5'),
 ]
-NUTS = {'pistachio-stuffed', 'almond-amaretti', 'salted-pistachio'}
+NUTS = {'pistachio-stuffed', 'almond-amaretti', 'salted-pistachio', 'chocolate-stuffed'}
 
 # Catalog groups (wholesale catalog filters)
 CATEGORIES = [
@@ -72,3 +72,29 @@ SKU = {
     'white-chocolate-glazed': 'LDN-WCG-1', 'blueberry-glazed': 'LDN-BLG-1', 'cinnamon-roll': 'LDN-CRL-1',
     'almond-amaretti': 'LDN-AMA-1', 'salted-pistachio': 'LDN-SPI-1',
 }
+
+# Small cookies, sold by the dozen (photos to come for the two lemon cookies)
+FLAVOURS += [
+    ('ricotta-lemon', 'Ricotta Lemon', 'Ricotta et citron',
+     'Soft, cake-like ricotta cookies with lemon zest and a lemon glaze.',
+     'Biscuits moelleux à la ricotta, au zeste de citron et au glaçage au citron.',
+     'New', '#b59a2c', '#f4efd9'),
+    ('lemon-drop', 'Lemon Drop', 'Bouchées au citron',
+     'Small, tender lemon cookies finished with a sweet lemon glaze.',
+     'Petits biscuits tendres au citron, nappés d’un glaçage sucré au citron.',
+     'New', '#c2a21e', '#f6f0cf'),
+]
+SMALL = {'almond-amaretti', 'ricotta-lemon', 'lemon-drop'}
+CATEGORIES.append(('small', 'By the dozen', 'À la douzaine'))
+CATEGORY.update({'almond-amaretti': 'small', 'ricotta-lemon': 'small', 'lemon-drop': 'small'})
+SKU.update({'almond-amaretti': 'LDN-AMA-12', 'ricotta-lemon': 'LDN-RLM-12', 'lemon-drop': 'LDN-LDR-12'})
+
+# Prices (CAD) kept in Shopify; never shown in the wholesale catalog. (amount, unit)
+PRICE = {h: (4.50, 'cookie') for h, *_ in FLAVOURS}
+PRICE.update({
+    'pistachio-stuffed': (5.00, 'cookie'),
+    'chocolate-stuffed': (4.50, 'cookie'),   # the Nutella-stuffed cookie
+    'almond-amaretti': (36.00, 'dozen'),
+    'ricotta-lemon': (36.00, 'dozen'),
+    'lemon-drop': (32.00, 'dozen'),
+})
