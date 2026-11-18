@@ -6,7 +6,8 @@ Everything happens in your Shopify admin. Do the steps in this order.
 
 **Products → Import → Add file → `products.csv`**, then **Import products**.
 
-This creates three flavours (Salted Chocolate Chunk, Chocolate Stuffed, Pistachio Stuffed),
+This creates six flavours (Salted Chocolate Chunk, Chocolate Stuffed, Pistachio Stuffed,
+Oatmeal Chocolate Chunk, Cookies & Cream, Cinnamon Sugar),
 three ready-made boxes and the **Build your own box** product with sizes 4, 6 and 12.
 Prices and weights are placeholders, so change them on each product afterwards.
 
@@ -50,6 +51,9 @@ and the footer links (Instagram, TikTok, LinkedIn, policies).
 | Salted Chocolate Chunk | Chocolat & fleur de sel |
 | Chocolate Stuffed | Fourré au chocolat |
 | Pistachio Stuffed | Fourré à la pistache |
+| Oatmeal Chocolate Chunk | Avoine et chocolat |
+| Cookies & Cream | Biscuits et crème |
+| Cinnamon Sugar | Sucre à la cannelle |
 | The Taster | La Découverte |
 | The Gift Box | La Boîte-cadeau |
 | The Full Collection | La Collection complète |

@@ -27,7 +27,7 @@
         {%- for product in flavours.products limit: 6 -%}
           {%- capture fallback -%}{%- render 'product-fallback', handle: product.handle -%}{%- endcapture -%}
           <figure class="pack reveal">
-            <div class="pack__bag" style="--band: {% cycle '#b9773a', '#4d2a1c', '#7c9440', '#a3445a', '#8a6a2e', '#3f5a6b' %}">
+            <div class="pack__bag" style="--band: {% cycle '#b9773a', '#4d2a1c', '#7c9440', '#8a5a2b', '#2f2a2b', '#a8562a' %}">
               <span class="logo-mark logo-mark--word pack__logo"></span>
               <div class="pack__window">{%- render 'theme-image', image: product.featured_image, fallback: fallback, width: 400, alt: '' -%}</div>
               <div class="pack__band"><strong>{{ product.title }}</strong></div>

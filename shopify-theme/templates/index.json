@@ -68,6 +68,42 @@
         "spec4": {
           "type": "spec",
           "settings": {
+            "product": "Oatmeal Chocolate Chunk",
+            "format": "Single, wrapped",
+            "weight": "110 g",
+            "units": "12",
+            "shelf": "21 days",
+            "storage": "Ambient",
+            "msrp": "$4.99"
+          }
+        },
+        "spec5": {
+          "type": "spec",
+          "settings": {
+            "product": "Cookies & Cream",
+            "format": "Single, wrapped",
+            "weight": "110 g",
+            "units": "12",
+            "shelf": "21 days",
+            "storage": "Ambient",
+            "msrp": "$4.99"
+          }
+        },
+        "spec6": {
+          "type": "spec",
+          "settings": {
+            "product": "Cinnamon Sugar",
+            "format": "Single, wrapped",
+            "weight": "110 g",
+            "units": "12",
+            "shelf": "21 days",
+            "storage": "Ambient",
+            "msrp": "$4.99"
+          }
+        },
+        "spec7": {
+          "type": "spec",
+          "settings": {
             "product": "Assorted 4-pack",
             "format": "Gift box",
             "weight": "440 g",
@@ -77,7 +113,7 @@
             "msrp": "$16.99"
           }
         },
-        "spec5": {
+        "spec8": {
           "type": "spec",
           "settings": {
             "product": "Display tray",
@@ -95,7 +131,10 @@
         "spec2",
         "spec3",
         "spec4",
-        "spec5"
+        "spec5",
+        "spec6",
+        "spec7",
+        "spec8"
       ]
     },
     "trusted": {

@@ -247,6 +247,19 @@ const FR = {
   'Les délices Nadia. All rights reserved.': 'Les délices Nadia. Tous droits réservés.',
   'Allergens: all products contain gluten, dairy and egg, and may contain nuts.': 'Allergènes : tous nos produits contiennent du gluten, des produits laitiers et des œufs, et peuvent contenir des noix.',
 
+  // Flavours added later
+  'Oatmeal Chocolate Chunk': 'Avoine et chocolat',
+  'Chewy oats, brown sugar and dark chocolate chunks.': 'Flocons d’avoine moelleux, cassonade et gros morceaux de chocolat noir.',
+  'Oatmeal Chocolate Chunk cookie': 'Biscuit à l’avoine et au chocolat',
+  'Cookies & Cream': 'Biscuits et crème',
+  'Vanilla dough loaded with chocolate cookie pieces, a white chocolate drizzle and a mini chocolate sandwich cookie on top.': 'Pâte à la vanille garnie de morceaux de biscuits au chocolat, d’un filet de chocolat blanc et d’un mini biscuit sandwich au chocolat.',
+  'Cookies & Cream cookie': 'Biscuit « Biscuits et crème »',
+  'Cinnamon Sugar': 'Sucre à la cannelle',
+  'Soft and thick, rolled in cinnamon sugar before baking.': 'Épais et moelleux, roulé dans le sucre à la cannelle avant la cuisson.',
+  'Cinnamon Sugar cookie': 'Biscuit au sucre à la cannelle',
+  'New': 'Nouveau',
+  '12 cookies · two of each flavour': '12 biscuits · deux de chaque saveur',
+
   // Messages shown by script.js
   'Added ✓': 'Ajouté ✓',
   'Box full! Ready to add.': 'Boîte pleine! Prête à ajouter.',
