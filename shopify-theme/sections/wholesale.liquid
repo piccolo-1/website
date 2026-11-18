@@ -24,10 +24,10 @@
 
     <div class="channels__panel" id="panel-retail" role="tabpanel" aria-labelledby="tab-retail">
       <div class="packs">
-        {%- for product in flavours.products limit: 6 -%}
+        {%- for product in flavours.products limit: 16 -%}
           {%- capture fallback -%}{%- render 'product-fallback', handle: product.handle -%}{%- endcapture -%}
           <figure class="pack reveal">
-            <div class="pack__bag" style="--band: {% cycle '#b9773a', '#4d2a1c', '#7c9440', '#8a5a2b', '#2f2a2b', '#a8562a' %}">
+            <div class="pack__bag" style="--band: {% cycle '#b9773a', '#4d2a1c', '#7c9440', '#8a5a2b', '#2f2a2b', '#a8562a', '#9a7b4f', '#4a4f8a', '#9c5a2c', '#8f6a4a', '#5f7a36' %}">
               <span class="logo-mark logo-mark--word pack__logo"></span>
               <div class="pack__window">{%- render 'theme-image', image: product.featured_image, fallback: fallback, width: 400, alt: '' -%}</div>
               <div class="pack__band"><strong>{{ product.title }}</strong></div>

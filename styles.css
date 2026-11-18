@@ -593,3 +593,22 @@ html[lang^="fr"] .hero__title { font-size: clamp(2.8rem, 6.4vw, 6.2rem); }
 .builder__list li > img { object-fit: contain; border-radius: 0; background: transparent; }
 .pack__window { background: var(--cream); }
 .pack__window img { object-fit: contain; padding: 4%; }
+
+/* ---------- Many flavours: denser grid, scrolling pack row ---------- */
+@media (min-width: 1200px) {
+  .cookie-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .cookie-card__body { padding: 20px 22px 24px; }
+  .cookie-card h3 { font-size: 1.3rem; }
+}
+@media (max-width: 760px) {
+  .cookie-grid { grid-template-columns: 1fr 1fr; gap: 10px; max-width: none; }
+  .cookie-card { border-radius: 20px; }
+  .cookie-card__body { padding: 14px 14px 16px; }
+  .cookie-card h3 { font-size: 1.05rem; line-height: 1.15; }
+  .cookie-card p { font-size: .82rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .cookie-card__avail { display: none; }
+  .cookie-card__tag { top: 10px; left: 10px; font-size: .62rem; }
+}
+.packs { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: clamp(200px, 22vw, 260px); overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 16px; scrollbar-width: thin; scrollbar-color: rgba(247, 238, 223, .3) transparent; }
+.pack { scroll-snap-align: start; }
+@media (max-width: 760px) { .packs { grid-auto-columns: 62%; } }

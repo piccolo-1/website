@@ -104,6 +104,66 @@
         "spec7": {
           "type": "spec",
           "settings": {
+            "product": "White Chocolate Glazed",
+            "format": "Single, wrapped",
+            "weight": "110 g",
+            "units": "12",
+            "shelf": "21 days",
+            "storage": "Ambient",
+            "msrp": "$4.99"
+          }
+        },
+        "spec8": {
+          "type": "spec",
+          "settings": {
+            "product": "Blueberry Glazed",
+            "format": "Single, wrapped",
+            "weight": "110 g",
+            "units": "12",
+            "shelf": "21 days",
+            "storage": "Ambient",
+            "msrp": "$4.99"
+          }
+        },
+        "spec9": {
+          "type": "spec",
+          "settings": {
+            "product": "Cinnamon Roll",
+            "format": "Single, wrapped",
+            "weight": "110 g",
+            "units": "12",
+            "shelf": "21 days",
+            "storage": "Ambient",
+            "msrp": "$4.99"
+          }
+        },
+        "spec10": {
+          "type": "spec",
+          "settings": {
+            "product": "Almond Amaretti",
+            "format": "Single, wrapped",
+            "weight": "110 g",
+            "units": "12",
+            "shelf": "21 days",
+            "storage": "Ambient",
+            "msrp": "$4.99"
+          }
+        },
+        "spec11": {
+          "type": "spec",
+          "settings": {
+            "product": "Salted Pistachio",
+            "format": "Single, wrapped",
+            "weight": "110 g",
+            "units": "12",
+            "shelf": "21 days",
+            "storage": "Ambient",
+            "msrp": "$4.99"
+          }
+        },
+        "spec12": {
+          "type": "spec",
+          "settings": {
             "product": "Assorted 4-pack",
             "format": "Gift box",
             "weight": "440 g",
@@ -113,7 +173,7 @@
             "msrp": "$16.99"
           }
         },
-        "spec8": {
+        "spec13": {
           "type": "spec",
           "settings": {
             "product": "Display tray",
@@ -134,7 +194,12 @@
         "spec5",
         "spec6",
         "spec7",
-        "spec8"
+        "spec8",
+        "spec9",
+        "spec10",
+        "spec11",
+        "spec12",
+        "spec13"
       ]
     },
     "trusted": {

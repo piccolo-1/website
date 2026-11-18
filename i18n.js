@@ -124,7 +124,7 @@ const FR = {
   '1.32 kg': '1,32 kg',
   '$4.99 / unit': '4,99 $ / unité',
   'UPC codes, nutrition facts and full ingredient lists are on our sell sheet. Contains wheat, milk and egg; Pistachio Stuffed contains tree nuts.':
-    'Les codes CUP, valeurs nutritives et listes complètes d’ingrédients figurent sur notre fiche produit. Contient : blé, lait et œufs; le Fourré à la pistache contient des noix.',
+    'Les codes CUP, valeurs nutritives et listes complètes d’ingrédients figurent sur notre fiche produit. Contient : blé, lait et œufs; les saveurs à la pistache et aux amandes contiennent des noix.',
   'Built for the shelf': 'Conçu pour la tablette',
   'Individually wrapped singles and display trays that go straight from case to counter.': 'Biscuits emballés individuellement et présentoirs qui passent directement de la caisse au comptoir.',
   'Québec-ready labels': 'Étiquetage conforme au Québec',
@@ -258,7 +258,23 @@ const FR = {
   'Soft and thick, rolled in cinnamon sugar before baking.': 'Épais et moelleux, roulé dans le sucre à la cannelle avant la cuisson.',
   'Cinnamon Sugar cookie': 'Biscuit au sucre à la cannelle',
   'New': 'Nouveau',
-  '12 cookies · two of each flavour': '12 biscuits · deux de chaque saveur',
+  '12 cookies · a mix of our favourites': '12 biscuits · un mélange de nos préférés',
+
+  'White Chocolate Glazed': 'Glacé au chocolat blanc',
+  'Soft vanilla cookie finished with a smooth white chocolate glaze.': 'Biscuit moelleux à la vanille recouvert d’un glaçage lisse au chocolat blanc.',
+  'White Chocolate Glazed cookie': 'Biscuit « Glacé au chocolat blanc »',
+  'Blueberry Glazed': 'Bleuets et glaçage',
+  'Packed with blueberries and finished with a sweet vanilla glaze.': 'Rempli de bleuets et nappé d’un glaçage sucré à la vanille.',
+  'Blueberry Glazed cookie': 'Biscuit « Bleuets et glaçage »',
+  'Cinnamon Roll': 'Roulé à la cannelle',
+  'Swirled with cinnamon sugar and topped with a cream glaze, like a cinnamon bun in cookie form.': 'Tourbillons de sucre à la cannelle et glaçage à la crème, comme une brioche à la cannelle en version biscuit.',
+  'Cinnamon Roll cookie': 'Biscuit « Roulé à la cannelle »',
+  'Almond Amaretti': 'Amaretti aux amandes',
+  'Chewy almond cookie rolled in icing sugar and topped with a whole almond.': 'Biscuit moelleux aux amandes roulé dans le sucre glace et garni d’une amande entière.',
+  'Almond Amaretti cookie': 'Biscuit « Amaretti aux amandes »',
+  'Salted Pistachio': 'Pistache et fleur de sel',
+  'Thin and chewy brown-sugar cookie with pistachio pieces and flaky sea salt.': 'Biscuit mince et moelleux à la cassonade, avec des éclats de pistache et de la fleur de sel.',
+  'Salted Pistachio cookie': 'Biscuit « Pistache et fleur de sel »',
 
   // Messages shown by script.js
   'Added ✓': 'Ajouté ✓',
